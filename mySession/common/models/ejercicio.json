@@ -1,0 +1,39 @@
+{
+  "name": "Ejercicio",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "descripCorta": {
+      "type": "string",
+      "required": true
+    },
+    "descripLarga": {
+      "type": "string"
+    },
+    "duracion": {
+      "type": "string"
+    },
+    "deporte": {
+      "type": "string",
+      "required": true
+    },
+    "categoria": {
+      "type": "string",
+      "required": true
+    },
+    "subcategoria": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
