@@ -16,7 +16,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "sesiones": {
+      "type": "hasMany",
+      "model": "Sesion",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }
