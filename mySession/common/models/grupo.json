@@ -16,7 +16,19 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "usuario": {
+      "type": "belongsTo",
+      "model": "Usuario",
+      "foreignKey": ""
+    },
+    "sesions": {
+      "type": "hasMany",
+      "model": "Sesion",
+      "foreignKey": "grupoId",
+      "through": "SesionesGrupo"
+    }
+  },
   "acls": [],
   "methods": {}
 }

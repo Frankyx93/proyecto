@@ -50,5 +50,9 @@
   "Ejercicio": {
     "dataSource": "db",
     "public": true
+  },
+  "SesionesGrupo": {
+    "dataSource": "db",
+    "public": true
   }
 }

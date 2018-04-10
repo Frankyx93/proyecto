@@ -9,10 +9,6 @@
     "nombre": {
       "type": "string",
       "required": true
-    },
-    "id": {
-      "type": "number",
-      "required": true
     }
   },
   "validations": [],
@@ -20,6 +16,11 @@
     "sesiones": {
       "type": "hasMany",
       "model": "Sesion",
+      "foreignKey": ""
+    },
+    "grupos": {
+      "type": "hasMany",
+      "model": "Grupo",
       "foreignKey": ""
     }
   },

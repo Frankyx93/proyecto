@@ -5,18 +5,19 @@
   "options": {
     "validateUpsert": true
   },
-  "properties": {
-    "id": {
-      "type": "number",
-      "required": true
-    }
-  },
+  "properties": {},
   "validations": [],
   "relations": {
     "usuario": {
       "type": "belongsTo",
       "model": "Usuario",
       "foreignKey": ""
+    },
+    "grupos": {
+      "type": "hasMany",
+      "model": "Grupo",
+      "foreignKey": "sesionId",
+      "through": "SesionesGrupo"
     }
   },
   "acls": [],
