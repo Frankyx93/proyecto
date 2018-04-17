@@ -30,6 +30,12 @@
     },
     "subcategoria": {
       "type": "string"
+    },
+    "imagen": {
+      "type": "string"
+    },
+    "imagen2": {
+      "type": "string"
     }
   },
   "validations": [],
