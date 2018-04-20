@@ -1,0 +1,33 @@
+{
+  "name": "EjerciciosSesion",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "parteSesion": {
+      "type": "number",
+      "required": true
+    },
+    "orden": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "sesion": {
+      "type": "belongsTo",
+      "model": "Sesion",
+      "foreignKey": "idSesion"
+    },
+    "ejercicio": {
+      "type": "belongsTo",
+      "model": "Ejercicio",
+      "foreignKey": "idEjercicio"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

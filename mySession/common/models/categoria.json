@@ -1,5 +1,5 @@
 {
-  "name": "Sesion",
+  "name": "Categoria",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -13,22 +13,15 @@
   },
   "validations": [],
   "relations": {
-    "usuario": {
-      "type": "belongsTo",
-      "model": "Usuario",
+    "categoria": {
+      "type": "hasAndBelongsToMany",
+      "model": "Categoria",
       "foreignKey": ""
-    },
-    "grupos": {
-      "type": "hasMany",
-      "model": "Grupo",
-      "foreignKey": "sesionId",
-      "through": "SesionesGrupo"
     },
     "ejercicios": {
       "type": "hasMany",
       "model": "Ejercicio",
-      "foreignKey": "",
-      "through": "EjerciciosSesion"
+      "foreignKey": ""
     }
   },
   "acls": [],
