@@ -1,32 +1,31 @@
 {
-  "name": "Grupo",
+  "name": "EjerciciosSesion",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "nombre": {
-      "type": "string",
+    "parteSesion": {
+      "type": "number",
       "required": true
     },
-    "horario": {
-      "type": "string",
+    "orden": {
+      "type": "number",
       "required": true
     }
   },
   "validations": [],
   "relations": {
-    "usuario": {
+    "sesion": {
       "type": "belongsTo",
-      "model": "Usuario",
-      "foreignKey": ""
-    },
-    "sesions": {
-      "type": "hasMany",
       "model": "Sesion",
-      "foreignKey": "grupoId",
-      "through": "SesionesGrupo"
+      "foreignKey": "idSesion"
+    },
+    "ejercicio": {
+      "type": "belongsTo",
+      "model": "Ejercicio",
+      "foreignKey": "idEjercicio"
     }
   },
   "acls": [],

@@ -6,13 +6,31 @@
     "validateUpsert": true
   },
   "properties": {
-    "id": {
-      "type": "number",
+    "nombre": {
+      "type": "string",
       "required": true
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "usuario": {
+      "type": "belongsTo",
+      "model": "Usuario",
+      "foreignKey": ""
+    },
+    "grupos": {
+      "type": "hasMany",
+      "model": "Grupo",
+      "foreignKey": "sesionId",
+      "through": "SesionesGrupo"
+    },
+    "ejercicios": {
+      "type": "hasMany",
+      "model": "Ejercicio",
+      "foreignKey": "",
+      "through": "EjerciciosSesion"
+    }
+  },
   "acls": [],
   "methods": {}
 }

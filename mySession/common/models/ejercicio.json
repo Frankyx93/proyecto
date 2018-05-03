@@ -24,16 +24,27 @@
       "type": "string",
       "required": true
     },
-    "categoria": {
-      "type": "string",
-      "required": true
+    "imagen": {
+      "type": "string"
     },
-    "subcategoria": {
+    "imagen2": {
       "type": "string"
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "sesions": {
+      "type": "hasMany",
+      "model": "Sesion",
+      "foreignKey": "",
+      "through": "EjerciciosSesion"
+    },
+    "categoria": {
+      "type": "hasMany",
+      "model": "Categoria",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }

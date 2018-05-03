@@ -1,6 +1,6 @@
 {
-  "name": "Usuario",
-  "base": "User",
+  "name": "Categoria",
+  "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
@@ -13,14 +13,14 @@
   },
   "validations": [],
   "relations": {
-    "sesiones": {
-      "type": "hasMany",
-      "model": "Sesion",
+    "categoria": {
+      "type": "hasAndBelongsToMany",
+      "model": "Categoria",
       "foreignKey": ""
     },
-    "grupos": {
+    "ejercicios": {
       "type": "hasMany",
-      "model": "Grupo",
+      "model": "Ejercicio",
       "foreignKey": ""
     }
   },
