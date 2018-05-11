@@ -14,14 +14,19 @@
   "validations": [],
   "relations": {
     "categoria": {
-      "type": "hasAndBelongsToMany",
+      "type": "belongsTo",
       "model": "Categoria",
-      "foreignKey": ""
+      "foreignKey": "categoriaHija"
     },
     "ejercicios": {
       "type": "hasMany",
       "model": "Ejercicio",
       "foreignKey": ""
+    },
+    "categoriaPadre": {
+      "type": "hasMany",
+      "model": "Categoria",
+      "foreignKey": "categoriaPadre"
     }
   },
   "acls": [],
