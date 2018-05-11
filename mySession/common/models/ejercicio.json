@@ -10,11 +10,7 @@
       "type": "string",
       "required": true
     },
-    "descripCorta": {
-      "type": "string",
-      "required": true
-    },
-    "descripLarga": {
+    "descripcion": {
       "type": "string"
     },
     "duracion": {

@@ -27,7 +27,7 @@
     "ejercicios": {
       "type": "hasMany",
       "model": "Ejercicio",
-      "foreignKey": "",
+      "foreignKey": "grupoId",
       "through": "EjerciciosSesion"
     }
   },
