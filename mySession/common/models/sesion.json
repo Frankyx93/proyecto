@@ -18,11 +18,10 @@
       "model": "Usuario",
       "foreignKey": ""
     },
-    "grupos": {
-      "type": "hasMany",
+    "grupo": {
+      "type": "belongsTo",
       "model": "Grupo",
-      "foreignKey": "sesionId",
-      "through": "SesionesGrupo"
+      "foreignKey": "sesionId"
     },
     "ejercicios": {
       "type": "hasMany",

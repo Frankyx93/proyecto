@@ -22,11 +22,10 @@
       "model": "Usuario",
       "foreignKey": ""
     },
-    "sesions": {
+    "sesiones": {
       "type": "hasMany",
       "model": "Sesion",
-      "foreignKey": "grupoId",
-      "through": "SesionesGrupo"
+      "foreignKey": "grupoId"
     }
   },
   "acls": [
