@@ -21,12 +21,12 @@
     "grupo": {
       "type": "belongsTo",
       "model": "Grupo",
-      "foreignKey": "sesionId"
+      "foreignKey": "grupoId"
     },
     "ejercicios": {
       "type": "hasMany",
       "model": "Ejercicio",
-      "foreignKey": "grupoId",
+      "foreignKey": "",
       "through": "EjerciciosSesion"
     }
   },
