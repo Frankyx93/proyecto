@@ -16,7 +16,7 @@
     "categoria": {
       "type": "belongsTo",
       "model": "Categoria",
-      "foreignKey": "categoriaHija"
+      "foreignKey": ""
     },
     "ejercicios": {
       "type": "hasMany",
