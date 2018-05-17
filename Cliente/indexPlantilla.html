@@ -35,19 +35,20 @@
 <body>
 <!-- Primera pagina , primer tab -->
     <section id="inicio" data-role="page"  data-theme="a">
-        <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all ui-icon-star ui-btn-icon-left">
-                <h2>Mis proximas Sesiones</h2>
+        <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
+                <h2>MySession</h2>
         </header>
         <article data-role="content">
                 <div role="main" class="ui-content">
                     <!-- Contenido de las sesion  -->
-                    <h4>Bienvenido a tu Sesion { nombre de usuario}</h4>
-                    <h5> Usted no tiene aun sesiones creadas</h5>
+                    <h4>Bienvenido a mySession {nombre de usuario}</h4>
+                    <ul data-role = "listview">
+                        <li><a href = "#ejerciciosSesion">Saltos - Psicomotricidad 1</a></li>
+                        <li><a href = "#ejerciciosSesion">Equilibrio - Psicomotricidad 2</a></li>
+                        <li><a href = "#ejerciciosSesion">Lanzamientos - Psico Coles</a></li>         
+                     </ul>
 
-                    <!-- Aqui deberian de ir todas las sesiones del mismo usuario en caso de tenerlas  -->
-                    <p> Prueba ir a la pestaña de Grupos <a class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-plus" href = "#grupos">Crear Grupos</a></p>
-
-                    <!-- en caso de tener sesion , imprimi la lista de sus grupos -->
+                    <!-- en caso de tener sesion , imprimir la lista de sus grupos -->
    <!--                  <h2>Lista de los grupos  </h2>
                         <ul data-role = "listview">
                            <li><a href = "#">Sesion 1 - Grupo 1 - 24/04/2018</a></li>
@@ -65,9 +66,9 @@
                 <nav data-role="navbar">
                     <ul>
                         <li><a href="#inicio" class="ui-btn-active ui-state-persist" data-icon="home">Inicio</a></li>
-                        <li><a href="#grupos" data-icon="calendar">grupos</a></li>
-                        <li><a href="#sesiones" data-icon="info">sesiones</a></li>
-                        <li><a href="#ejercicios" data-icon="mail">ejercicios</a></li>
+                        <li><a href="#grupos" data-icon="calendar">Grupos</a></li>
+                        <li><a href="#sesiones" data-icon="info">Sesiones</a></li>
+                        <li><a href="#ejercicios" data-icon="bullets">Ejercicios</a></li>
                     </ul>
                 </nav>
         </footer>
@@ -77,25 +78,28 @@
 
 <!-- segunda pagina , segundo tab -->
 <section id="grupos" data-role="page"  >
-    <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all ui-icon-star ui-btn-icon-left">
-            <h2>Mis Grupos </h2>
+    <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
+            <h2>Mis Grupos</h2>
         
     </header>
     <article data-role="content" >
                 <!-- en caso de no tener las sesiones  -->
-                <h4>Usted aun no tiene grupos creados </h4>
-                <p><a class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-plus" href = "#formulario">Crear Grupos</a></p>
+                <h4>Aún no tienes grupos creados</h4>
+                <p><a class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-plus" href = "#formulario">Nuevo Grupo</a></p>
 
                 <!-- aqui estara la parte donde tendremos el nombre del grupo , monitor , horario , y numero de sesiones en caso de tener sesiones -->
                 <div id="cajaPadre"> 
-                    <p>Nombre Grupo : {Nombre del Grupo BD}</p>
-                    <p>Monitor : Fran Marcos</p>
-                    <p>Horario : Lunes-Martes 17:00-20:00</p>
-                    <p>Numero de Sesiones : 5</p>
-                    <div data-role = "controlgroup" data-type = "horizontal">
-                            <a href = "#sesiones" class = "ui-btn">ver Sesiones </a>
-                            <a href = "#aniadirsesion" class = "ui-btn">añadir sesion</a>
-                         </div>
+
+                    <ul data-role = "listview" data-inset = "true" data-divider-theme = "a">
+                        <li data-role = "list-divider">Nombre Grupo</li>
+                           <li>Psicomotricidad 1</li>
+                        <li data-role = "list-divider">Monitor</li>
+                           <li>Juan Martínez</li>
+                        <li data-role = "list-divider">Horario</li>
+                           <li>Lunes, Miércoles - 17:00-18:45</li>
+                        <li data-role = "list-divider"><a href = "#sesiones" class = "ui-btn">Ver Sesiones </a>
+                            <a href = "#aniadirsesion" class = "ui-btn">Nueva sesión</a></li>
+                       </ul>
                 </div>
     </article>
 
@@ -104,9 +108,9 @@
             <nav data-role="navbar">
                 <ul>
                         <li><a href="#inicio"  data-icon="home">Inicio</a></li>
-                        <li><a href="#grupos" class="ui-btn-active ui-state-persist" data-icon="action">grupos</a></li>
-                        <li><a href="#sesiones" data-icon="info">sesiones</a></li>
-                        <li><a href="#ejercicios" data-icon="mail">ejercicios</a></li>
+                        <li><a href="#grupos" class="ui-btn-active ui-state-persist"  data-icon="calendar">Grupos</a></li>
+                        <li><a href="#sesiones" data-icon="info">Sesiones</a></li>
+                        <li><a href="#ejercicios" data-icon="bullets">Ejercicios</a></li>
                 </ul>
             </nav>
     </footer><!-- /footer -->
@@ -115,21 +119,22 @@
         
 <!-- tercera pagina , tercer tab -->
 <section id="sesiones" data-role="page"  >
-        <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all ui-icon-star ui-btn-icon-left">
-                <h4>Tus Sesiones </h4> 
+        <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
+                <h4>Tus Sesiones</h4> 
         </header>
         <article data-role="content" >
             <!-- en caso de no tener Sesiones aparecera esta parte  -->
-            <h5>Usted aun no tiene sesiones creados </h5>
-                <p><a class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-plus" href = "#aniadirsesion">Crear Sesiones</a></p>
+            <h5>Aún no tienes sesiones creadas</h5>
+                <p><a class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-plus" href = "#aniadirsesion">Nueva Sesión</a></p>
                    
             
             <!-- en esta parte tienen las sesiones creadas -->
-            <h4 style="color: blue;">Lista de las sesiones </h4>
             <ul data-role = "listview">
-               <li><a href = "#">Sesion 1 - 24/04/2018</a></li>
-               <li><a href = "#">Sesion 2 - 24/04/2018</a></li>
-               <li><a href = "#">Sesion 3 - 24/04/2018</a></li>
+               <li><a href = "#ejerciciosSesion">Sesion 1 - 24/04/2018 - Psicomotricidad 1</a></li>
+               <li><a href = "#ejerciciosSesion">Sesion 2 - 24/04/2018 - Psicomotricidad 2</a></li>
+               <li><a href = "#ejerciciosSesion">Sesion 3 - 24/04/2018 - Psico Coles</a></li>
+               <input align="center" type = "submit" value = "Eliminar" data-inline = "true">
+                            <input align="center" type = "submit" value = "Editar" data-inline = "true">
             
             </ul>
         </article>
@@ -139,9 +144,9 @@
                 <nav data-role="navbar">
                     <ul>
                             <li><a href="#inicio"  data-icon="home">Inicio</a></li>
-                            <li><a href="#grupos"  data-icon="action">grupos</a></li>
-                            <li><a href="#sesiones" class="ui-btn-active ui-state-persist" data-icon="info">sesiones</a></li>
-                            <li><a href="#ejercicios" data-icon="mail">ejercicios</a></li>
+                            <li><a href="#grupos"   data-icon="calendar">Grupos</a></li>
+                            <li><a href="#sesiones" class="ui-btn-active ui-state-persist" data-icon="info">Sesiones</a></li>
+                            <li><a href="#ejercicios" data-icon="bullets">Ejercicios</a></li>
                     </ul>
                 </nav>
         </footer><!-- /footer -->
@@ -158,25 +163,26 @@
 
 <!-- cuarta pagina , cuarto tab -->
 <section id="ejercicios" data-role="page"  >
-        <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all ui-icon-star ui-btn-icon-left">
-                <h5>Todos los ejercicios</h5> 
+        <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
+                <h5>Ejercicios</h5> 
         </header>
         <article data-role="content" >
-            <h2>Lista de los ejercicios </h2>
+            <h2>Lista de los ejercicios</h2>
+
+            <input type="search" name="buscador-ejercicios" id="buscador-ejercicios" value="" placeholder="Buscar">
               <ul data-role = "listview" data-inset = "true" data-divider-theme = "b">
-                 <li data-role = "list-divider">Calentamiento</li>
-                 <li><a href = "#ejercicio1">Ejercicio 1</a></li>
-                 <li><a href = "#">Ejercicio 2</a></li>
-                 <li><a href = "#">Ejercicio 3</a></li>
-                 <li data-role = "list-divider">Parte Principal</li>
-                 <li><a href = "#">Ejercicio 1</a></li>
-                 <li><a href = "#">Ejercicio 2</a></li>
-                 <li><a href = "#">Ejercicio 3</a></li>
-                 <li data-role = "list-divider">Vuelta a la calma</li>
-                 <li><a href = "#">Ejercicio 1</a></li>
-                 <li><a href = "#">Ejercicio 2</a></li>
-                 <li><a href = "#">Ejercicio 3</a></li>
-              </ul>
+                   <li>Calentamiento</li>
+                   <li>Estiramientos</li>
+                   <li>Equilibrio</li>
+                   <li>Desplazamientos</li>
+                   <li>Pelotas</li>
+                   <li>Giros</li>
+                   <li>Coordinación</li>
+                   <li>Saltos</li>
+                   <li>Esquema corporal</li>
+                   <li>Relajación</li>
+                   <li>Lateralidad</li>
+               </ul>
 
             
         </article>
@@ -184,9 +190,9 @@
                 <nav data-role="navbar">
                     <ul>
                             <li><a href="#inicio"  data-icon="home">Inicio</a></li>
-                            <li><a href="#grupos"  data-icon="action">grupos</a></li>
-                            <li><a href="#sesiones"  data-icon="info">sesiones</a></li>
-                            <li><a href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="mail">ejercicios</a></li>
+                            <li><a href="#grupos"   data-icon="calendar">Grupos</a></li>
+                            <li><a href="#sesiones"  data-icon="info">Sesiones</a></li>
+                            <li><a href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a></li>
                     </ul>
                 </nav>
         </footer><!-- /footer -->
@@ -202,8 +208,8 @@
 
 
 <!-- esta parte es la de crear grupo  -->
-        <div data-role = "page" id = "formulario" class = "jqm-demos ui-responsive-panel">
-            <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all ui-icon-star ui-btn-icon-left">
+        <div data-role ="page" id ="formulario" class ="jqm-demos ui-responsive-panel">
+            <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
                 <h1>Tus Grupos </h1>
             
             </header>
@@ -213,26 +219,30 @@
                         <form method = "post" action = "">
                             <label >Nombre del grupo</label>
                             <input type = "text" name = "grupo">
- 
-                            <label for = "select">Dias</label>
-                            <select name = "select" id = "select">
-                                <option value = "1">Lunes</option>
-                                <option value = "2">Martes</option>
-                                <option value = "3">Miercoles</option>
-                                <option value = "4">Jueves</option>
-                                <option value = "5">Viernes</option>
-                            </select>
+                            <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+                                    <legend>Días</legend>
+                                    <input type="checkbox" name="checkbox-lunes" id="checkbox-lunes">
+                                    <label for="checkbox-lunes">L</label>
+                                    <input type="checkbox" name="checkbox-martes" id="checkbox-martes">
+                                    <label for="checkbox-martes">M</label>
+                                    <input type="checkbox" name="checkbox-miercoles" id="checkbox-miercoles">
+                                    <label for="checkbox-miercoles">X</label>
+                            <input type="checkbox" name="checkbox-jueves" id="checkbox-jueves">
+                                    <label for="checkbox-jueves">J</label>
+                                    <input type="checkbox" name="checkbox-viernes" id="checkbox-viernes">
+                                    <label for="checkbox-viernes">V</label>
+                                </fieldset>
 
                             <!-- dejarlo asi , o mejor ponerlo en la sesion  -->
                             <!-- <label for = "src1">fecha </label>
                              <input type = "date" data-clear-btn = "true" id = "src1"> -->
              
         
-                            <label for = "slider1">Numero de alumnos :</label>
-                            <input type = "range" name = "slider1" id = "slider1" min = "0" max = "100" 
-                                value = "60">
+                            <label for = "slider1">Número de alumnos: </label>
+                            <input type = "range" name = "slider1" id = "slider1" min = "2" max = "40" 
+                                value = "12">
              
-                            <input align="center" type = "submit" align="center" value = "crear" data-inline = "true">
+                            <input align="center" type = "submit" align="center" value = "Crear" data-inline = "true">
                          </form>    
                     </div>
             </div>
@@ -240,9 +250,9 @@
                     <nav data-role="navbar">
                         <ul>
                                 <li><a href="#inicio"  data-icon="home">Inicio</a></li>
-                                <li><a href="#grupos" class="ui-btn-active ui-state-persist" data-icon="action">grupos</a></li>
-                                <li><a href="#sesiones" data-icon="info">sesiones</a></li>
-                                <li><a href="#ejercicios" data-icon="mail">ejercicios</a></li>
+                                <li><a href="#grupos" class="ui-btn-active ui-state-persist" data-icon="calendar">Grupos</a></li>
+                                <li><a href="#sesiones" data-icon="info">Sesiones</a></li>
+                                <li><a href="#ejercicios" data-icon="bullets">Ejercicios</a></li>
                         </ul>
                     </nav>
             </footer> 
@@ -252,32 +262,28 @@
         <!-- formulario para añadir una sesion  al darle al boton añadir sesion -->
 
         <div data-role = "page" id = "aniadirsesion" class = "">
-            <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all ui-icon-star ui-btn-icon-left">
-                <h1>Tus Sesiones </h1>
+            <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
+                <h1>Mis Sesiones</h1>
             
             </header>
             <div id=""> 
                     <div id="cajaSesion">
                         <h4 style="color:blue;">Rellena los siguientes datos </h4>
                         <form method = "post" action = "">
-                            <label >Nombre del sesion</label>
+                            <label >Nombre sesión</label>
                             <input type = "text" name = "grupo">
 
-                            <label for = "src1">fecha </label>
+                            <label for = "src1">Fecha</label>
                              <input type = "date" data-clear-btn = "true" id = "src1">
 
                              <label for = "Grupo">Grupo</label>
                             <select name = "Grupo" id = "Grupo">
-                                <option value = "1">Primer Grupo</option>
-                                <option value = "2">Segundo Grupo</option>
-                                <option value = "3">Tercer Grupo</option>
+                                <option value = "1">Psicomotricidad 1</option>
+                                <option value = "2">Psicomotricidad 2</option>
+                                <option value = "3">Psico Coles</option>
                             </select>
              
-        
-                            <label for = "slider1">duracion :</label>
-                            <input type = "text" name = "duracion" >
-             
-                            <input align="center" type = "submit" value = "Añadir" data-inline = "true">
+                            <input align="center" type = "submit" value = "Añadir Ejercicios" data-inline = "true">       
                          </form>    
                     </div>
             </div>
@@ -285,9 +291,9 @@
                     <nav data-role="navbar">
                         <ul>
                                 <li><a href="#inicio"  data-icon="home">Inicio</a></li>
-                                <li><a href="#grupos"  data-icon="action">grupos</a></li>
-                                <li><a href="#sesiones" class="ui-btn-active ui-state-persist" data-icon="info">sesiones</a></li>
-                                <li><a href="#ejercicios" data-icon="mail">ejercicios</a></li>
+                                <li><a href="#grupos"  data-icon="calendar">Grupos</a></li>
+                                <li><a href="#sesiones" class="ui-btn-active ui-state-persist" data-icon="info">Sesiones</a></li>
+                                <li><a href="#ejercicios" data-icon="bullets">Ejercicios</a></li>
                         </ul>
                     </nav>
             </footer> 
@@ -296,8 +302,8 @@
 <!-- al hacer clic en un ejercicio en concreto  -->
 
     <div data-role = "page" id = "ejercicio1" >
-            <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all ui-icon-star ui-btn-icon-left">
-                <h7>Nombre del ejercicio : saltos </h7>
+            <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
+                <h7>Proteged al Rey</h7>
             
             </header>
             <div id="">  
@@ -308,11 +314,11 @@
                               <li><a href="#"><img alt="" src="img/3.jpg" /></a></li>
                             </ul>
 
-                            <p><h5 style="font-weight: bold;color: green;">Descripcion Ejercicio :</h5> Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar .</p>
+                            <p><h5 style="font-weight: bold;color: green;">Descripcion Ejercicio</h5> <code>{Descripción del ejercicio}</code></p>
 
-                            <p><h5 style="font-weight: bold;color: green;">Duracion :</h5> 15 min.</p>
+                            <p><h5 style="font-weight: bold;color: green;">Duracion</h5><code>{Duración del ejercicio}</code></p>
 
-                            <p><h5 style="font-weight: bold;color: green;">Categoria :</h5> categoria 1 , categoria 2 .</p>
+                            <p><h5 style="font-weight: bold;color: green;">Categoria:</h5><code>{Categoría del ejercicio}</code></p>
 
                             <!-- si queremos k al hacer clic en la imagen salga en grande -->
 
@@ -331,10 +337,45 @@
                     <nav data-role="navbar">
                         <ul>
                                 <li><a href="#inicio"  data-icon="home">Inicio</a></li>
-                                <li><a href="#grupos"  data-icon="action">grupos</a></li>
-                                <li><a href="#sesiones" data-icon="info">sesiones</a></li>
-                                <li><a href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="mail">ejercicios</a></li>
+                                <li><a href="#grupos"  data-icon="calendar">Grupos</a></li>
+                                <li><a href="#sesiones" data-icon="info">Sesiones</a></li>
+                                <li><a href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a></li>
                         </ul>
                     </nav>
             </footer> 
         </div>
+
+        <!-- al darle a una sesion  te llevaria a la parte de los ejercicios-->
+
+
+    <div data-role = "page" id = "ejerciciosSesion" >
+        <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
+            <h5>mySession</h5> 
+        </header>
+        <article data-role="content" >
+            <h2>{Nombre de la sesión}</h2>
+              <ul data-role = "listview" data-inset = "true" data-divider-theme = "b">
+                 <li data-role = "list-divider">Calentamiento</li>
+                    <li><a href = "#ejercicio1">Movilidad articular</a></li>
+                    <li><a href = "#">Estiramientos</a></li>
+                    <li><a href = "#">El Perrito</a></li>
+                 <li data-role = "list-divider">Parte Principal</li>
+                    <li><a href = "#">Derribar los bolos</a></li>
+                    <li><a href = "#">Circuito de Equilibrios</a></li>
+                 <li data-role = "list-divider">Vuelta a la calma</li>
+                    <li><a href = "#">Osito Dormilón</a></li>
+                </ul>
+
+            
+        </article>
+        <footer data-role="footer" data-id="menuInferior" data-position="fixed" data-theme="a">
+                <nav data-role="navbar">
+                    <ul>
+                            <li><a href="#inicio"  data-icon="home">Inicio</a></li>
+                            <li><a href="#grupos"  data-icon="calendar">Grupos</a></li>
+                            <li><a href="#sesiones" class="ui-btn-active ui-state-persist" data-icon="info">Sesiones</a></li>
+                            <li><a href="#ejercicios"  data-icon="bullets">Ejercicios</a></li>
+                    </ul>
+                </nav>
+        </footer> 
+    </div>
