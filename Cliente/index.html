@@ -27,12 +27,15 @@
     <!-- fichero interfaces  -->
     <link rel="stylesheet" href="css/estilo.css">
 
+    <link rel="stylesheet" href="css/themes/mysession-azulverde.css" />
+    <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+
 
     
 
     <title>Aplicacion De Deporte</title>
 </head>
-<body>
+<body id="">
 <!-- Primera pagina , primer tab -->
     <section id="inicio" data-role="page"  data-theme="a">
         <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
@@ -41,7 +44,8 @@
         <article data-role="content">
                 <div role="main" class="ui-content">
                     <!-- Contenido de las sesion  -->
-                    <h4>Bienvenido a mySession {nombre de usuario}</h4>
+                    <h4>Bienvenido a mySession</h4>
+                    <br>
                     <ul data-role = "listview">
                         <li><a href = "#ejerciciosSesion">Saltos - Psicomotricidad 1</a></li>
                         <li><a href = "#ejerciciosSesion">Equilibrio - Psicomotricidad 2</a></li>
@@ -130,11 +134,17 @@
             
             <!-- en esta parte tienen las sesiones creadas -->
             <ul data-role = "listview">
-               <li><a href = "#ejerciciosSesion">Sesion 1 - 24/04/2018 - Psicomotricidad 1</a></li>
-               <li><a href = "#ejerciciosSesion">Sesion 2 - 24/04/2018 - Psicomotricidad 2</a></li>
-               <li><a href = "#ejerciciosSesion">Sesion 3 - 24/04/2018 - Psico Coles</a></li>
-               <input align="center" type = "submit" value = "Eliminar" data-inline = "true">
-                            <input align="center" type = "submit" value = "Editar" data-inline = "true">
+               <li><a href = "#ejerciciosSesion">Sesion 1 - 24/04/2018 - Psicomotricidad 1</a>
+               	<a href = "" class = " borrarSesion ui-btn ui-btn-inline ui-icon-delete ui-btn-icon-left 
+               ui-corner-all ui-alt-icon ui-nodisc-icon">Eliminar</a>
+               <li><a href = "#ejerciciosSesion">Sesion 2 - 24/04/2018 - Psicomotricidad 2</a>
+               	<a href = "" class = " borrarSesion ui-btn ui-btn-inline ui-icon-delete ui-btn-icon-left 
+               ui-corner-all ui-alt-icon ui-nodisc-icon">Eliminar</a></li>
+               <li><a href = "#ejerciciosSesion">Sesion 3 - 24/04/2018 - Psico Coles</a>
+               	<a href = "" class = "borrarSesion ui-btn ui-btn-inline ui-icon-delete ui-btn-icon-left 
+               ui-corner-all ui-alt-icon ui-nodisc-icon">Eliminar</a></li>
+               
+                          <!--   <input align="center" type = "submit" value = "Editar" data-inline = "true"> -->
             
             </ul>
         </article>
@@ -184,6 +194,8 @@
                    <li>Lateralidad</li>
                </ul>
 
+              
+            
             
         </article>
         <footer data-role="footer" data-id="menuInferior" data-position="fixed" data-theme="a">
@@ -282,7 +294,7 @@
                                 <option value = "2">Psicomotricidad 2</option>
                                 <option value = "3">Psico Coles</option>
                             </select>
-             
+                            <!-- Este botón crea la sesión con los datos introducidos y te lleva a la biblioteca de ejercicios para empezar a meterle ejercicios -->
                             <input align="center" type = "submit" value = "Añadir Ejercicios" data-inline = "true">       
                          </form>    
                     </div>
@@ -328,6 +340,8 @@
                                     <img alt="" src="img/4.jpg" style="width:100%; height:200px;" />
                                   
                             </div>
+
+                            <a href = "#aniadirEjercicio" class = "borrarEjercicio ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left">Añadir a Sesión</a>
                   <!--   </div> -->
 
                     
@@ -366,8 +380,64 @@
                     <li><a href = "#">Osito Dormilón</a></li>
                 </ul>
 
+                <input align="center" type = "submit" value = "Añadir Ejercicios" data-inline = "true">
+
             
         </article>
+        <footer data-role="footer" data-id="menuInferior" data-position="fixed" data-theme="a">
+                <nav data-role="navbar">
+                    <ul>
+                            <li><a href="#inicio"  data-icon="home">Inicio</a></li>
+                            <li><a href="#grupos"  data-icon="calendar">Grupos</a></li>
+                            <li><a href="#sesiones" class="ui-btn-active ui-state-persist" data-icon="info">Sesiones</a></li>
+                            <li><a href="#ejercicios"  data-icon="bullets">Ejercicios</a></li>
+                    </ul>
+                </nav>
+        </footer> 
+    </div>
+
+
+
+    <!-- al hacer clic para añadir un ejercicio en concreto  -->
+
+    <div data-role = "page" id = "aniadirEjercicio" >
+        <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
+            <h7>Añadir ejercicio a mi sesion </h7>
+        
+        </header>
+        <div id="">  
+            <div data-role = "main" class = "ui-content">
+            <form method = "post" action="jquery_mobile/demo.php">
+
+                <fieldset class = "ui-field-contain">
+                    <label for = "fname">¿A qué sesion?</label>
+                    <select id = "sesion" name = "fname">
+                       <option value = "Sesion 1">Se pintarán todas las sesiones</option>
+                    </select>
+                 </fieldset>
+
+               <fieldset class = "ui-field-contain">
+                  <label for = "fname">¿En que parte quieres añadir este ejercicio?</label>
+                  <select id = "seccion" name = "fname">
+                     <option value = "Calentamiento">Calentamiento</option>
+                     <option value = "PartePrincipal">Parte Principal</option>
+                     <option value = "Vuelta a la calma">Vuelta a la calma</option>
+                  </select>
+               </fieldset>
+
+               
+
+                <fieldset class = "ui-field-contain">
+                    <label for = "slider1">Orden en el que aparecerá: </label>
+                    <input type = "range" name = "slider1" id = "slider1" min = "-20" max = "20" 
+                        value = "0">
+               </fieldset>
+               
+               <input type = "submit" value = "Añadir" data-inline = "">
+            </form>
+         </div>
+
+        </div>
         <footer data-role="footer" data-id="menuInferior" data-position="fixed" data-theme="a">
                 <nav data-role="navbar">
                     <ul>
