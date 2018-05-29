@@ -9,6 +9,10 @@
     "nombre": {
       "type": "string",
       "required": true
+    },
+    "fecha": {
+      "type": "date",
+      "required": true
     }
   },
   "validations": [],
