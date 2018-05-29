@@ -26,10 +26,11 @@
     <!-- <script type="text/javascript" src="js/scriptMenu.js"></script> -->
 
     <!-- fichero interfaces  -->
-    <link rel="stylesheet" href="css/estilo.css">
 
-    <link rel="stylesheet" href="css/themes/mysession-azulverde.css" />
+    <link rel="stylesheet" href="css/themes/mysession-rojoazul.css" />
     <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+
+    <link rel="stylesheet" href="css/estilo.css">
 
 
 
@@ -402,9 +403,9 @@
 
                 <label for="Grupo">Grupo</label>
                 <select name="Grupo" id="Grupo">
-                    <option value="1">Psicomotricidad 1</option>
-                    <option value="2">Psicomotricidad 2</option>
-                    <option value="3">Psico Coles</option>
+                    <option value="1">Se pintarán todos los grupos</option>
+                    <!-- GET Usuarios/{id}/grupos -->
+
                 </select>
                 <!-- Este botón crea la sesión con los datos introducidos y te lleva a la biblioteca de ejercicios para empezar a meterle ejercicios -->
                 <input align="center" type="submit" value="Añadir Ejercicios" data-inline="true">
@@ -600,6 +601,7 @@
                     <label for="fname">¿A qué sesion?</label>
                     <select id="sesion" name="fname">
                         <option value="Sesion 1">Se pintarán todas las sesiones</option>
+                         <!-- GET Usuarios/{id}/sesiones -->
                     </select>
                 </fieldset>
 
