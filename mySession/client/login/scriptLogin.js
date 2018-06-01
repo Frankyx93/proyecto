@@ -4,7 +4,7 @@ $(document).ready(function () {
     var email = $("#email").val();
     var pass = $("#password").val();
 
-    $("#iniciarSession").click(function () {
+    $("#iniciarSesion").click(function () {
 
         alert("Boton Iniciar Sesion");
         $.post("http://localhost:3000/api/Usuarios/login",

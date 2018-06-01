@@ -14,49 +14,49 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "mySessionDS"
   },
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "mySessionDS",
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "mySessionDS",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "mySessionDS",
     "public": false,
     "options": {
       "strictObjectIDCoercion": true
     }
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "mySessionDS",
     "public": false
   },
   "Usuario": {
-    "dataSource": "db",
+    "dataSource": "mySessionDS",
     "public": true
   },
   "Sesion": {
-    "dataSource": "db",
+    "dataSource": "mySessionDS",
     "public": true
   },
   "Grupo": {
-    "dataSource": "db",
+    "dataSource": "mySessionDS",
     "public": true
   },
   "Ejercicio": {
-    "dataSource": "db",
+    "dataSource": "mySessionDS",
     "public": true
   },
   "EjerciciosSesion": {
-    "dataSource": "db",
+    "dataSource": "mySessionDS",
     "public": true
   },
   "Categoria": {
-    "dataSource": "db",
+    "dataSource": "mySessionDS",
     "public": true
   }
 }
