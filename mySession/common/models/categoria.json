@@ -13,20 +13,10 @@
   },
   "validations": [],
   "relations": {
-    "categoria": {
-      "type": "belongsTo",
-      "model": "Categoria",
-      "foreignKey": ""
-    },
     "ejercicios": {
       "type": "hasMany",
       "model": "Ejercicio",
       "foreignKey": ""
-    },
-    "categoriaPadre": {
-      "type": "hasMany",
-      "model": "Categoria",
-      "foreignKey": "categoriaPadre"
     }
   },
   "acls": [
