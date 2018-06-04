@@ -16,6 +16,7 @@ $(document).ready(function () {
             }).done(function (data) {
                 console.log(data.id);
                 token = data.id;
+                var idUsuarioAutenticado = data.userId
                 document.cookie = "access_token=" + token + "; expires=Thu, 18 Dec 2019 12:00:00 UTC; path=/";
                 console.log(token); 
                 //Cookies.set('access_token', data.id,{expires: 365});
