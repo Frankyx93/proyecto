@@ -23,6 +23,7 @@
 
     <!-- fichero Javascript  -->
     <script type="text/javascript" src="../js/script.js"></script>
+    <script type="text/javascript" src="../js/scriptFunctions.js"></script>
     <!-- <script type="text/javascript" src="js/scriptMenu.js"></script> -->
 
     <!-- fichero interfaces  -->
@@ -350,7 +351,7 @@
             <h4 style="color:blue;">Rellena los siguientes datos </h4>
             <form method="post" action="">
                 <label>Nombre del grupo</label>
-                <input type="text" name="grupo">
+                <input id="nombreGrupoNuevo" type="text" name="grupo">
                 <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
                 
                     <legend>Días</legend>
@@ -370,10 +371,7 @@
                     <label for="checkbox-viernes">V</label>
                 </fieldset>
 
-                <label for="slider1">Número de alumnos: </label>
-                <input type="range" name="slider1" id="slider1" min="2" max="40" value="12">
-
-                <input align="center" type="submit" align="center" value="Crear" data-inline="true">
+                <input id="botonCrearGrupo" align="center" type="submit" align="center" value="Crear" data-inline="true">
                 <!-- POST /Usuarios/{id}/grupos -->
             </form>
         </div>
@@ -418,10 +416,10 @@
             <h4 style="color:blue;">Rellena los siguientes datos </h4>
             <form method="post" action="">
                 <label>Nombre sesión</label>
-                <input type="text" name="grupo">
+                <input id="nombreSesionNueva" type="text" name="grupo">
 
                 <label for="src1">Fecha</label>
-                <input type="date" data-clear-btn="true" id="src1">
+                <input id="fechaSesionNueva" type="date" data-clear-btn="true" id="src1">
 
                 <label for="Grupo">Grupo</label>
                 <select name="Grupo" id="Grupo">
@@ -430,7 +428,7 @@
 
                 </select>
                 <!-- Este botón crea la sesión con los datos introducidos y te lleva a la biblioteca de ejercicios para empezar a meterle ejercicios -->
-                <input align="center" type="submit" value="Añadir Ejercicios" data-inline="true">
+                <input id="botonCrearSesion" align="center" type="submit" value="Añadir Ejercicios" data-inline="true">
                 <!-- POST /Usuarios/{id}/sesiones -->
             </form>
         </div>

@@ -1,11 +1,13 @@
 $(document).ready(function () {
 
     var token = null;
-    var email = $("#email").val();
-    var pass = $("#password").val();
+    
 
     $("#iniciarSesion").click(function () {
-
+        var email = $("#emailUsuario").val();
+        var pass = $("#passwordUsuario").val();
+        console.log(email);
+        console.log(pass);
         alert("Boton Iniciar Sesion");
         $.post("http://localhost:3000/api/Usuarios/login",
             {
@@ -19,19 +21,21 @@ $(document).ready(function () {
                 //Cookies.set('access_token', data.id,{expires: 365});
                 //console.log(email); 
                 //console.log(pass);
+                location.href ="pantallasAplicacion/";
             })
             .fail(function (error) {
                 console.log(error);
+                console.log("Credenciales incorrectas");
             })
-        setTimeout(function () {
-            $.get("http://localhost:3000/api/Ejercicios?"+document.cookie)
-                .done(function (data) {
-                    console.log(data);
-                })
-                .fail(function (error) {
-                    console.log(error);
-                }, 2000)
-        })
+        // setTimeout(function () {
+        //     $.get("http://localhost:3000/api/Ejercicios?"+document.cookie)
+        //         .done(function (data) {
+        //             console.log(data);
+        //         })
+        //         .fail(function (error) {
+        //             console.log(error);
+        //         }, 2000)
+        // })
     });
 
 });
