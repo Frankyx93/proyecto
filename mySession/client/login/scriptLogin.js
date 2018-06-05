@@ -12,9 +12,10 @@ $(document).ready(function () {
                 password: pass
             }).done(function (data) {
                 token = data.id;
+                usuarioId = data.userId;
                 document.cookie = "access_token=" + token + "; expires=Thu, 05 Dec 2019 12:00:00 UTC; path=/";
                 //ENCONTRAR FORMA DE ENVIAR EL ID DE USUARIO
-                location.href ="app?access_token="+token;
+                location.href ="app?userid="+usuarioId+"&access_token="+token;
             })
             .fail(function (error) {
                 console.log(error);
