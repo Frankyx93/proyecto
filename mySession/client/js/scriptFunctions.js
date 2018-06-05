@@ -61,8 +61,6 @@ function getAllUrlParams(url) {
     return obj;
   }
 
-//Funcion para obtener el nombre del grupo según su id
-
 $(document).ready(function () {
 
     var urlApp = "http://localhost:3000/api/";
@@ -71,13 +69,27 @@ $(document).ready(function () {
         $.get(urlApp + "Usuarios/"+getAllUrlParams(window.location.href).userid+"/sesiones?access_token="+getAllUrlParams(window.location.href).access_token, function (data, status) {
             var grupoId;
             $.each(data, function(idx, obj) {
-                grupoId = data[idx].grupoId              
-                console.log(obj.nombre);
-                $.get(urlApp + "Grupos/"+grupoId+"?access_token="+getAllUrlParams(window.location.href).access_token, function (data, status) {
-                    console.log("Nombre Grupo: " + data.nombre); //esto es para controlar la salida
-                }).fail(function(error) {
-                    console.log(error);
-                });
+                grupoId = data[idx].grupoId
+                $("#listaTabHome").append("<li><a class='tabs ui-btn ui-btn-icon-right ui-icon-carat-r' href='#ejerciciosSesion'>"+obj.nombre+"</a></li>");
+                // $.get(urlApp + "Grupos/"+grupoId+"?access_token="+getAllUrlParams(window.location.href).access_token, function (data, status) {
+                //     $("#listaTabHome").append(data.nombre+"</a></li>");
+                // }).fail(function(error) {
+                //     console.log(error);
+                // });
+                
+
+                //AJAX PORQUE HASTA QUE NO ME DEVUELVE EL GRUPO NO QUIERO QUE SIGA
+                $.ajax({
+                    async: false,
+                    type: 'GET',
+                    url: urlApp + "Grupos/"+grupoId+"?access_token="+getAllUrlParams(window.location.href).access_token,
+                    success: function(data) {
+                         //callback
+                         $("#listaTabHome").append("<li class='tabs ui-btn'>Grupo: "+data.nombre+"</li>");
+                    }
+               });
+                              
+                
             });           
         }).fail(function(error) {
             console.log(error);
