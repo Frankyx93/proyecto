@@ -8,11 +8,17 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
         <!-- jQuery -->
-        <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+        <!-- <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
         <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-        <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
 
+        <link rel="stylesheet" href="jqueryMobile/jquery.mobile-1.4.5.min.css">
+        <script src="jqueryMobile/jquery-1.11.3.min.js"></script>
+        <script src="jqueryMobile/jquery.mobile-1.4.5.min.js"></script>
+
+        <!-- Script -->
         <script src="login/scriptLogin.js"></script>
+        <script src="login/scriptRegister.js"></script>
         <!-- Estilo Tema -->
         <link rel="stylesheet" href="css/themes/mysession-azulverde.css" />
         <link rel="stylesheet" href="css/estilo.css"/>
@@ -57,15 +63,15 @@
                 <div class="registroUsuario">
                         <form>
                                 <label>Nombre :</label>
-                                <input type="text" />
+                                <input type="text" id="nombreUsuarioNuevo"/>
                                 <br />
 
                                 <label>Correo Electrónico :</label>
-                                <input type="email" />
+                                <input type="email" id="emailUsuarioNuevo"/>
                                 <br />
 
                                 <label>Contraseña :</label>
-                                <input type="password" />
+                                <input type="password" id="passUsuarioNuevo"/>
                                 <br />
 
                                 <!--                                     <div class="checkbox">
@@ -80,7 +86,7 @@
                                         <div>
 
                                                 <!-- POST /Usuarios -->
-                                                <a href="#" data-icon="plus" data-role="button">Crear Cuenta</a>
+                                                <a href="#" data-icon="plus" data-role="button" id="crearUsuario">Crear Cuenta</a>
                                         </div>
                                 </div>
                         </form>
