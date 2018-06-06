@@ -55,8 +55,8 @@
                     <p>
                         <center><img src="..\images\imagenes\user.png" alt="" width="60" height="60"></center>
                     </p>
-                    <p class="NombreUsuarioAutenticado" style="text-align:center;"></p>
-                    <p class="EmailUsuarioAutenticado" style="text-align:center;"></p>
+                    <p class="NombreUsuarioAutenticado" id="NombreUsuarioAutenticado" style="text-align:center;"></p>
+                    <p class="EmailUsuarioAutenticado" id="EmailUsuarioAutenticado" style="text-align:center;"></p>
                     
                     <center><a class="botonLogout" style="display: inline-block; background: linear-gradient(to right, #f18da3 , rgb(243, 88, 88));color:black;" 
                         href = "#" class ="ui-btn">Cerrar sesion</a></center>
@@ -97,12 +97,12 @@
             <nav data-role="navbar">
                 <ul>
                     <li>
-                        <a href="#inicio" class="ui-btn-active ui-state-persist" data-icon="home" id="botonTabInicio">Inicio</a>
+                        <a href="#inicio" class="ui-btn-active ui-state-persist" data-icon="home" class="botonTabInicio">Inicio</a>
                        
                     </li>
                     <li>                 
                         <!-- GET Usuarios/{id}/grupos -->
-                        <a class="tabs" href="#grupos" class="ui-btn-active ui-state-persist" data-icon="calendar">Grupos</a>
+                        <a class="tabs" href="#grupos" class="ui-btn-active ui-state-persist" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                     </li>
                     <li>
                         <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
@@ -142,29 +142,13 @@
         </header>
         <article data-role="content">
             <!-- en caso de no tener las sesiones  -->
-            <h4>Aún no tienes grupos creados</h4>
             <p>
                 <a class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-plus" href="#formulario">Nuevo Grupo</a>
             </p>
 
             
-            <div id="cajaPadre">
+            <div id="cajaPadre" class="listadoGrupos">
 
-                <ul data-role="listview" data-inset="true" data-divider-theme="a">
-                    <li class="listaGrupos" data-role="list-divider">Nombre Grupo</li>
-                    <li>Psicomotricidad 1</li>
-                    <li class="listaGrupos" data-role="list-divider">Monitor</li>
-                    <li>Juan Martínez</li>
-                    <li class="listaGrupos" data-role="list-divider">Horario</li>
-                    <li>Lunes, Miércoles - 17:00-18:45</li>
-                    <li data-role="list-divider">
-                        
-                        <a href="#sesiones" class="ui-btn">Ver Sesiones </a>
-                        <!-- Este enlace debe llevar a una pagina igual que la de sesiones pero sólo mostrando las de este grupo -->
-                        <!-- GET /Grupos/{id}/sesiones Filtro: ordenados por fecha de creación, más recientes primero-->
-                        <!-- <a href="#aniadirsesion" class="ui-btn">Nueva sesión</a> -->
-                    </li>
-                </ul>
             </div>
         </article>
 
@@ -177,11 +161,11 @@
                         <!-- GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual-->
                         <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                         <!-- GET /Grupos/{id} -->
-                        <a  href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                        <a  href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                     </li>
                     <li class="tabs">
                         <!-- GET Usuarios/{id}/grupos -->
-                        <a class="tabs" href="#grupos" class="ui-btn-active ui-state-persist" data-icon="calendar">Grupos</a>
+                        <a class="tabs" href="#grupos" class="ui-btn-active ui-state-persist" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                     </li>
                     <li class="tabs">
                         <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación, más recientes primero-->
@@ -263,11 +247,11 @@
                         <!-- GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual-->
                         <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                         <!-- GET /Grupos/{id} -->
-                        <a class="tabs" href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                        <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                     </li>
                     <li>
                         <!-- GET Usuarios/{id}/grupos -->
-                        <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                     </li>
                     <li>
                         <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación, más recientes primero-->
@@ -366,11 +350,11 @@
                     <!-- GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual-->
                     <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                     <!-- GET /Grupos/{id} -->
-                    <a class="tabs" href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                    <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                 </li>
                 <li>
                     <!-- GET Usuarios/{id}/grupos -->
-                    <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                    <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                 </li>
                 <li>
                     <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
@@ -461,10 +445,10 @@
                     <!-- GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual-->
                     <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                     <!-- GET /Grupos/{id} -->
-                    <a class="tabs" href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                    <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                 </li>
                 <li>
-                    <a class="tabs" href="#grupos" class="ui-btn-active ui-state-persist" data-icon="calendar">Grupos</a>
+                    <a class="tabs" href="#grupos" class="ui-btn-active ui-state-persist" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                 </li>
                 <li>
                     <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
@@ -531,11 +515,11 @@
                     <!-- GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual-->
                     <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                     <!-- GET /Grupos/{id} -->
-                    <a class="tabs" href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                    <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                 </li>
                 <li>
                     <!-- GET Usuarios/{id}/grupos -->
-                    <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                    <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                 </li>
                 <li>
                     <a class="tabs" href="#sesiones" class="ui-btn-active ui-state-persist" data-icon="info">Sesiones</a>
@@ -619,11 +603,11 @@
                     <!-- GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual-->
                     <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                     <!-- GET /Grupos/{id} -->
-                    <a class="tabs" href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                    <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                 </li>
                 <li>
                     <!-- GET Usuarios/{id}/grupos -->
-                    <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                    <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                 </li>
                 <li>
                     <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
@@ -732,11 +716,11 @@
                     <!-- GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual-->
                     <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                     <!-- GET /Grupos/{id} -->
-                    <a href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                    <a href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                 </li>
                 <li>
                     <!-- GET Usuarios/{id}/grupos -->
-                    <a href="#grupos" data-icon="calendar">Grupos</a>
+                    <a href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                 </li>
                 <li>
                     <a href="#sesiones" class="ui-btn-active ui-state-persist" data-icon="info">Sesiones</a>
@@ -801,11 +785,11 @@
                     GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual
                     Con el id de grupo que devuelve sacamos el nombre del grupo también
                      GET /Grupos/{id}
-                    <a href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                    <a href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                 </li>
                 <li>
                     GET Usuarios/{id}/grupos
-                    <a href="#grupos" data-icon="calendar">Grupos</a>
+                    <a href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                 </li>
                 <li>
                     <a href="#sesiones" class="ui-btn-active ui-state-persist" data-icon="info">Sesiones</a>
@@ -881,11 +865,11 @@
                         <!-- GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual-->
                         <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                         <!-- GET /Grupos/{id} -->
-                        <a class="tabs" href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                        <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                     </li>
                     <li>
                         <!-- GET Usuarios/{id}/grupos -->
-                        <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                     </li>
                     <li>
                         <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
@@ -958,11 +942,11 @@
                         <!-- GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual-->
                         <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                         <!-- GET /Grupos/{id} -->
-                        <a class="tabs" href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                        <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                     </li>
                     <li>
                         <!-- GET Usuarios/{id}/grupos -->
-                        <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                     </li>
                     <li>
                         <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
@@ -1036,11 +1020,11 @@
                         <!-- GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual-->
                         <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                         <!-- GET /Grupos/{id} -->
-                        <a class="tabs" href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                        <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                     </li>
                     <li>
                         <!-- GET Usuarios/{id}/grupos -->
-                        <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                     </li>
                     <li>
                         <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
@@ -1111,10 +1095,10 @@
             <nav data-role="navbar">
                 <ul>
                     <li>
-                        <a class="tabs" href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                        <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                     </li>
                     <li>
-                        <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                     </li>
                     <li>
                         <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
@@ -1185,11 +1169,11 @@
                         <!-- GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual-->
                         <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                         <!-- GET /Grupos/{id} -->
-                        <a class="tabs" href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                        <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                     </li>
                     <li>
                         <!-- GET Usuarios/{id}/grupos -->
-                        <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                     </li>
                     <li>
                         <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
@@ -1264,11 +1248,11 @@
                         <!-- GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual-->
                         <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                         <!-- GET /Grupos/{id} -->
-                        <a class="tabs" href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                        <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                     </li>
                     <li>
                         <!-- GET Usuarios/{id}/grupos -->
-                        <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                     </li>
                     <li>
                         <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
@@ -1343,11 +1327,11 @@
                         <!-- GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual-->
                         <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                         <!-- GET /Grupos/{id} -->
-                        <a class="tabs" href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                        <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                     </li>
                     <li>
                         <!-- GET Usuarios/{id}/grupos -->
-                        <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                     </li>
                     <li>
                         <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
@@ -1418,10 +1402,10 @@
                 <ul>
                     <li>
     
-                        <a class="tabs" href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                        <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                     </li>
                     <li>
-                        <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                     </li>
                     <li>
                         <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
@@ -1490,10 +1474,10 @@
                 <ul>
                     <li>
     
-                        <a class="tabs" href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                        <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                     </li>
                     <li>
-                        <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                     </li>
                     <li>
                         <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
@@ -1562,10 +1546,10 @@
                 <ul>
                     <li>
     
-                        <a class="tabs" href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                        <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                     </li>
                     <li>
-                        <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                     </li>
                     <li>
                         <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
@@ -1633,10 +1617,10 @@
                 <ul>
                     <li>
     
-                        <a class="tabs" href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                        <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                     </li>
                     <li>
-                        <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                     </li>
                     <li>
                         <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
@@ -1705,10 +1689,10 @@
                 <ul>
                     <li>
     
-                        <a class="tabs" href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                        <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                     </li>
                     <li>
-                        <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                     </li>
                     <li>
                         <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>

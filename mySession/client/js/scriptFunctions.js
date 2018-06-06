@@ -86,9 +86,7 @@ $(document).ready(function () {
                          gruposUsuarioActual[idx] = data.nombre
                         //  $("#listaTabHome").append("<li class='tabs ui-btn' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'>Grupo: "+data.nombre+"</li>");
                     }
-               });
-               console.log(sesionesUsuarioActual[idx]);
-               console.log(gruposUsuarioActual[idx]);                 
+               });              
                $("#listaTabHome").append("<li><a class='tabs ui-btn ui-btn-icon-right ui-icon-carat-r' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'  href='#ejerciciosSesion'>"+sesionesUsuarioActual[idx]+" - "+gruposUsuarioActual[idx]+"</a></li>"); 
             });           
         }).fail(function(error) {
@@ -99,7 +97,20 @@ $(document).ready(function () {
         $.get(urlApp + "Usuarios/" +getAllUrlParams(window.location.href).userid + "?access_token=" +getAllUrlParams(window.location.href).access_token, function (data, status){
             $(".NombreUsuarioAutenticado").text(data.nombre);
             $(".EmailUsuarioAutenticado").text(data.email);
+
+
         })
+
+        var nombreUsuarioGrupo = $("#NombreUsuarioAutenticado").text();
+        // GET/Usuarios/{idUsuarioAutenticado}/grupos
+        $.get(urlApp + "Usuarios/"+getAllUrlParams(window.location.href).userid+"/grupos?access_token="+getAllUrlParams(window.location.href).access_token, function (data, status) {
+
+            $.each(data, function(idx, obj) {
+                $(".listadoGrupos").append("<ul data-role='listview' data-inset='true' data-divider-theme='a' class='ui-listview ui-listview-inset ui-corner-all ui-shadow'><li class='listaGrupos ui-li-divider ui-bar-a ui-first-child' data-role='list-divider'>Nombre Grupo</li><li class='ui-li-static ui-body-inherit'>"+obj.nombre+"</li><li class='listaGrupos ui-li-divider ui-bar-a ui-first-child' data-role='list-divider'>Monitor</li><li class='ui-li-static ui-body-inherit'>"+nombreUsuarioGrupo+"</li><li class='listaGrupos ui-li-divider ui-bar-a ui-first-child' data-role='list-divider'>Horario</li><li class='ui-li-static ui-body-inherit'>"+obj.horario+"</li><li data-role='list-divider'><a href='#sesiones' class='ui-btn'>Ver Sesiones </a></li></ul>");
+            });           
+        }).fail(function(error) {
+            console.log(error);
+        });
 
 
     
@@ -110,7 +121,7 @@ $(document).ready(function () {
             {
                 console.log("data: "+data);
                 console.log("status: "+status);
-                $.removeCookie('access_token', { path: '/' });
+                document.cookie = "access_token=" + getAllUrlParams(window.location.href).access_token+ "; expires=Thu, 05 Dec 1970 12:00:00 UTC; path=/";
                 location.href ="http://localhost:3000/";
             });
     });
@@ -146,17 +157,30 @@ $(document).ready(function () {
         // POST/EjerciciosSesions el id de sesion se lo daremos dependiendo de la sesion a la que estemos pinchando
     });
 
-    $("#botonTabInicio").click(function () {
+    $(".botonTabInicio").click(function () {
+        //MACHACA EL RESULTADO ANTERIOR
+        $("#listaTabHome").html(" "); 
         $.get(urlApp + "Usuarios/"+getAllUrlParams(window.location.href).userid+"/sesiones?access_token="+getAllUrlParams(window.location.href).access_token, function (data, status) {
             var grupoId;
             $.each(data, function(idx, obj) {
-                grupoId = data[idx].grupoId              
-                console.log(obj.nombre);
-                $.get(urlApp + "Grupos/"+grupoId+"?access_token="+getAllUrlParams(window.location.href).access_token, function (data, status) {
-                    console.log("Nombre Grupo: " + data.nombre); //esto es para controlar la salida
-                }).fail(function(error) {
-                    console.log(error);
-                });
+                grupoId = data[idx].grupoId
+                sesionesUsuarioActual[idx]=obj.nombre
+                
+                // $("#listaTabHome").append("<li><a class='tabs ui-btn ui-btn-icon-right ui-icon-carat-r' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'  href='#ejerciciosSesion'>"+obj.nombre+"</a></li>");
+                
+
+                //AJAX SÍNCRONO PORQUE HASTA QUE NO ME DEVUELVE EL GRUPO NO QUIERO QUE SIGA
+                $.ajax({
+                    async: false,
+                    type: 'GET',
+                    url: urlApp + "Grupos/"+grupoId+"?access_token="+getAllUrlParams(window.location.href).access_token,
+                    success: function(data) {
+                         //callback
+                         gruposUsuarioActual[idx] = data.nombre
+                        //  $("#listaTabHome").append("<li class='tabs ui-btn' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'>Grupo: "+data.nombre+"</li>");
+                    }
+               });            
+               $("#listaTabHome").append("<li><a class='tabs ui-btn ui-btn-icon-right ui-icon-carat-r' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'  href='#ejerciciosSesion'>"+sesionesUsuarioActual[idx]+" - "+gruposUsuarioActual[idx]+"</a></li>"); 
             });           
         }).fail(function(error) {
             console.log(error);
@@ -165,9 +189,18 @@ $(document).ready(function () {
        
     });
 
-    $("#botonTabGrupos").click(function () {
+    $(".botonTabGrupos").click(function () {
+        $(".listadoGrupos").html("");
+        var nombreUsuarioGrupo = $("#NombreUsuarioAutenticado").text();
         // GET/Usuarios/{idUsuarioAutenticado}/grupos
+        $.get(urlApp + "Usuarios/"+getAllUrlParams(window.location.href).userid+"/grupos?access_token="+getAllUrlParams(window.location.href).access_token, function (data, status) {
 
+            $.each(data, function(idx, obj) {
+                $(".listadoGrupos").append("<ul data-role='listview' data-inset='true' data-divider-theme='a' class='ui-listview ui-listview-inset ui-corner-all ui-shadow'><li class='listaGrupos ui-li-divider ui-bar-a ui-first-child' data-role='list-divider'>Nombre Grupo</li><li class='ui-li-static ui-body-inherit'>"+obj.nombre+"</li><li class='listaGrupos ui-li-divider ui-bar-a ui-first-child' data-role='list-divider'>Monitor</li><li class='ui-li-static ui-body-inherit'>"+nombreUsuarioGrupo+"</li><li class='listaGrupos ui-li-divider ui-bar-a ui-first-child' data-role='list-divider'>Horario</li><li class='ui-li-static ui-body-inherit'>"+obj.horario+"</li><li data-role='list-divider'><a href='#sesiones' class='ui-btn'>Ver Sesiones </a></li></ul>");
+            });           
+        }).fail(function(error) {
+            console.log(error);
+        });
         
     });
 
