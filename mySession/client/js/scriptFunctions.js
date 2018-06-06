@@ -95,8 +95,13 @@ $(document).ready(function () {
             console.log(error);
         });
         
-        //GET /Usuarios/{id}
-        $
+        //GET /Usuarios/{id}   INFORMACIÓN DEL USUARIO
+        $.get(urlApp + "Usuarios/" +getAllUrlParams(window.location.href).userid + "?access_token=" +getAllUrlParams(window.location.href).access_token, function (data, status){
+            console.log(data.nombre);
+            console.log(data.email);
+            $(".NombreUsuarioAutenticado").text(data.nombre);
+            $(".EmailUsuarioAutenticado").text(data.email);
+        })
 
 
 
@@ -145,10 +150,24 @@ $(document).ready(function () {
         }).fail(function(error) {
             console.log(error);
         });
+
+        $.get(urlApp + "Usuarios/" +getAllUrlParams(window.location.href).userid + "?access_token=" +getAllUrlParams(window.location.href).access_token, function (data, status){
+            console.log(data.nombre);
+            console.log(data.email);
+            $("#NombreUsuarioAutenticado").text(data.nombre);
+            $("#EmailUsuarioAutenticado").text(data.email);
+        })
     });
 
     $("#botonTabGrupos").click(function () {
         // GET/Usuarios/{idUsuarioAutenticado}/grupos
+
+        $.get(urlApp + "Usuarios/" +getAllUrlParams(window.location.href).userid + "?access_token=" +getAllUrlParams(window.location.href).access_token, function (data, status){
+            console.log(data.nombre);
+            console.log(data.email);
+            $("#NombreUsuarioAutenticado").text(data.nombre);
+            $("#EmailUsuarioAutenticado").text(data.email);
+        })
     });
 
     $("#botonTabSesiones").click(function () {
