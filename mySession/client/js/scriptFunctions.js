@@ -64,32 +64,32 @@ function getAllUrlParams(url) {
 $(document).ready(function () {
 
     var urlApp = "http://localhost:3000/api/";
-
+    var sesionesUsuarioActual=[];
+    var gruposUsuarioActual=[];
     // GET/Usuarios/{idUsuarioAutenticado}/sesiones
         $.get(urlApp + "Usuarios/"+getAllUrlParams(window.location.href).userid+"/sesiones?access_token="+getAllUrlParams(window.location.href).access_token, function (data, status) {
             var grupoId;
             $.each(data, function(idx, obj) {
                 grupoId = data[idx].grupoId
-                $("#listaTabHome").append("<li><a class='tabs ui-btn ui-btn-icon-right ui-icon-carat-r' href='#ejerciciosSesion'>"+obj.nombre+"</a></li>");
-                // $.get(urlApp + "Grupos/"+grupoId+"?access_token="+getAllUrlParams(window.location.href).access_token, function (data, status) {
-                //     $("#listaTabHome").append(data.nombre+"</a></li>");
-                // }).fail(function(error) {
-                //     console.log(error);
-                // });
+                sesionesUsuarioActual[idx]=obj.nombre
+                
+                // $("#listaTabHome").append("<li><a class='tabs ui-btn ui-btn-icon-right ui-icon-carat-r' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'  href='#ejerciciosSesion'>"+obj.nombre+"</a></li>");
                 
 
-                //AJAX PORQUE HASTA QUE NO ME DEVUELVE EL GRUPO NO QUIERO QUE SIGA
+                //AJAX SÍNCRONO PORQUE HASTA QUE NO ME DEVUELVE EL GRUPO NO QUIERO QUE SIGA
                 $.ajax({
                     async: false,
                     type: 'GET',
                     url: urlApp + "Grupos/"+grupoId+"?access_token="+getAllUrlParams(window.location.href).access_token,
                     success: function(data) {
                          //callback
-                         $("#listaTabHome").append("<li class='tabs ui-btn'>Grupo: "+data.nombre+"</li>");
+                         gruposUsuarioActual[idx] = data.nombre
+                        //  $("#listaTabHome").append("<li class='tabs ui-btn' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'>Grupo: "+data.nombre+"</li>");
                     }
                });
-                              
-                
+               console.log(sesionesUsuarioActual[idx]);
+               console.log(gruposUsuarioActual[idx]);                 
+               $("#listaTabHome").append("<li><a class='tabs ui-btn ui-btn-icon-right ui-icon-carat-r' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'  href='#ejerciciosSesion'>"+sesionesUsuarioActual[idx]+" - "+gruposUsuarioActual[idx]+"</a></li>"); 
             });           
         }).fail(function(error) {
             console.log(error);
@@ -97,12 +97,23 @@ $(document).ready(function () {
         
         //GET /Usuarios/{id}   INFORMACIÓN DEL USUARIO
         $.get(urlApp + "Usuarios/" +getAllUrlParams(window.location.href).userid + "?access_token=" +getAllUrlParams(window.location.href).access_token, function (data, status){
-            console.log(data.nombre);
-            console.log(data.email);
             $(".NombreUsuarioAutenticado").text(data.nombre);
             $(".EmailUsuarioAutenticado").text(data.email);
         })
 
+
+    
+    $(".botonLogout").click(function () {
+        // POST/Usuarios/{idUsuarioAutenticado}/grupos
+
+        $.post(urlApp + "Usuarios/logout?access_token="+getAllUrlParams(window.location.href).access_token, function (data, status)
+            {
+                console.log("data: "+data);
+                console.log("status: "+status);
+                $.removeCookie('access_token', { path: '/' });
+                location.href ="http://localhost:3000/";
+            });
+    });
 
 
     $("#botonCrearGrupo").click(function () {
@@ -151,23 +162,13 @@ $(document).ready(function () {
             console.log(error);
         });
 
-        $.get(urlApp + "Usuarios/" +getAllUrlParams(window.location.href).userid + "?access_token=" +getAllUrlParams(window.location.href).access_token, function (data, status){
-            console.log(data.nombre);
-            console.log(data.email);
-            $("#NombreUsuarioAutenticado").text(data.nombre);
-            $("#EmailUsuarioAutenticado").text(data.email);
-        })
+       
     });
 
     $("#botonTabGrupos").click(function () {
         // GET/Usuarios/{idUsuarioAutenticado}/grupos
 
-        $.get(urlApp + "Usuarios/" +getAllUrlParams(window.location.href).userid + "?access_token=" +getAllUrlParams(window.location.href).access_token, function (data, status){
-            console.log(data.nombre);
-            console.log(data.email);
-            $("#NombreUsuarioAutenticado").text(data.nombre);
-            $("#EmailUsuarioAutenticado").text(data.email);
-        })
+        
     });
 
     $("#botonTabSesiones").click(function () {
