@@ -93,7 +93,13 @@ $(document).ready(function () {
             });           
         }).fail(function(error) {
             console.log(error);
-        });       
+        });
+        
+        //GET /Usuarios/{id}
+        $
+
+
+
     $("#botonCrearGrupo").click(function () {
         // POST/Usuarios/{idUsuarioAutenticado}/grupos
 

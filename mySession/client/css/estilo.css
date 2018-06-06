@@ -2,7 +2,8 @@
 .ui-page{
     /* background: linear-gradient(to right, #abdeae , rgb(215, 252, 255)); */
     /* background: linear-gradient(to right, white , rgb(255, 159, 159)); */
-    background: linear-gradient(to right, #b4dde4 , white);
+    /* background: linear-gradient(to right, #b4dde4 , white); */
+    background: linear-gradient(to right, #82e5a3, rgb(215, 252, 255));
 }
 
 .borrarSesion{

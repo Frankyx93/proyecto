@@ -320,17 +320,39 @@
         <input type="search" name="buscador-ejercicios" id="buscador-ejercicios" value="" placeholder="Buscar">
         <ul data-role="listview" data-inset="true" data-divider-theme="b">
             <!-- Cada elemento de la lista debe llevar a otra pantalla donde salgan todos los ejercicios de esa categoría -->
-            <li > <a class="" href="#categoriaCalentamiento" data-icon="">Calentamiento</a></li>
-            <li ><a class="" href="#ejercicioEstiramientos" data-icon="">Estiramientos</a></li>
-            <li ><a class="" href="#ejercicioEquilibrio" data-icon="">Equilibrio</a></li>
-            <li ><a class="" href="#ejercicioDesplazamientos" data-icon="">Desplazamientos</a></li>
-            <li ><a class="" href="#ejercicioPelotas" data-icon="">Pelotas</a></li>
-            <li ><a class="" href="#ejercicioGiros" data-icon="">Giros</a></li>
-            <li ><a class="" href="#ejercicioCoordinación" data-icon="">Coordinación</a></li>
-            <li ><a class="" href="#ejercicioSaltos" data-icon="">Saltos</a></li>
-            <li ><a class="" href="#ejercicioCorporal" data-icon="">Esquema corporal</a></li>
-            <li ><a class="" href="#ejercicioRelajación" data-icon="">Relajación</a></li>
-            <li ><a class="" href="#ejercicioLateralidad" data-icon="">Lateralidad</a></li>
+            <li > <a style="background: linear-gradient(lightcyan, beige, gray);
+                border: 1px solid gray;
+                border-radius: 15px;" class="" href="#categoriaCalentamiento" data-icon="">Calentamiento</a></li>
+            <li ><a style="background: linear-gradient(lightcyan, beige, gray);
+                border: 1px solid gray;
+                border-radius: 15px;" class="" href="#ejercicioEstiramientos" data-icon="">Estiramientos</a></li>
+            <li ><a style="background: linear-gradient(lightcyan, beige, gray);
+                border: 1px solid gray;
+                border-radius: 15px;" class="" href="#ejercicioEquilibrio" data-icon="">Equilibrio</a></li>
+            <li ><a style="background: linear-gradient(lightcyan, beige, gray);
+                border: 1px solid gray;
+                border-radius: 15px;" class="" href="#ejercicioDesplazamientos" data-icon="">Desplazamientos</a></li>
+            <li ><a style="background: linear-gradient(lightcyan, beige, gray);
+                border: 1px solid gray;
+                border-radius: 15px;" class="" href="#ejercicioPelotas" data-icon="">Pelotas</a></li>
+            <li ><a style="background: linear-gradient(lightcyan, beige, gray);
+                border: 1px solid gray;
+                border-radius: 15px;" class="" href="#ejercicioGiros" data-icon="">Giros</a></li>
+            <li ><a style="background: linear-gradient(lightcyan, beige, gray);
+                border: 1px solid gray;
+                border-radius: 15px;" class="" href="#ejercicioCoordinación" data-icon="">Coordinación</a></li>
+            <li ><a style="background: linear-gradient(lightcyan, beige, gray);
+                border: 1px solid gray;
+                border-radius: 15px;" class="" href="#ejercicioSaltos" data-icon="">Saltos</a></li>
+            <li ><a style="background: linear-gradient(lightcyan, beige, gray);
+                border: 1px solid gray;
+                border-radius: 15px;" class="" href="#ejercicioCorporal" data-icon="">Esquema corporal</a></li>
+            <li ><a style="background: linear-gradient(lightcyan, beige, gray);
+                border: 1px solid gray;
+                border-radius: 15px;" class="" href="#ejercicioRelajación" data-icon="">Relajación</a></li>
+            <li ><a style="background: linear-gradient(lightcyan, beige, gray);
+                border: 1px solid gray;
+                border-radius: 15px;" class="" href="#ejercicioLateralidad" data-icon="">Lateralidad</a></li>
         </ul>
 
 
@@ -400,11 +422,11 @@
         <div id="cajaInformacion">
             <h4 style="color:blue;">Rellena los siguientes datos </h4>
             <form method="post" action="">
-                <label>Nombre del grupo</label>
+                <label class="estiloletra" style="margin-left: 20px;margin-right: 20px;font-family: Arial, Helvetica, sans-serif;">Nombre del grupo</label>
                 <input  type="text" name="grupo">
                 <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
                 
-                    <legend>Días</legend>
+                    <legend style="font-family: Arial, Helvetica, sans-serif;">Días</legend>
                 
                     <input type="checkbox" name="checkbox-lunes" id="checkbox-lunes">
                     <label for="checkbox-lunes">L</label>
@@ -420,11 +442,14 @@
                     <input type="checkbox" name="checkbox-viernes" id="checkbox-viernes">
                     <label for="checkbox-viernes">V</label>
                 </fieldset>
+                <br>
 
-                <label for="slider1">Número de alumnos: </label>
+                <label style="margin-left: 20px;margin-right: 20px;font-family: Arial, Helvetica, sans-serif;" for="slider1">Número de alumnos: </label>
                 <input type="range" name="slider1" id="slider1" min="2" max="40" value="12">
+                <br><br>
 
-                <input align="center" type="submit" align="center" value="Crear" data-inline="true">
+                <!-- <input align="center" type="submit" align="center" value="Crear" data-inline="true"> -->
+                <a style="margin-left: 20px;margin-right: 20px;" href = "#page2" class="ui-btn ">Crear</a>
                 <!-- POST /Usuarios/{id}/grupos -->
             </form>
         </div>
@@ -623,36 +648,80 @@
     </header>
     <article data-role="content">
         <h2>{Nombre de la sesión}</h2>
-        <ul data-role="listview" data-inset="true" data-divider-theme="b">
+        <!-- <ul data-role="listview" data-inset="true" data-divider-theme="b">
             <li data-role="list-divider">Calentamiento</li>
             <li>
                 <a  href="#ejercicio1" class = "">Movilidad articular</a> <a style="background-color: lightcoral;" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a>
             </li>
             <li>
                 <a href="#">Estiramientos</a><a style="background-color: lightcoral;" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a>
-                <!-- GET /Ejercicio/{id} -->
+                 GET /Ejercicio/{id} 
             </li>
             <li>
                 <a href="#">El Perrito</a><a style="background-color: lightcoral;" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a>
-                <!-- GET /Ejercicio/{id} -->
+                 GET /Ejercicio/{id} 
             </li>
             <li data-role="list-divider">Parte Principal</li>
             <li>
                 <a href="#">Derribar los bolos</a><a style="background-color: lightcoral;" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a>
-                <!-- GET /Ejercicio/{id} -->
+                 GET /Ejercicio/{id}
             </li>
             <li>
                 <a href="#">Circuito de Equilibrios</a><a style="background-color: lightcoral;" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a>
-                <!-- GET /Ejercicio/{id} -->
+                 GET /Ejercicio/{id} 
             </li>
             <li data-role="list-divider">Vuelta a la calma</li>
             <li>
                 <a href="#">Osito Dormilón</a><a style="background-color: lightcoral;" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a>
+                 GET /Ejercicio/{id}
+            </li>
+        </ul> -->
+                <div  data-role = "collapsible" >
+                    <h4 style="color:blue">Calentamiento</h4>
+                    <ul data-role = "listview">
+                       <li><a style="background: #FFC991" href="#ejercicio1" class = "">
+                           Movilidad articular</a>
+                           <a style="background-color: lightcoral;margin-right: 5px" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a>
+                        <!-- GET /Ejercicio/{id} -->
+                        </li>
+                        <li><a style="background: #FFC991" href="#ejercicio1" class = "">
+                                Estiramientos</a>
+                            <a style="background-color: lightcoral;margin-right: 5px" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a>
+                             <!-- GET /Ejercicio/{id} -->
+                        </li>
+                        <li><a style="background: #FFC991;" href="#ejercicio1" class = "">
+                            El Perrito</a>
+                            <a style="background-color: lightcoral;margin-right: 5px" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a>
+                                 <!-- GET /Ejercicio/{id} -->
+                        </li>
+                    </ul>
+                </div>
+                <div data-role = "collapsible" >
+                        <h4>Parte Principal</h4>
+                        <ul data-role = "listview">
+                           <li><a style="background: #FFC991" href="#ejercicio1" class = "">
+                                Derribar los bolos</a>
+                               <a style="background-color: lightcoral;margin-right: 5px" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a>
+                            <!-- GET /Ejercicio/{id} -->
+                            </li>
+                            <li><a style="background: #FFC991" href="#ejercicio1" class = "">
+                                    Circuito de Equilibrios</a>
+                                <a style="background-color: lightcoral;margin-right: 5px" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a>
+                                 <!-- GET /Ejercicio/{id} -->
+                            </li>
+                        </ul>
+                </div>
+                <div data-role = "collapsible" >
+                            <h4>Vuelta a la calma</h4>
+                            <ul data-role = "listview">
+                               <li><a style="background: #FFC991" href="#ejercicio1" class = "">
+                                    Osito Dormilón</a>
+                                   <a style="background-color: lightcoral;margin-right: 5px" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a>
                 <!-- GET /Ejercicio/{id} -->
             </li>
         </ul>
 
-        <input align="center" type="submit" value="Añadir Ejercicios" data-inline="true">
+        <center><input style="background: darkred;" align="center" type="submit" value="Añadir Ejercicios" data-inline="true"></center>
 
 
     </article>
