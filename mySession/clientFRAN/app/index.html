@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<!-- librerias locales Jquery -->
+
+    <!-- librerias locales Jquery -->
 
     <link rel="stylesheet" href="../jqueryMobile/jquery.mobile-1.4.5.min.css">
     <script src="../jqueryMobile/jquery-1.11.3.min.js"></script>
@@ -39,7 +40,7 @@
 
 
 
-    <title>Aplicacion De Deporte</title>
+    <title>MySession</title>
 </head>
 
 <body id="">
@@ -52,12 +53,12 @@
                     <a style="border-radius: 50px;background-color: #f44242;" href = "#page1" data-rel = "close" class = "ui-btn ui-btn-a ui-icon-delete 
                     ui-btn-icon-notext ui-btn-right"></a>
                     <p>
-                        <center><img src="..\..\images\imagenes\user.png" alt="" width="60" height="60"></center>
+                        <center><img src="..\images\imagenes\user.png" alt="" width="60" height="60"></center>
                     </p>
                     <p class="NombreUsuarioAutenticado" id="NombreUsuarioAutenticado" style="text-align:center;"></p>
                     <p class="EmailUsuarioAutenticado" id="EmailUsuarioAutenticado" style="text-align:center;"></p>
                     
-                    <center><a style="display: inline-block; background: linear-gradient(to right, #f18da3 , rgb(243, 88, 88));color:black;" 
+                    <center><a class="botonLogout" style="display: inline-block; background: linear-gradient(to right, #f18da3 , rgb(243, 88, 88));color:black;" 
                         href = "#" class ="ui-btn">Cerrar sesion</a></center>
             </div>
         <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
@@ -71,22 +72,23 @@
                 <h4>Bienvenido a mySession</h4>
                 <br>
                 <ul data-role="listview" id="listaTabHome">
-                    <!-- <li >
-                        <a style="background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;" class="tabs" href="#ejerciciosSesion">Saltos - Psicomotricidad 1</a>
-                    </li>
-                    <li > 
-                        <a style="background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;" class="tabs" href="#ejerciciosSesion">Equilibrio - Psicomotricidad 2</a>
+                    <!-- <li>
+                        <a class="tabs" href="#ejerciciosSesion">Saltos - Psicomotricidad 1</a>
 
                     </li>
-                    <li >
-                        <a style="background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;" class="tabs" href="#ejerciciosSesion">Lanzamientos - Psico Coles</a>
+                    <li>
+                        <a class="tabs" href="#ejerciciosSesion">Equilibrio - Psicomotricidad 2</a>
+
+                    </li>
+                    <li>
+                        <a class="tabs" href="#ejerciciosSesion">Lanzamientos - Psico Coles</a>
 
                     </li> -->
                 </ul>
 
             </div>
             <div>
-                <a style="" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-plus" href="#formulario">Nuevo Grupo</a>
+                <a class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-plus" href="#formulario">Nuevo Grupo</a>
             </div>
         </article>
 
@@ -100,13 +102,13 @@
                     </li>
                     <li>                 
                         <!-- GET Usuarios/{id}/grupos -->
-                        <a class="tabs botonTabGrupos" href="#grupos"  data-icon="calendar">Grupos</a>
+                        <a class="tabs" href="#grupos" class="ui-btn-active ui-state-persist" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                     </li>
                     <li>
                         <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
                         <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                         <!-- GET /Grupos/{id} -->
-                        <a class="tabs" href="#sesiones" data-icon="info" class="botonTabSesiones">Sesiones</a>
+                        <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
                     </li>
                     <li>
                         <!-- GET /Categoria -->
@@ -128,7 +130,7 @@
                         <center><img src="..\images\imagenes\user.png" alt="" width="60" height="60"></center>
                     </p>
                     <p class="NombreUsuarioAutenticado" style="text-align:center;"></p>
-                    <p class="EmailUsuarioAutenticado"  style="text-align:center;"></p>
+                    <p class="EmailUsuarioAutenticado" style="text-align:center;"></p>
                     
                     <center><a class="botonLogout" style="display: inline-block; background: linear-gradient(to right, #f18da3 , rgb(243, 88, 88));color:black;" 
                         href = "#" class ="ui-btn">Cerrar sesion</a></center>
@@ -140,25 +142,13 @@
         </header>
         <article data-role="content">
             <!-- en caso de no tener las sesiones  -->
-            <!-- <h4>Aún no tienes grupos creados</h4> -->
             <p>
                 <a class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-plus" href="#formulario">Nuevo Grupo</a>
             </p>
 
             
             <div id="cajaPadre" class="listadoGrupos">
-                <!-- <ul data-role="listview" data-inset="true" data-divider-theme="a">
-                    <li class="listaGrupos" data-role="list-divider">Nombre Grupo</li>
-                    <li class="datosLista" >Psicomotricidad 1</li>
-                    <li class="listaGrupos" data-role="list-divider">Monitor</li>
-                    <li class="datosLista" >Juan Martínez</li>
-                    <li class="listaGrupos" data-role="list-divider">Horario</li>
-                    <li class="datosLista" >Lunes, Miércoles - 17:00-18:45</li>
 
-                        
-                    <a  href="#sesiones" class="ui-btn">Ver Sesiones </a>
-
-                </ul> -->
             </div>
         </article>
 
@@ -175,13 +165,13 @@
                     </li>
                     <li class="tabs">
                         <!-- GET Usuarios/{id}/grupos -->
-                        <a class="tabs" href="#grupos" class="ui-btn-active ui-state-persist" data-icon="calendar">Grupos</a>
+                        <a class="tabs" href="#grupos" class="ui-btn-active ui-state-persist" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                     </li>
                     <li class="tabs">
                         <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación, más recientes primero-->
                         <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                         <!-- GET /Grupos/{id} -->
-                        <a  href="#sesiones" data-icon="info" class="botonTabSesiones" >Sesiones</a>
+                        <a  href="#sesiones" data-icon="info">Sesiones</a>
                     </li>
                     <li class="tabs">
                         <!-- GET /Categoria -->
@@ -203,8 +193,8 @@
                     <p>
                         <center><img src="..\images\imagenes\user.png" alt="" width="60" height="60"></center>
                     </p>
-                    <p class="NombreUsuarioAutenticado" style="text-align:center;" class="NombreUsuarioAutenticado" id="NombreUsuarioAutenticado"></p>
-                    <p class="EmailUsuarioAutenticado" style="text-align:center;"class="EmailUsuarioAutenticado" id="EmailUsuarioAutenticado"></p>
+                    <p class="NombreUsuarioAutenticado" style="text-align:center;"></p>
+                    <p class="EmailUsuarioAutenticado" style="text-align:center;"></p>
                     
                     <center><a class="botonLogout" style="display: inline-block; background: linear-gradient(to right, #f18da3 , rgb(243, 88, 88));color:black;" 
                         href = "#" class ="ui-btn">Cerrar sesion</a></center>
@@ -216,6 +206,7 @@
         </header>
         <article data-role="content">
             <!-- en caso de no tener Sesiones aparecera esta parte  -->
+            <h5>Aún no tienes sesiones creadas</h5>
             <p>
                 <a style="margin-right: 5%;margin-left: 5%;" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-plus" href="#aniadirsesion">Nueva Sesión</a>
                 <br>
@@ -223,7 +214,28 @@
 
 
             <!-- en esta parte tienen las sesiones creadas -->
-            <ul  id="listadoSesiones" style="margin-right: 5%;margin-left: 5%;border-radius: 15px;" data-role="listview">
+            <ul style="margin-right: 5%;margin-left: 5%;background-color: lightcoral;border-radius: 15px;" data-role="listview">
+                <li >
+                    <a href="#ejerciciosSesion">Sesion 1 - 24/04/2018 - Psicomotricidad 1</a>
+                    <!-- GET/Sesions/{id}/ejercicios -->
+                    <!-- Se le pasa el id de la sesion -->
+                    <a style="background-color: lightcoral;" href="#" class = " eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right"></a>
+                    <!-- DELETE /Sesions/{id} -->
+                    <li >
+                        <a href="#ejerciciosSesion">Sesion 2 - 24/04/2018 - Psicomotricidad 2</a>
+                    <!-- GET/Sesions/{id}/ejercicios -->
+                    <!-- Se le pasa el id de la sesion -->
+                    <a style="background-color: lightcoral;" href="#" class = " eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right"></a>
+                        <!-- DELETE /Sesions/{id} -->
+                    </li>
+                    <li >
+                        <a href="#ejerciciosSesion">Sesion 3 - 24/04/2018 - Psico Coles</a>
+                    <!-- GET/Sesions/{id}/ejercicios -->
+                    <!-- Se le pasa el id de la sesion -->
+                        <a style="background-color: lightcoral;" href="#" class = " eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right"></a>
+                        <!-- DELETE /Sesions/{id} -->
+                    </li>
+
             </ul>
         </article>
 
@@ -239,13 +251,13 @@
                     </li>
                     <li>
                         <!-- GET Usuarios/{id}/grupos -->
-                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                     </li>
                     <li>
                         <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación, más recientes primero-->
                         <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                         <!-- GET /Grupos/{id} -->
-                        <a class="tabs" href="#sesiones" class="ui-btn-active ui-state-persist" data-icon="info" class="botonTabSesiones" >Sesiones</a>
+                        <a class="tabs" href="#sesiones" class="ui-btn-active ui-state-persist" data-icon="info">Sesiones</a>
                     </li>
                     <li>
                         <!-- GET /Categoria -->
@@ -262,6 +274,12 @@
 </html>
 
 
+
+
+
+
+
+
 <!-- cuarta pagina , cuarto tab -->
 <section id="ejercicios" data-role="page">
         <div style="height: 20px;" data-role = "panel" id = "overlay_panel" data-display = "overlay">
@@ -273,7 +291,7 @@
                 <p class="NombreUsuarioAutenticado" style="text-align:center;"></p>
                 <p class="EmailUsuarioAutenticado" style="text-align:center;"></p>
                 
-                <center><a class="botonLogout"  style="display: inline-block; background: linear-gradient(to right, #f18da3 , rgb(243, 88, 88));color:black;" 
+                <center><a class="botonLogout" style="display: inline-block; background: linear-gradient(to right, #f18da3 , rgb(243, 88, 88));color:black;" 
                     href = "#" class ="ui-btn">Cerrar sesion</a></center>
         </div>
     <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
@@ -284,41 +302,41 @@
         <h2>Lista de los ejercicios</h2>
 
         <input type="search" name="buscador-ejercicios" id="buscador-ejercicios" value="" placeholder="Buscar">
-        <ul id="listadoCategorias"  data-role="listview" data-inset="true" data-divider-theme="b">
+        <ul data-role="listview" data-inset="true" data-divider-theme="b">
             <!-- Cada elemento de la lista debe llevar a otra pantalla donde salgan todos los ejercicios de esa categoría -->
-            <!-- <li > <a style="background: linear-gradient(lightcyan, beige, gray);
+            <li > <a style="background: linear-gradient(lightcyan, beige, gray);
                 border: 1px solid gray;
-               border-radius: 10px" class="" href="#categoriaCalentamiento" data-icon="">Calentamiento</a></li>
+                border-radius: 15px;" class="" href="#categoriaCalentamiento" data-icon="">Calentamiento</a></li>
             <li ><a style="background: linear-gradient(lightcyan, beige, gray);
                 border: 1px solid gray;
-               border-radius: 10px" class="" href="#ejercicioEstiramientos" data-icon="">Estiramientos</a></li>
+                border-radius: 15px;" class="" href="#ejercicioEstiramientos" data-icon="">Estiramientos</a></li>
             <li ><a style="background: linear-gradient(lightcyan, beige, gray);
                 border: 1px solid gray;
-               border-radius: 10px" class="" href="#ejercicioEquilibrio" data-icon="">Equilibrio</a></li>
+                border-radius: 15px;" class="" href="#ejercicioEquilibrio" data-icon="">Equilibrio</a></li>
             <li ><a style="background: linear-gradient(lightcyan, beige, gray);
                 border: 1px solid gray;
-               border-radius: 10px" class="" href="#ejercicioDesplazamientos" data-icon="">Desplazamientos</a></li>
+                border-radius: 15px;" class="" href="#ejercicioDesplazamientos" data-icon="">Desplazamientos</a></li>
             <li ><a style="background: linear-gradient(lightcyan, beige, gray);
                 border: 1px solid gray;
-               border-radius: 10px" class="" href="#ejercicioPelotas" data-icon="">Pelotas</a></li>
+                border-radius: 15px;" class="" href="#ejercicioPelotas" data-icon="">Pelotas</a></li>
             <li ><a style="background: linear-gradient(lightcyan, beige, gray);
                 border: 1px solid gray;
-               border-radius: 10px" class="" href="#ejercicioGiros" data-icon="">Giros</a></li>
+                border-radius: 15px;" class="" href="#ejercicioGiros" data-icon="">Giros</a></li>
             <li ><a style="background: linear-gradient(lightcyan, beige, gray);
                 border: 1px solid gray;
-               border-radius: 10px" class="" href="#ejercicioCoordinación" data-icon="">Coordinación</a></li>
+                border-radius: 15px;" class="" href="#ejercicioCoordinación" data-icon="">Coordinación</a></li>
             <li ><a style="background: linear-gradient(lightcyan, beige, gray);
                 border: 1px solid gray;
-               border-radius: 10px" class="" href="#ejercicioSaltos" data-icon="">Saltos</a></li>
+                border-radius: 15px;" class="" href="#ejercicioSaltos" data-icon="">Saltos</a></li>
             <li ><a style="background: linear-gradient(lightcyan, beige, gray);
                 border: 1px solid gray;
-               border-radius: 10px" class="" href="#ejercicioCorporal" data-icon="">Esquema corporal</a></li>
+                border-radius: 15px;" class="" href="#ejercicioCorporal" data-icon="">Esquema corporal</a></li>
             <li ><a style="background: linear-gradient(lightcyan, beige, gray);
                 border: 1px solid gray;
-               border-radius: 10px" class="" href="#ejercicioRelajación" data-icon="">Relajación</a></li>
+                border-radius: 15px;" class="" href="#ejercicioRelajación" data-icon="">Relajación</a></li>
             <li ><a style="background: linear-gradient(lightcyan, beige, gray);
                 border: 1px solid gray;
-               border-radius: 10px" class="" href="#ejercicioLateralidad" data-icon="">Lateralidad</a></li> -->
+                border-radius: 15px;" class="" href="#ejercicioLateralidad" data-icon="">Lateralidad</a></li>
         </ul>
 
 
@@ -336,13 +354,13 @@
                 </li>
                 <li>
                     <!-- GET Usuarios/{id}/grupos -->
-                    <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
+                    <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                 </li>
                 <li>
                     <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
                     <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                     <!-- GET /Grupos/{id} -->
-                    <a class="tabs" href="#sesiones" data-icon="info" class="botonTabSesiones" >Sesiones</a>
+                    <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
                 </li>
                 <li>
                     <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
@@ -386,13 +404,13 @@
     
     <div id="">
         <div id="cajaInformacion">
-            <h3 style="color:#424242;text-align: center;font-weight: bold;">Rellene los siguientes datos </h3>
+            <h4 style="color:blue;">Rellena los siguientes datos </h4>
             <form method="post" action="">
-                <label class="estiloletra" style="margin-left: 20px;margin-right: 20px;font-family: Arial, Helvetica, sans-serif;color:#716e6e;font-weight:bold">Nombre del grupo</label>
-                <input  id="nombreGrupoNuevo" type="text" name="grupo">
+                <label class="estiloletra" style="margin-left: 20px;margin-right: 20px;font-family: Arial, Helvetica, sans-serif;">Nombre del grupo</label>
+                <input  type="text" name="grupo">
                 <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
                 
-                    <legend style="font-family: Arial, Helvetica, sans-serif;color:#716e6e;font-weight:bold">Días</legend>
+                    <legend style="font-family: Arial, Helvetica, sans-serif;">Días</legend>
                 
                     <input type="checkbox" name="checkbox-lunes" id="checkbox-lunes">
                     <label for="checkbox-lunes">L</label>
@@ -410,10 +428,12 @@
                 </fieldset>
                 <br>
 
+                <label style="margin-left: 20px;margin-right: 20px;font-family: Arial, Helvetica, sans-serif;" for="slider1">Número de alumnos: </label>
+                <input type="range" name="slider1" id="slider1" min="2" max="40" value="12">
+                <br><br>
 
-
-                <!-- <center><input  type="submit" align="center" value="Crear" data-inline="true"></center> -->
-                <a id="botonCrearGrupo" style="margin-left: 20px;margin-right: 20px;" href = "#page2" class="ui-btn ">Crear</a>
+                <!-- <input align="center" type="submit" align="center" value="Crear" data-inline="true"> -->
+                <a style="margin-left: 20px;margin-right: 20px;" href = "#page2" class="ui-btn ">Crear</a>
                 <!-- POST /Usuarios/{id}/grupos -->
             </form>
         </div>
@@ -428,13 +448,13 @@
                     <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                 </li>
                 <li>
-                    <a class="tabs" href="#grupos" class="ui-btn-active ui-state-persist" data-icon="calendar" class="botonTabGrupos">Grupos</a>
+                    <a class="tabs" href="#grupos" class="ui-btn-active ui-state-persist" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                 </li>
                 <li>
                     <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
                     <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                     <!-- GET /Grupos/{id} -->
-                    <a class="tabs" href="#sesiones" data-icon="info" class="botonTabSesiones" >Sesiones</a>
+                    <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
                 </li>
                 <li>
                     <!-- GET /Categoria -->
@@ -499,10 +519,10 @@
                 </li>
                 <li>
                     <!-- GET Usuarios/{id}/grupos -->
-                    <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
+                    <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                 </li>
                 <li>
-                    <a class="tabs" href="#sesiones" class="ui-btn-active ui-state-persist" data-icon="info" class="botonTabSesiones" >Sesiones</a>
+                    <a class="tabs" href="#sesiones" class="ui-btn-active ui-state-persist" data-icon="info">Sesiones</a>
                 </li>
                 <li>
                     <!-- GET /Categoria -->
@@ -587,13 +607,13 @@
                 </li>
                 <li>
                     <!-- GET Usuarios/{id}/grupos -->
-                    <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
+                    <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                 </li>
                 <li>
                     <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
                     <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                     <!-- GET /Grupos/{id} -->
-                    <a class="tabs" href="#sesiones" data-icon="info" class="botonTabSesiones" >Sesiones</a>
+                    <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
                 </li>
                 <li>
                     <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
@@ -612,55 +632,78 @@
     </header>
     <article data-role="content">
         <h2>{Nombre de la sesión}</h2>
-
-
-        <div  data-role = "collapsible" >
-            <h4 style="color:blue">Calentamiento</h4>
-            <ul data-role = "listview">
-               <li><a style="background: #FFC991" href="#ejercicio1" class = "">
-                   Movilidad articular</a>
-                   <a style="background-color: lightcoral;margin-right: 5px" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a>
-                <!-- GET /Ejercicio/{id} -->
-                </li>
-                <li><a style="background: #FFC991" href="#ejercicio1" class = "">
-                        Estiramientos</a>
-                    <a style="background-color: lightcoral;margin-right: 5px" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a>
-                     <!-- GET /Ejercicio/{id} -->
-                </li>
-                <li><a style="background: #FFC991;" href="#ejercicio1" class = "">
-                    El Perrito</a>
-                    <a style="background-color: lightcoral;margin-right: 5px" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a>
-                         <!-- GET /Ejercicio/{id} -->
-                </li>
-            </ul>
-        </div>
-        <div data-role = "collapsible" >
-                <h4>Parte Principal</h4>
-                <ul data-role = "listview">
-                   <li><a style="background: #FFC991" href="#ejercicio1" class = "">
-                        Derribar los bolos</a>
-                       <a style="background-color: lightcoral;margin-right: 5px" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a>
-                    <!-- GET /Ejercicio/{id} -->
-                    </li>
-                    <li><a style="background: #FFC991" href="#ejercicio1" class = "">
-                            Circuito de Equilibrios</a>
-                        <a style="background-color: lightcoral;margin-right: 5px" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a>
-                         <!-- GET /Ejercicio/{id} -->
-                    </li>
-                </ul>
-        </div>
-        <div data-role = "collapsible" >
-                    <h4>Vuelta a la calma</h4>
+        <!-- <ul data-role="listview" data-inset="true" data-divider-theme="b">
+            <li data-role="list-divider">Calentamiento</li>
+            <li>
+                <a  href="#ejercicio1" class = "">Movilidad articular</a> <a style="background-color: lightcoral;" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a>
+            </li>
+            <li>
+                <a href="#">Estiramientos</a><a style="background-color: lightcoral;" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a>
+                 GET /Ejercicio/{id} 
+            </li>
+            <li>
+                <a href="#">El Perrito</a><a style="background-color: lightcoral;" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a>
+                 GET /Ejercicio/{id} 
+            </li>
+            <li data-role="list-divider">Parte Principal</li>
+            <li>
+                <a href="#">Derribar los bolos</a><a style="background-color: lightcoral;" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a>
+                 GET /Ejercicio/{id}
+            </li>
+            <li>
+                <a href="#">Circuito de Equilibrios</a><a style="background-color: lightcoral;" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a>
+                 GET /Ejercicio/{id} 
+            </li>
+            <li data-role="list-divider">Vuelta a la calma</li>
+            <li>
+                <a href="#">Osito Dormilón</a><a style="background-color: lightcoral;" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a>
+                 GET /Ejercicio/{id}
+            </li>
+        </ul> -->
+                <div  data-role = "collapsible" >
+                    <h4 style="color:blue">Calentamiento</h4>
                     <ul data-role = "listview">
                        <li><a style="background: #FFC991" href="#ejercicio1" class = "">
-                            Osito Dormilón</a>
+                           Movilidad articular</a>
                            <a style="background-color: lightcoral;margin-right: 5px" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a>
                         <!-- GET /Ejercicio/{id} -->
                         </li>
+                        <li><a style="background: #FFC991" href="#ejercicio1" class = "">
+                                Estiramientos</a>
+                            <a style="background-color: lightcoral;margin-right: 5px" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a>
+                             <!-- GET /Ejercicio/{id} -->
+                        </li>
+                        <li><a style="background: #FFC991;" href="#ejercicio1" class = "">
+                            El Perrito</a>
+                            <a style="background-color: lightcoral;margin-right: 5px" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a>
+                                 <!-- GET /Ejercicio/{id} -->
+                        </li>
                     </ul>
-        </div>
-
-
+                </div>
+                <div data-role = "collapsible" >
+                        <h4>Parte Principal</h4>
+                        <ul data-role = "listview">
+                           <li><a style="background: #FFC991" href="#ejercicio1" class = "">
+                                Derribar los bolos</a>
+                               <a style="background-color: lightcoral;margin-right: 5px" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a>
+                            <!-- GET /Ejercicio/{id} -->
+                            </li>
+                            <li><a style="background: #FFC991" href="#ejercicio1" class = "">
+                                    Circuito de Equilibrios</a>
+                                <a style="background-color: lightcoral;margin-right: 5px" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a>
+                                 <!-- GET /Ejercicio/{id} -->
+                            </li>
+                        </ul>
+                </div>
+                <div data-role = "collapsible" >
+                            <h4>Vuelta a la calma</h4>
+                            <ul data-role = "listview">
+                               <li><a style="background: #FFC991" href="#ejercicio1" class = "">
+                                    Osito Dormilón</a>
+                                   <a style="background-color: lightcoral;margin-right: 5px" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a>
+                <!-- GET /Ejercicio/{id} -->
+            </li>
+        </ul>
 
         <center><input style="background: darkred;" align="center" type="submit" value="Añadir Ejercicios" data-inline="true"></center>
 
@@ -677,10 +720,10 @@
                 </li>
                 <li>
                     <!-- GET Usuarios/{id}/grupos -->
-                    <a href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
+                    <a href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                 </li>
                 <li>
-                    <a href="#sesiones" class="ui-btn-active ui-state-persist" data-icon="info" class="botonTabSesiones" >Sesiones</a>
+                    <a href="#sesiones" class="ui-btn-active ui-state-persist" data-icon="info">Sesiones</a>
                 </li>
                 <li>
                     <!-- GET /Categoria -->
@@ -746,10 +789,10 @@
                 </li>
                 <li>
                     GET Usuarios/{id}/grupos
-                    <a href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
+                    <a href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                 </li>
                 <li>
-                    <a href="#sesiones" class="ui-btn-active ui-state-persist" data-icon="info" class="botonTabSesiones" >Sesiones</a>
+                    <a href="#sesiones" class="ui-btn-active ui-state-persist" data-icon="info">Sesiones</a>
                 </li>
                 <li>
                     GET /Categoria
@@ -826,13 +869,13 @@
                     </li>
                     <li>
                         <!-- GET Usuarios/{id}/grupos -->
-                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                     </li>
                     <li>
                         <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
                         <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                         <!-- GET /Grupos/{id} -->
-                        <a class="tabs" href="#sesiones" data-icon="info" class="botonTabSesiones" >Sesiones</a>
+                        <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
                     </li>
                     <li>
                         <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
@@ -903,13 +946,13 @@
                     </li>
                     <li>
                         <!-- GET Usuarios/{id}/grupos -->
-                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                     </li>
                     <li>
                         <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
                         <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                         <!-- GET /Grupos/{id} -->
-                        <a class="tabs" href="#sesiones" data-icon="info" class="botonTabSesiones" >Sesiones</a>
+                        <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
                     </li>
                     <li>
                         <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
@@ -981,13 +1024,13 @@
                     </li>
                     <li>
                         <!-- GET Usuarios/{id}/grupos -->
-                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                     </li>
                     <li>
                         <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
                         <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                         <!-- GET /Grupos/{id} -->
-                        <a class="tabs" href="#sesiones" data-icon="info" class="botonTabSesiones" >Sesiones</a>
+                        <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
                     </li>
                     <li>
                         <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
@@ -1052,20 +1095,13 @@
             <nav data-role="navbar">
                 <ul>
                     <li>
-                    	<!-- GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual-->
-                        <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
-                        <!-- GET /Grupos/{id} -->
                         <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                     </li>
                     <li>
-                    	<!-- GET Usuarios/{id}/grupos -->
-                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                     </li>
                     <li>
-                    	<!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
-                        <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
-                        <!-- GET /Grupos/{id} -->
-                        <a class="tabs" href="#sesiones" data-icon="info" class="botonTabSesiones" >Sesiones</a>
+                        <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
                     </li>
                     <li>
                         <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
@@ -1137,13 +1173,13 @@
                     </li>
                     <li>
                         <!-- GET Usuarios/{id}/grupos -->
-                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                     </li>
                     <li>
                         <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
                         <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                         <!-- GET /Grupos/{id} -->
-                        <a class="tabs" href="#sesiones" data-icon="info" class="botonTabSesiones" >Sesiones</a>
+                        <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
                     </li>
                     <li>
                         <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
@@ -1216,13 +1252,13 @@
                     </li>
                     <li>
                         <!-- GET Usuarios/{id}/grupos -->
-                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                     </li>
                     <li>
                         <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
                         <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                         <!-- GET /Grupos/{id} -->
-                        <a class="tabs" href="#sesiones" data-icon="info" class="botonTabSesiones" >Sesiones</a>
+                        <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
                     </li>
                     <li>
                         <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
@@ -1295,13 +1331,13 @@
                     </li>
                     <li>
                         <!-- GET Usuarios/{id}/grupos -->
-                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                     </li>
                     <li>
                         <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
                         <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                         <!-- GET /Grupos/{id} -->
-                        <a class="tabs" href="#sesiones" data-icon="info" class="botonTabSesiones" >Sesiones</a>
+                        <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
                     </li>
                     <li>
                         <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
@@ -1369,10 +1405,10 @@
                         <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                     </li>
                     <li>
-                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                     </li>
                     <li>
-                        <a class="tabs" href="#sesiones" data-icon="info" class="botonTabSesiones" >Sesiones</a>
+                        <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
                     </li>
                     <li>
                         <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
@@ -1441,10 +1477,10 @@
                         <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                     </li>
                     <li>
-                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                     </li>
                     <li>
-                        <a class="tabs" href="#sesiones" data-icon="info" class="botonTabSesiones" >Sesiones</a>
+                        <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
                     </li>
                     <li>
                         <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
@@ -1513,10 +1549,10 @@
                         <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                     </li>
                     <li>
-                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                     </li>
                     <li>
-                        <a class="tabs" href="#sesiones" data-icon="info" class="botonTabSesiones" >Sesiones</a>
+                        <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
                     </li>
                     <li>
                         <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
@@ -1584,10 +1620,10 @@
                         <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                     </li>
                     <li>
-                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                     </li>
                     <li>
-                        <a class="tabs" href="#sesiones" data-icon="info" class="botonTabSesiones" >Sesiones</a>
+                        <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
                     </li>
                     <li>
                         <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
@@ -1656,10 +1692,10 @@
                         <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                     </li>
                     <li>
-                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos" >Grupos</a>
                     </li>
                     <li>
-                        <a class="tabs" href="#sesiones" data-icon="info" class="botonTabSesiones" >Sesiones</a>
+                        <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
                     </li>
                     <li>
                         <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>

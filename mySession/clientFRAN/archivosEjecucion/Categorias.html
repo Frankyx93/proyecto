@@ -1,0 +1,899 @@
+<!-- ///////////////////////Categorias//////////////////////////////////////////  -->
+
+
+<!-- calentamiento -->
+<div data-role="page" id="categoriaCalentamiento">
+    <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
+        <h7>Proteged al Rey</h7>
+
+    </header>
+    <div id="">
+        <div id="TodosEjercicios">
+            <!-- las imagenes de cada ejercicio -->
+            <ul data-role="carousel" data-captions="true" data-shadow="true">
+                <li>
+                    <a href="#imagenPop" data-rel="popup">
+                        <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="img/4.jpg" />
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img alt="" src="img/3.jpg" />
+                    </a>
+                </li>
+            </ul>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Descripcion Ejercicio</h5>
+                <code>{Descripción del ejercicio}</code>
+            </p>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Duracion</h5>
+                <code>{Duración del ejercicio}</code>
+            </p>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Categoria:</h5>
+                <code>{Categoría del ejercicio}</code>
+            </p>
+
+            <!-- si queremos k al hacer clic en la imagen salga en grande -->
+
+            <div id="imagenPop" data-role="popup" data-theme="a" class="ui-content">
+                <a href="#" data-rel="back" class="ui-btn ui-btn-a ui-btn 
+                                            ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                <img alt="" src="img/4.jpg" style="width:100%; height:200px;" />
+
+            </div>
+
+            <a href="#aniadirEjercicio" class="borrarEjercicio ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left">Añadir a Sesión</a>
+
+        </div>
+    </div>
+    <footer data-role="footer" data-id="menuInferior" data-position="fixed" data-theme="a">
+        <nav data-role="navbar">
+            <ul>
+                <li>
+                    <!-- GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual-->
+                    <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
+                    <!-- GET /Grupos/{id} -->
+                    <a class="tabs" href="#inicio" data-icon="home">Inicio</a>
+                </li>
+                <li>
+                    <!-- GET Usuarios/{id}/grupos -->
+                    <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                </li>
+                <li>
+                    <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
+                    <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
+                    <!-- GET /Grupos/{id} -->
+                    <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
+                </li>
+                <li>
+                    <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+</div>
+
+<!-- calentamiento -->
+<div data-role="page" id="categoriaCalentamiento">
+    <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
+        <h7>Proteged al Rey</h7>
+
+    </header>
+    <div id="">
+        <div id="">
+            <!-- las imagenes de cada ejercicio -->
+            <ul data-role="carousel" data-captions="true" data-shadow="true">
+                <li>
+                    <a href="#imagenPop" data-rel="popup">
+                        <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="img/4.jpg" />
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img alt="" src="img/3.jpg" />
+                    </a>
+                </li>
+            </ul>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Descripcion Ejercicio</h5>
+                <code>{Descripción del ejercicio}</code>
+            </p>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Duracion</h5>
+                <code>{Duración del ejercicio}</code>
+            </p>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Categoria:</h5>
+                <code>{Categoría del ejercicio}</code>
+            </p>
+
+            <!-- si queremos k al hacer clic en la imagen salga en grande -->
+
+            <div id="imagenPop" data-role="popup" data-theme="a" class="ui-content">
+                <a href="#" data-rel="back" class="ui-btn ui-btn-a ui-btn 
+                                            ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                <img alt="" src="img/4.jpg" style="width:100%; height:200px;" />
+
+            </div>
+
+            <a href="#aniadirEjercicio" class="borrarEjercicio ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left">Añadir a Sesión</a>
+
+        </div>
+    </div>
+    <footer data-role="footer" data-id="menuInferior" data-position="fixed" data-theme="a">
+        <nav data-role="navbar">
+            <ul>
+                <li>
+                    <!-- GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual-->
+                    <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
+                    <!-- GET /Grupos/{id} -->
+                    <a class="tabs" href="#inicio" data-icon="home">Inicio</a>
+                </li>
+                <li>
+                    <!-- GET Usuarios/{id}/grupos -->
+                    <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                </li>
+                <li>
+                    <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
+                    <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
+                    <!-- GET /Grupos/{id} -->
+                    <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
+                </li>
+                <li>
+                    <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+</div>
+
+
+<!-- Estiramientos -->
+<div data-role="page" id="ejercicioEstiramientos">
+    <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
+        <h7>Proteged al Rey</h7>
+
+    </header>
+    <div id="">
+        <div id="">
+            <!-- las imagenes de cada ejercicio -->
+            <ul data-role="carousel" data-captions="true" data-shadow="true">
+                <li>
+                    <a href="#imagenPop" data-rel="popup">
+                        <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="img/4.jpg" />
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img alt="" src="img/3.jpg" />
+                    </a>
+                </li>
+            </ul>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Descripcion Ejercicio</h5>
+                <code>{Descripción del ejercicio}</code>
+            </p>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Duracion</h5>
+                <code>{Duración del ejercicio}</code>
+            </p>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Categoria:</h5>
+                <code>{Categoría del ejercicio}</code>
+            </p>
+
+            <!-- si queremos k al hacer clic en la imagen salga en grande -->
+
+            <div id="imagenPop" data-role="popup" data-theme="a" class="ui-content">
+                <a href="#" data-rel="back" class="ui-btn ui-btn-a ui-btn 
+                                            ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                <img alt="" src="img/4.jpg" style="width:100%; height:200px;" />
+
+            </div>
+
+            <a href="#aniadirEjercicio" class="borrarEjercicio ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left">Añadir a Sesión</a>
+
+        </div>
+    </div>
+    <footer data-role="footer" data-id="menuInferior" data-position="fixed" data-theme="a">
+        <nav data-role="navbar">
+            <ul>
+                <li>
+                    <!-- GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual-->
+                    <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
+                    <!-- GET /Grupos/{id} -->
+                    <a class="tabs" href="#inicio" data-icon="home">Inicio</a>
+                </li>
+                <li>
+                    <!-- GET Usuarios/{id}/grupos -->
+                    <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                </li>
+                <li>
+                    <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
+                    <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
+                    <!-- GET /Grupos/{id} -->
+                    <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
+                </li>
+                <li>
+                    <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+</div>
+
+
+<!-- Equilibrio -->
+<div data-role="page" id="ejercicioEquilibrio">
+    <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
+        <h7>Proteged al Rey</h7>
+
+    </header>
+    <div id="">
+        <div id="">
+            <!-- las imagenes de cada ejercicio -->
+            <ul data-role="carousel" data-captions="true" data-shadow="true">
+                <li>
+                    <a href="#imagenPop" data-rel="popup">
+                        <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="img/4.jpg" />
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img alt="" src="img/3.jpg" />
+                    </a>
+                </li>
+            </ul>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Descripcion Ejercicio</h5>
+                <code>{Descripción del ejercicio}</code>
+            </p>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Duracion</h5>
+                <code>{Duración del ejercicio}</code>
+            </p>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Categoria:</h5>
+                <code>{Categoría del ejercicio}</code>
+            </p>
+
+            <!-- si queremos k al hacer clic en la imagen salga en grande -->
+
+            <div id="imagenPop" data-role="popup" data-theme="a" class="ui-content">
+                <a href="#" data-rel="back" class="ui-btn ui-btn-a ui-btn 
+                                            ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                <img alt="" src="img/4.jpg" style="width:100%; height:200px;" />
+
+            </div>
+
+            <a href="#aniadirEjercicio" class="borrarEjercicio ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left">Añadir a Sesión</a>
+
+        </div>
+    </div>
+    <footer data-role="footer" data-id="menuInferior" data-position="fixed" data-theme="a">
+        <nav data-role="navbar">
+            <ul>
+                <li>
+                    <a class="tabs" href="#inicio" data-icon="home">Inicio</a>
+                </li>
+                <li>
+                    <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                </li>
+                <li>
+                    <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
+                </li>
+                <li>
+                    <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+</div>
+
+
+<!-- Desplazamientos -->
+<div data-role="page" id="ejercicioDesplazamientos">
+    <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
+        <h7>Proteged al Rey</h7>
+
+    </header>
+    <div id="">
+        <div id="">
+            <!-- las imagenes de cada ejercicio -->
+            <ul data-role="carousel" data-captions="true" data-shadow="true">
+                <li>
+                    <a href="#imagenPop" data-rel="popup">
+                        <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="img/4.jpg" />
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img alt="" src="img/3.jpg" />
+                    </a>
+                </li>
+            </ul>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Descripcion Ejercicio</h5>
+                <code>{Descripción del ejercicio}</code>
+            </p>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Duracion</h5>
+                <code>{Duración del ejercicio}</code>
+            </p>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Categoria:</h5>
+                <code>{Categoría del ejercicio}</code>
+            </p>
+
+            <!-- si queremos k al hacer clic en la imagen salga en grande -->
+
+            <div id="imagenPop" data-role="popup" data-theme="a" class="ui-content">
+                <a href="#" data-rel="back" class="ui-btn ui-btn-a ui-btn 
+                                            ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                <img alt="" src="img/4.jpg" style="width:100%; height:200px;" />
+
+            </div>
+
+            <a href="#aniadirEjercicio" class="borrarEjercicio ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left">Añadir a Sesión</a>
+
+        </div>
+    </div>
+    <footer data-role="footer" data-id="menuInferior" data-position="fixed" data-theme="a">
+        <nav data-role="navbar">
+            <ul>
+                <li>
+                    <!-- GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual-->
+                    <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
+                    <!-- GET /Grupos/{id} -->
+                    <a class="tabs" href="#inicio" data-icon="home">Inicio</a>
+                </li>
+                <li>
+                    <!-- GET Usuarios/{id}/grupos -->
+                    <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                </li>
+                <li>
+                    <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
+                    <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
+                    <!-- GET /Grupos/{id} -->
+                    <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
+                </li>
+                <li>
+                    <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+</div>
+
+
+
+<!-- Pelotas -->
+<div data-role="page" id="ejercicioPelotas">
+    <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
+        <h7>Proteged al Rey</h7>
+
+    </header>
+    <div id="">
+        <div id="">
+            <!-- las imagenes de cada ejercicio -->
+            <ul data-role="carousel" data-captions="true" data-shadow="true">
+                <li>
+                    <a href="#imagenPop" data-rel="popup">
+                        <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="img/4.jpg" />
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img alt="" src="img/3.jpg" />
+                    </a>
+                </li>
+            </ul>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Descripcion Ejercicio</h5>
+                <code>{Descripción del ejercicio}</code>
+            </p>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Duracion</h5>
+                <code>{Duración del ejercicio}</code>
+            </p>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Categoria:</h5>
+                <code>{Categoría del ejercicio}</code>
+            </p>
+
+            <!-- si queremos k al hacer clic en la imagen salga en grande -->
+
+            <div id="imagenPop" data-role="popup" data-theme="a" class="ui-content">
+                <a href="#" data-rel="back" class="ui-btn ui-btn-a ui-btn 
+                                            ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                <img alt="" src="img/4.jpg" style="width:100%; height:200px;" />
+
+            </div>
+
+            <a href="#aniadirEjercicio" class="borrarEjercicio ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left">Añadir a Sesión</a>
+
+        </div>
+    </div>
+    <footer data-role="footer" data-id="menuInferior" data-position="fixed" data-theme="a">
+        <nav data-role="navbar">
+            <ul>
+                <li>
+                    <!-- GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual-->
+                    <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
+                    <!-- GET /Grupos/{id} -->
+                    <a class="tabs" href="#inicio" data-icon="home">Inicio</a>
+                </li>
+                <li>
+                    <!-- GET Usuarios/{id}/grupos -->
+                    <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                </li>
+                <li>
+                    <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
+                    <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
+                    <!-- GET /Grupos/{id} -->
+                    <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
+                </li>
+                <li>
+                    <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+</div>
+
+
+
+<!-- Giros -->
+<div data-role="page" id="ejercicioGiros">
+    <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
+        <h7>Proteged al Rey</h7>
+
+    </header>
+    <div id="">
+        <div id="">
+            <!-- las imagenes de cada ejercicio -->
+            <ul data-role="carousel" data-captions="true" data-shadow="true">
+                <li>
+                    <a href="#imagenPop" data-rel="popup">
+                        <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="img/4.jpg" />
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img alt="" src="img/3.jpg" />
+                    </a>
+                </li>
+            </ul>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Descripcion Ejercicio</h5>
+                <code>{Descripción del ejercicio}</code>
+            </p>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Duracion</h5>
+                <code>{Duración del ejercicio}</code>
+            </p>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Categoria:</h5>
+                <code>{Categoría del ejercicio}</code>
+            </p>
+
+            <!-- si queremos k al hacer clic en la imagen salga en grande -->
+
+            <div id="imagenPop" data-role="popup" data-theme="a" class="ui-content">
+                <a href="#" data-rel="back" class="ui-btn ui-btn-a ui-btn 
+                                            ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                <img alt="" src="img/4.jpg" style="width:100%; height:200px;" />
+
+            </div>
+
+            <a href="#aniadirEjercicio" class="borrarEjercicio ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left">Añadir a Sesión</a>
+
+        </div>
+    </div>
+    <footer data-role="footer" data-id="menuInferior" data-position="fixed" data-theme="a">
+        <nav data-role="navbar">
+            <ul>
+                <li>
+                    <!-- GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual-->
+                    <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
+                    <!-- GET /Grupos/{id} -->
+                    <a class="tabs" href="#inicio" data-icon="home">Inicio</a>
+                </li>
+                <li>
+                    <!-- GET Usuarios/{id}/grupos -->
+                    <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                </li>
+                <li>
+                    <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
+                    <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
+                    <!-- GET /Grupos/{id} -->
+                    <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
+                </li>
+                <li>
+                    <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+</div>
+
+<!-- Coordinación -->
+<div data-role="page" id="ejercicioCoordinación">
+    <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
+        <h7>Proteged al Rey</h7>
+
+    </header>
+    <div id="">
+        <div id="">
+            <!-- las imagenes de cada ejercicio -->
+            <ul data-role="carousel" data-captions="true" data-shadow="true">
+                <li>
+                    <a href="#imagenPop" data-rel="popup">
+                        <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="img/4.jpg" />
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img alt="" src="img/3.jpg" />
+                    </a>
+                </li>
+            </ul>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Descripcion Ejercicio</h5>
+                <code>{Descripción del ejercicio}</code>
+            </p>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Duracion</h5>
+                <code>{Duración del ejercicio}</code>
+            </p>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Categoria:</h5>
+                <code>{Categoría del ejercicio}</code>
+            </p>
+
+            <!-- si queremos k al hacer clic en la imagen salga en grande -->
+
+            <div id="imagenPop" data-role="popup" data-theme="a" class="ui-content">
+                <a href="#" data-rel="back" class="ui-btn ui-btn-a ui-btn 
+                                            ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                <img alt="" src="img/4.jpg" style="width:100%; height:200px;" />
+
+            </div>
+
+            <a href="#aniadirEjercicio" class="borrarEjercicio ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left">Añadir a Sesión</a>
+
+        </div>
+    </div>
+    <footer data-role="footer" data-id="menuInferior" data-position="fixed" data-theme="a">
+        <nav data-role="navbar">
+            <ul>
+                <li>
+
+                    <a class="tabs" href="#inicio" data-icon="home">Inicio</a>
+                </li>
+                <li>
+                    <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                </li>
+                <li>
+                    <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
+                </li>
+                <li>
+                    <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+</div>
+
+
+<!-- Saltos -->
+<div data-role="page" id="ejercicioSaltos">
+    <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
+        <h7>Proteged al Rey</h7>
+
+    </header>
+    <div id="">
+        <div id="">
+            <!-- las imagenes de cada ejercicio -->
+            <ul data-role="carousel" data-captions="true" data-shadow="true">
+                <li>
+                    <a href="#imagenPop" data-rel="popup">
+                        <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="img/4.jpg" />
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img alt="" src="img/3.jpg" />
+                    </a>
+                </li>
+            </ul>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Descripcion Ejercicio</h5>
+                <code>{Descripción del ejercicio}</code>
+            </p>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Duracion</h5>
+                <code>{Duración del ejercicio}</code>
+            </p>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Categoria:</h5>
+                <code>{Categoría del ejercicio}</code>
+            </p>
+
+            <!-- si queremos k al hacer clic en la imagen salga en grande -->
+
+            <div id="imagenPop" data-role="popup" data-theme="a" class="ui-content">
+                <a href="#" data-rel="back" class="ui-btn ui-btn-a ui-btn 
+                                            ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                <img alt="" src="img/4.jpg" style="width:100%; height:200px;" />
+
+            </div>
+
+            <a href="#aniadirEjercicio" class="borrarEjercicio ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left">Añadir a Sesión</a>
+
+        </div>
+    </div>
+    <footer data-role="footer" data-id="menuInferior" data-position="fixed" data-theme="a">
+        <nav data-role="navbar">
+            <ul>
+                <li>
+
+                    <a class="tabs" href="#inicio" data-icon="home">Inicio</a>
+                </li>
+                <li>
+                    <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                </li>
+                <li>
+                    <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
+                </li>
+                <li>
+                    <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+</div>
+
+
+<!-- Esquema corporal -->
+<div data-role="page" id="ejercicioCorporal">
+    <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
+        <h7>Proteged al Rey</h7>
+
+    </header>
+    <div id="">
+        <div id="">
+            <!-- las imagenes de cada ejercicio -->
+            <ul data-role="carousel" data-captions="true" data-shadow="true">
+                <li>
+                    <a href="#imagenPop" data-rel="popup">
+                        <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="img/4.jpg" />
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img alt="" src="img/3.jpg" />
+                    </a>
+                </li>
+            </ul>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Descripcion Ejercicio</h5>
+                <code>{Descripción del ejercicio}</code>
+            </p>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Duracion</h5>
+                <code>{Duración del ejercicio}</code>
+            </p>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Categoria:</h5>
+                <code>{Categoría del ejercicio}</code>
+            </p>
+
+            <!-- si queremos k al hacer clic en la imagen salga en grande -->
+
+            <div id="imagenPop" data-role="popup" data-theme="a" class="ui-content">
+                <a href="#" data-rel="back" class="ui-btn ui-btn-a ui-btn 
+                                            ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                <img alt="" src="img/4.jpg" style="width:100%; height:200px;" />
+
+            </div>
+
+            <a href="#aniadirEjercicio" class="borrarEjercicio ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left">Añadir a Sesión</a>
+
+        </div>
+    </div>
+    <footer data-role="footer" data-id="menuInferior" data-position="fixed" data-theme="a">
+        <nav data-role="navbar">
+            <ul>
+                <li>
+
+                    <a class="tabs" href="#inicio" data-icon="home">Inicio</a>
+                </li>
+                <li>
+                    <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                </li>
+                <li>
+                    <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
+                </li>
+                <li>
+                    <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+</div>
+
+<!-- Relajación -->
+<div data-role="page" id="ejercicioRelajación">
+    <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
+        <h7>Proteged al Rey</h7>
+
+    </header>
+    <div id="">
+        <div id="">
+            <!-- las imagenes de cada ejercicio -->
+            <ul data-role="carousel" data-captions="true" data-shadow="true">
+                <li>
+                    <a href="#imagenPop" data-rel="popup">
+                        <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="img/4.jpg" />
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img alt="" src="img/3.jpg" />
+                    </a>
+                </li>
+            </ul>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Descripcion Ejercicio</h5>
+                <code>{Descripción del ejercicio}</code>
+            </p>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Duracion</h5>
+                <code>{Duración del ejercicio}</code>
+            </p>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Categoria:</h5>
+                <code>{Categoría del ejercicio}</code>
+            </p>
+
+            <!-- si queremos k al hacer clic en la imagen salga en grande -->
+
+            <div id="imagenPop" data-role="popup" data-theme="a" class="ui-content">
+                <a href="#" data-rel="back" class="ui-btn ui-btn-a ui-btn 
+                                            ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                <img alt="" src="img/4.jpg" style="width:100%; height:200px;" />
+
+            </div>
+
+            <a href="#aniadirEjercicio" class="borrarEjercicio ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left">Añadir a Sesión</a>
+
+        </div>
+    </div>
+    <footer data-role="footer" data-id="menuInferior" data-position="fixed" data-theme="a">
+        <nav data-role="navbar">
+            <ul>
+                <li>
+
+                    <a class="tabs" href="#inicio" data-icon="home">Inicio</a>
+                </li>
+                <li>
+                    <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                </li>
+                <li>
+                    <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
+                </li>
+                <li>
+                    <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+</div>
+
+
+<!-- Lateralidad -->
+<div data-role="page" id="ejercicioLateralidad">
+    <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
+        <h7>Proteged al Rey</h7>
+
+    </header>
+    <div id="">
+        <div id="">
+            <!-- las imagenes de cada ejercicio -->
+            <ul data-role="carousel" data-captions="true" data-shadow="true">
+                <li>
+                    <a href="#imagenPop" data-rel="popup">
+                        <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="img/4.jpg" />
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img alt="" src="img/3.jpg" />
+                    </a>
+                </li>
+            </ul>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Descripcion Ejercicio</h5>
+                <code>{Descripción del ejercicio}</code>
+            </p>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Duracion</h5>
+                <code>{Duración del ejercicio}</code>
+            </p>
+
+            <p>
+                <h5 style="font-weight: bold;color: green;">Categoria:</h5>
+                <code>{Categoría del ejercicio}</code>
+            </p>
+
+            <!-- si queremos k al hacer clic en la imagen salga en grande -->
+
+            <div id="imagenPop" data-role="popup" data-theme="a" class="ui-content">
+                <a href="#" data-rel="back" class="ui-btn ui-btn-a ui-btn 
+                                            ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                <img alt="" src="img/4.jpg" style="width:100%; height:200px;" />
+
+            </div>
+
+            <a href="#aniadirEjercicio" class="borrarEjercicio ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left">Añadir a Sesión</a>
+
+        </div>
+    </div>
+    <footer data-role="footer" data-id="menuInferior" data-position="fixed" data-theme="a">
+        <nav data-role="navbar">
+            <ul>
+                <li>
+
+                    <a class="tabs" href="#inicio" data-icon="home">Inicio</a>
+                </li>
+                <li>
+                    <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                </li>
+                <li>
+                    <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
+                </li>
+                <li>
+                    <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+</div>

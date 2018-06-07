@@ -2,10 +2,7 @@
 .ui-page{
     /* background: linear-gradient(to right, #abdeae , rgb(215, 252, 255)); */
     /* background: linear-gradient(to right, white , rgb(255, 159, 159)); */
-    /* background: linear-gradient(to right, #b4dde4 , white); */
-    background: linear-gradient(to bottom, #82e5a3, rgb(215, 252, 255));
-    /* background: linear-gradient(to bottom, rgb(216, 114, 118), #B1476A,#9B3766); */
-
+    background: linear-gradient(to right, #b4dde4 , white);
 }
 
 .borrarSesion{
@@ -36,17 +33,3 @@ header{
 #Autenticado{
     background-color: aqua;
 }
-
-.listaGrupos{
-    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 18px 0 rgba(0, 0, 0, 0.19);
-    background-color: #FFC3B8;
-    color: rgb(83, 37, 37);
-    font-weight: bold;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-}
-
-.datosLista{
-    border-radius:8px;
-}
-
