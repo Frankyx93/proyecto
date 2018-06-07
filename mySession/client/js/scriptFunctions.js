@@ -149,7 +149,7 @@ $(document).ready(function () {
     $.get(urlApp + "Categoria?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
 
         $.each(data, function (idx, obj) {
-            $("#listadoCategorias").append("<li><a style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 10px' class='ui-btn ui-btn-icon-right ui-icon-carat-r' href='#categoriaCalentamiento' data-icon=''>"+obj.nombre+"</a></li>");
+            $("#listadoCategorias").append("<li><a value='"+obj.id+"' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 10px' class='botonCategoria ui-btn ui-btn-icon-right ui-icon-carat-r' href='#categoriaCalentamiento' data-icon=''>"+obj.nombre+"</a></li>");
         });
     }).fail(function (error) {
         console.log(error);
@@ -302,6 +302,11 @@ $(document).ready(function () {
         }).fail(function (error) {
             console.log(error);
         });
+    });
+
+    $(".botonCategoria").click(function () {
+        var idCategoriaSeleccionada = $(".botonCategoria").val();
+        console.log(idCategoriaSeleccionada);
     });
 
 });
