@@ -471,19 +471,18 @@
             <h4 style="color:blue;">Rellena los siguientes datos </h4>
             <form method="post" action="">
                 <label>Nombre sesión</label>
-                <input type="text" name="grupo">
+                <input id="nombreNuevaSesion" type="text" name="grupo">
 
                 <label for="src1">Fecha</label>
-                <input type="date" data-clear-btn="true" id="src1">
+                <input id="fechaNuevaSesion" type="date" data-clear-btn="true" id="src1">
 
                 <label for="Grupo">Grupo</label>
-                <select name="Grupo" id="Grupo">
-                    <option value="1">Se pintarán todos los grupos</option>
+                <select id="selectGruposParaNuevaSesion" name="Grupo">
                     <!-- GET Usuarios/{id}/grupos -->
 
                 </select>
                 <!-- Este botón crea la sesión con los datos introducidos y te lleva a la biblioteca de ejercicios para empezar a meterle ejercicios -->
-                <input align="center" type="submit" value="Añadir Ejercicios" data-inline="true">
+                <input id="botonCrearNuevaSesion" align="center" type="submit" value="Añadir Ejercicios" data-inline="true">
                 <!-- POST /Usuarios/{id}/sesiones -->
             </form>
         </div>

@@ -71,6 +71,11 @@ $(document).ready(function () {
     var urlApp = "http://localhost:3000/api/";
     var sesionesUsuarioActual = [];
     var gruposUsuarioActual = [];
+
+
+    //LLAMADAS DE LA PÁGINA HOME CUANDO SE ABRE LA APLICACIÓN
+
+
     // GET/Usuarios/{idUsuarioAutenticado}/sesiones
     $.get(urlApp + "Usuarios/" + getAllUrlParams(window.location.href).userid + "/sesiones?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
         var grupoId;
@@ -98,6 +103,8 @@ $(document).ready(function () {
         console.log(error);
     });
 
+    //LLAMADAS DE LA INFORMACIÓN DE USUARIO CUANDO SE ABRE LA APLICACIÓN
+
     //GET /Usuarios/{id}   INFORMACIÓN DEL USUARIO
     $.get(urlApp + "Usuarios/" + getAllUrlParams(window.location.href).userid + "?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
         $(".NombreUsuarioAutenticado").text(data.nombre);
@@ -106,16 +113,22 @@ $(document).ready(function () {
 
     })
 
+
+    //LLAMADAS DE LA PÁGINA GRUPOS CUANDO SE ABRE LA APLICACIÓN
+
     var nombreUsuarioGrupo = $("#NombreUsuarioAutenticado").text();
     // GET/Usuarios/{idUsuarioAutenticado}/grupos
     $.get(urlApp + "Usuarios/" + getAllUrlParams(window.location.href).userid + "/grupos?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
 
         $.each(data, function (idx, obj) {
+            $("#selectGruposParaNuevaSesion").append("<option value="+obj.id+">"+obj.nombre+"</option>")
             $(".listadoGrupos").append("<ul data-role='listview' data-inset='true' data-divider-theme='a' class='ui-listview ui-listview-inset ui-corner-all ui-shadow'><li class='listaGrupos ui-li-divider ui-bar-a ui-first-child' data-role='list-divider'>Nombre Grupo</li><li class='ui-li-static ui-body-inherit'>" + obj.nombre + "</li><li class='listaGrupos ui-li-divider ui-bar-a ui-first-child' data-role='list-divider'>Monitor</li><li class='ui-li-static ui-body-inherit'>" + nombreUsuarioGrupo + "</li><li class='listaGrupos ui-li-divider ui-bar-a ui-first-child' data-role='list-divider'>Horario</li><li class='ui-li-static ui-body-inherit'>" + obj.horario + "</li><li data-role='list-divider'><a href='#sesiones' class='ui-btn'>Ver Sesiones </a></li></ul>");
         });
     }).fail(function (error) {
         console.log(error);
     });
+
+    //LLAMADAS DE LA PÁGINA SESIONES CUANDO SE ABRE LA APLICACIÓN
 
     $("#listadoSesiones").html("");
     
@@ -131,6 +144,8 @@ $(document).ready(function () {
         console.log(error);
     });
 
+    //LLAMADAS DE LA PÁGINA EJERCICIOS CUANDO SE ABRE LA APLICACIÓN
+
     $.get(urlApp + "Categoria?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
 
         $.each(data, function (idx, obj) {
@@ -140,7 +155,7 @@ $(document).ready(function () {
         console.log(error);
     });
 
-
+    //LLAMADAS DEL BOTÓN DE CERRAR SESIÓN
 
     $(".botonLogout").click(function () {
         // POST/Usuarios/{idUsuarioAutenticado}/grupos
@@ -153,6 +168,8 @@ $(document).ready(function () {
         });
     });
 
+
+    //LLAMADAS DEL BOTÓN DE CREAR GRUPO
 
     $("#botonCrearGrupo").click(function () {
         // POST/Usuarios/{idUsuarioAutenticado}/grupos
@@ -187,22 +204,36 @@ $(document).ready(function () {
             })
     });
 
-    $("#botonCrearSesion").click(function () {
+
+    //LLAMADAS DEL BOTÓN DE CREAR SESIÓN
+
+    $("#botonCrearNuevaSesion").click(function () {
         // POST/Usuarios/{idUsuarioAutenticado}/sesiones
-        $.post(urlApp + "Usuarios/{" + idUsuarioAutenticado + "}/sesiones",
-            {
-                nombre: "" + $("#nombreSesionNueva").val() + "",
-                fecha: "" + $("#fechaSesionNueva").val() + "",
-                grupoId: "" + $("#grupoSesionNueva").val() + "" //Todavia no asignado
-            },
-            function (data, status) {
-                console.log("Data: " + data + "\nStatus: " + status);
-            });
+        var fechaSesionNueva = $("#fechaNuevaSesion").val();
+        var nombreSesionNueva = $("#nombreNuevaSesion").val();
+        var grupoIdSesionNueva = $("#selectGruposParaNuevaSesion").val();
+        console.log(fechaSesionNueva);
+        $.post(urlApp + "Usuarios/"+ getAllUrlParams(window.location.href).userid + "/sesiones?access_token=" + getAllUrlParams(window.location.href).access_token,{
+            nombre: nombreSesionNueva,
+            fecha: fechaSesionNueva,
+            grupoId: grupoIdSesionNueva 
+        }).done(function (data) {
+            //POPUP SESIÓN CREADO
+            location.href ="http://localhost:3000/app/?userid="+getAllUrlParams(window.location.href).userid+"&access_token="+getAllUrlParams(window.location.href).access_token+"#ejercicios";
+            alert("Sesión creada");
+        }).fail(function (error) {
+            console.log(error);
+            console.log("Error");
+        })
     });
+
+    //LLAMADAS DEL BOTÓN DE AÑADIR EJERCICIOS A UNA SESION
 
     $("#botonCrearEjerciciosSesion").click(function () {
         // POST/EjerciciosSesions el id de sesion se lo daremos dependiendo de la sesion a la que estemos pinchando
     });
+
+    //LLAMADAS DE LA PÁGINA HOME CUANDO SE PULSA SU TAB
 
     $(".botonTabInicio").click(function () {
         //MACHACA EL RESULTADO ANTERIOR
@@ -236,6 +267,8 @@ $(document).ready(function () {
 
     });
 
+    //LLAMADAS DE LA PÁGINA GRUPOS CUANDO SE PULSA SU TAB
+
     $(".botonTabGrupos").click(function () {
         $(".listadoGrupos").html("");
         var nombreUsuarioGrupo = $("#NombreUsuarioAutenticado").text();
@@ -250,6 +283,8 @@ $(document).ready(function () {
         });
 
     });
+
+    //LLAMADAS DE LA PÁGINA SESIONES CUANDO SE PULSA SU TAB
 
     $(".botonTabSesiones").click(function () {
         // GET/Usuarios/{idUsuarioAutenticado}/sesiones
@@ -269,9 +304,4 @@ $(document).ready(function () {
         });
     });
 
-    $("#botonTabEjercicios").click(function () {
-        // GET/Categoria
-
-
-    });
 });
