@@ -1,0 +1,11 @@
+<a style="margin-left: 20px;margin-right: 20px;" href = "#page2" class="ui-btn ui-shadow ">Crear</a>
+<!-- boton volver -->
+<a style="margin-left: 20px;margin-right: 20px;border-radius:5px;background-color: rgb(207, 105, 98);" href = "#inicio" 
+class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
+
+
+
+        <a style="margin-left: 10px;margin-right: 8px;border-radius: 5px" href = "#" class="aniadir ui-btn ui-shadow ">Añadir Ejercicio</a>
+        <!-- boton volver -->
+        <a style="margin-left: 10px;margin-right: 8px;background-color: rgb(207, 105, 98);border-radius: 5px" href = "#inicio" 
+        class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
