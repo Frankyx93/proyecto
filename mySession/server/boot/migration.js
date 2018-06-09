@@ -2,7 +2,7 @@
 
 module.exports = function(app) {
     //data sources
-    var mysqlDs = app.dataSources.mysqlDs;
+    var mysqlDs = app.dataSources.mySessionDS;
     
     if(process.env.AUTOMIGRATE) {
         mysqlDs.automigrate(null, function (err) {

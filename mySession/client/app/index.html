@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <!-- librerias locales Jquery -->
+<!-- librerias locales Jquery -->
 
     <link rel="stylesheet" href="../jqueryMobile/jquery.mobile-1.4.5.min.css">
     <script src="../jqueryMobile/jquery-1.11.3.min.js"></script>
@@ -40,7 +39,7 @@
 
 
 
-    <title>MySession</title>
+    <title>Aplicacion De Deporte</title>
 </head>
 
 <body id="">
@@ -53,10 +52,10 @@
                     <a style="border-radius: 50px;background-color: #f44242;" href = "#page1" data-rel = "close" class = "ui-btn ui-btn-a ui-icon-delete 
                     ui-btn-icon-notext ui-btn-right"></a>
                     <p>
-                        <center><img src="images\imagenes\user.png" alt="" width="60" height="60"></center>
+                        <center><img src="..\..\images\imagenes\user.png" alt="" width="60" height="60"></center>
                     </p>
-                    <p style="text-align:center;">{Nombre del usuario}</p>
-                    <p style="text-align:center;">{Correo del usuario}</p>
+                    <p class="NombreUsuarioAutenticado" id="NombreUsuarioAutenticado" style="text-align:center;"></p>
+                    <p class="EmailUsuarioAutenticado" id="EmailUsuarioAutenticado" style="text-align:center;"></p>
                     
                     <center><a style="display: inline-block; background: linear-gradient(to right, #f18da3 , rgb(243, 88, 88));color:black;" 
                         href = "#" class ="ui-btn">Cerrar sesion</a></center>
@@ -69,27 +68,27 @@
         <article data-role="content">
             <div role="main" class="ui-content">
                 <!-- Contenido de las sesion  -->
-                <h4>Bienvenido a mySession</h4>
+                <h4 class="bienvenido">Bienvenido a Mi Session</h4>
                 <br>
                 <ul data-role="listview" id="listaTabHome">
-                    <!-- <li>
-                        <a class="tabs" href="#ejerciciosSesion">Saltos - Psicomotricidad 1</a>
+                    
+                    <!-- <li >
+                        <a style="background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;" class="tabs" href="#ejerciciosSesion">Saltos - Psicomotricidad 1</a>
+                    </li>
+                    <li > 
+                        <a style="background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;" class="tabs" href="#ejerciciosSesion">Equilibrio - Psicomotricidad 2</a>
 
                     </li>
-                    <li>
-                        <a class="tabs" href="#ejerciciosSesion">Equilibrio - Psicomotricidad 2</a>
-
-                    </li>
-                    <li>
-                        <a class="tabs" href="#ejerciciosSesion">Lanzamientos - Psico Coles</a>
+                    <li >
+                        <a style="background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;" class="tabs" href="#ejerciciosSesion">Lanzamientos - Psico Coles</a>
 
                     </li> -->
                 </ul>
 
             </div>
-            <div>
-                <a class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-plus" href="#formulario">Nuevo Grupo</a>
-            </div>
+            <!-- <div>
+                <a style="" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-plus" href="#formulario">Nuevo Grupo</a>
+            </div> -->
         </article>
 
 
@@ -97,12 +96,12 @@
             <nav data-role="navbar">
                 <ul>
                     <li>
-                        <a href="#inicio" class="ui-btn-active ui-state-persist" data-icon="home" id="botonTabInicio">Inicio</a>
+                        <a href="#inicio" class="ui-btn-active ui-state-persist" data-icon="home" class="botonTabInicio">Inicio</a>
                        
                     </li>
                     <li>                 
                         <!-- GET Usuarios/{id}/grupos -->
-                        <a class="tabs" href="#grupos" class="ui-btn-active ui-state-persist" data-icon="calendar">Grupos</a>
+                        <a class="tabs" href="#grupos"  data-icon="calendar">Grupos</a>
                     </li>
                     <li>
                         <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
@@ -127,12 +126,12 @@
                     <a style="border-radius: 50px;background-color: #f44242;" href = "#page1" data-rel = "close" class = "ui-btn ui-btn-a ui-icon-delete 
                     ui-btn-icon-notext ui-btn-right"></a>
                     <p>
-                        <center><img src="images\imagenes\user.png" alt="" width="60" height="60"></center>
+                        <center><img src="..\images\imagenes\user.png" alt="" width="60" height="60"></center>
                     </p>
-                    <p style="text-align:center;">{Nombre del usuario}</p>
-                    <p style="text-align:center;">{Correo del usuario}</p>
+                    <p class="NombreUsuarioAutenticado" style="text-align:center;"></p>
+                    <p class="EmailUsuarioAutenticado"  style="text-align:center;"></p>
                     
-                    <center><a style="display: inline-block; background: linear-gradient(to right, #f18da3 , rgb(243, 88, 88));color:black;" 
+                    <center><a class="botonLogout" style="display: inline-block; background: linear-gradient(to right, #f18da3 , rgb(243, 88, 88));color:black;" 
                         href = "#" class ="ui-btn">Cerrar sesion</a></center>
             </div>
         <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
@@ -142,28 +141,39 @@
         </header>
         <article data-role="content">
             <!-- en caso de no tener las sesiones  -->
-            <h4>Aún no tienes grupos creados</h4>
+            <!-- <h4 class="noCreado">Aún no tienes grupos creados</h4> -->
             <p>
                 <a class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-plus" href="#formulario">Nuevo Grupo</a>
             </p>
 
             
-            <div id="cajaPadre">
-
-                <ul data-role="listview" data-inset="true" data-divider-theme="a">
-                    <li class="listaGrupos" data-role="list-divider">Nombre Grupo</li>
-                    <li>Psicomotricidad 1</li>
-                    <li class="listaGrupos" data-role="list-divider">Monitor</li>
-                    <li>Juan Martínez</li>
-                    <li class="listaGrupos" data-role="list-divider">Horario</li>
-                    <li>Lunes, Miércoles - 17:00-18:45</li>
-                    <li data-role="list-divider">
+            <div id="cajaPadre" class="listadoGrupos">
+                <!-- <ul data-role="listview" data-inset="true" data-divider-theme="a">
+                    <li style="margin-bottom:1px;" class="listaGrupos" data-role="list-divider">Nombre Grupo</li>
+                    <li style="margin-bottom:1px;margin-top:0px;" class="datosLista" >Psicomotricidad 1</li>
+                    <li style="margin-bottom:1px;margin-top:0px;" class="listaGrupos" data-role="list-divider">Monitor</li>
+                    <li style="margin-bottom:1px;margin-top:0px;" class="datosLista" >Juan Martínez</li>
+                    <li style="margin-bottom:1px;margin-top:0px;" class="listaGrupos" data-role="list-divider">Horario</li>
+                    <li style="margin-bottom:1px;margin-top:0px;" class="datosLista" >Lunes, Miércoles - 17:00-18:45</li>
+                </ul>     -->
                         
-                        <a href="#sesiones" class="ui-btn">Ver Sesiones </a>
-                        <!-- Este enlace debe llevar a una pagina igual que la de sesiones pero sólo mostrando las de este grupo -->
-                        <!-- GET /Grupos/{id}/sesiones Filtro: ordenados por fecha de creación, más recientes primero-->
-                        <!-- <a href="#aniadirsesion" class="ui-btn">Nueva sesión</a> -->
-                    </li>
+                    <!-- <a  href="#sesiones" class="ui-btn">Ver Sesiones </a> -->
+<!-- Nuevo , Añadido 07/06/18-->
+                <!-- <a style="background-color: #e65d5d ; " href = "#popup_dialog" data-rel = "popup" data-position-to = "window" 
+                    data-transition = "pop" class = "ui-btn">Eliminar Grupo</a> -->
+                    
+                 <div data-role = "popup" id = "popup_dialog" data-theme = "a" 
+                    data-dismissible = "false">
+                    <div role = "main" class = "ui-content">
+                       <h2 style="font-size: 15px" class = "ui-title">¿ Desea borrarlo ?</h2>
+                       <a href = "#" class = "ui-btn ui-btn-inline ui-btn-b" data-rel = "back">
+                          Cancelar</a>
+                       <a href = "#" class = "ui-btn ui-btn-inline ui-btn-b" data-rel = "back">
+                          Eliminar</a>
+                    </div>
+                 </div>
+          </div>
+
                 </ul>
             </div>
         </article>
@@ -177,17 +187,17 @@
                         <!-- GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual-->
                         <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                         <!-- GET /Grupos/{id} -->
-                        <a  href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                        <a  href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                     </li>
                     <li class="tabs">
                         <!-- GET Usuarios/{id}/grupos -->
-                        <a class="tabs" href="#grupos" class="ui-btn-active ui-state-persist" data-icon="calendar">Grupos</a>
+                        <a class="tabs botonTabGrupos" href="#grupos" class="ui-btn-active ui-state-persist" data-icon="calendar">Grupos</a>
                     </li>
                     <li class="tabs">
                         <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación, más recientes primero-->
                         <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                         <!-- GET /Grupos/{id} -->
-                        <a  href="#sesiones" data-icon="info">Sesiones</a>
+                        <a  href="#sesiones" data-icon="info" class="botonTabSesiones">Sesiones</a>
                     </li>
                     <li class="tabs">
                         <!-- GET /Categoria -->
@@ -207,12 +217,12 @@
                     <a style="border-radius: 50px;background-color: #f44242;" href = "#page1" data-rel = "close" class = "ui-btn ui-btn-a ui-icon-delete 
                     ui-btn-icon-notext ui-btn-right"></a>
                     <p>
-                        <center><img src="images\imagenes\user.png" alt="" width="60" height="60"></center>
+                        <center><img src="..\images\imagenes\user.png" alt="" width="60" height="60"></center>
                     </p>
-                    <p style="text-align:center;">{Nombre del usuario}</p>
-                    <p style="text-align:center;">{Correo del usuario}</p>
+                    <p class="NombreUsuarioAutenticado" style="text-align:center;" class="NombreUsuarioAutenticado" id="NombreUsuarioAutenticado"></p>
+                    <p class="EmailUsuarioAutenticado" style="text-align:center;"class="EmailUsuarioAutenticado" id="EmailUsuarioAutenticado"></p>
                     
-                    <center><a style="display: inline-block; background: linear-gradient(to right, #f18da3 , rgb(243, 88, 88));color:black;" 
+                    <center><a class="botonLogout" style="display: inline-block; background: linear-gradient(to right, #f18da3 , rgb(243, 88, 88));color:black;" 
                         href = "#" class ="ui-btn">Cerrar sesion</a></center>
             </div>
         <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
@@ -222,7 +232,7 @@
         </header>
         <article data-role="content">
             <!-- en caso de no tener Sesiones aparecera esta parte  -->
-            <h5>Aún no tienes sesiones creadas</h5>
+            <h5 class="noCreado">Aún no tienes sesiones creadas</h5>
             <p>
                 <a style="margin-right: 5%;margin-left: 5%;" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-plus" href="#aniadirsesion">Nueva Sesión</a>
                 <br>
@@ -230,27 +240,73 @@
 
 
             <!-- en esta parte tienen las sesiones creadas -->
-            <ul style="margin-right: 5%;margin-left: 5%;background-color: lightcoral;border-radius: 15px;" data-role="listview">
-                <li >
-                    <a href="#ejerciciosSesion">Sesion 1 - 24/04/2018 - Psicomotricidad 1</a>
+            <ul id="listadoSesiones" style="margin-right: 5%;margin-left: 5%;border-radius: 15px;" data-role="listview">
+               <!-- <li > -->
+                    <!-- <a style="background: linear-gradient(lightcyan, beige, gray);" href="#ejerciciosSesion">
+                        Sesion 1 - 24/04/2018 - Psicomotricidad 1</a> -->
                     <!-- GET/Sesions/{id}/ejercicios -->
                     <!-- Se le pasa el id de la sesion -->
-                    <a style="background-color: lightcoral;" href="#" class = " eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right"></a>
+                    <!-- <a style="background-color: lightcoral;" href="#" class = " eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right">
+                    </a> -->
                     <!-- DELETE /Sesions/{id} -->
-                    <li >
-                        <a href="#ejerciciosSesion">Sesion 2 - 24/04/2018 - Psicomotricidad 2</a>
+<!-- Nuevo . Añadido 07/06/18 -->
+                    <!--<a style="background-color: lightcoral;" href = "#popup_dialog" data-rel = "popup" data-position-to = "window" 
+                    data-transition = "pop" class = "eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right"></a> -->
+                 <div data-role = "popup" id = "popup_dialog" data-theme = "a" 
+                    data-dismissible = "false">
+                    <div role = "main" class = "ui-content">
+                       <h2 style="font-size: 15px" class = "ui-title">¿Desea borrarlo ?</h2>
+                       <a href = "#" class = "ui-btn ui-btn-inline ui-btn-b" data-rel = "back">
+                          Cancelar</a>
+                       <a href = "#" class = "ui-btn ui-btn-inline ui-btn-b" data-rel = "back">
+                          Eliminar</a>
+                    </div>
+                 </div> 
+                   <!-- <li > -->
+                        <!-- <a style="background: linear-gradient(lightcyan, beige, gray);" href="#ejerciciosSesion">
+                            Sesion 2 - 24/04/2018 - Psicomotricidad 2</a> -->
                     <!-- GET/Sesions/{id}/ejercicios -->
                     <!-- Se le pasa el id de la sesion -->
-                    <a style="background-color: lightcoral;" href="#" class = " eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right"></a>
+                    <!-- <a style="background-color: lightcoral;" href="#" class = " eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right">
+                    </a> -->
                         <!-- DELETE /Sesions/{id} -->
+<!-- Nuevo . Añadido 07/06/18 -->
+                        <!-- <a style="background-color: lightcoral;" href = "#popup_dialog" data-rel = "popup" data-position-to = "window" 
+                        data-transition = "pop" class = "eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right"></a> 
+                     <div data-role = "popup" id = "popup_dialog" data-theme = "a" 
+                        data-dismissible = "false">
+                        <div role = "main" class = "ui-content">
+                           <h2 style="font-size: 15px" class = "ui-title">¿Desea borrarlo ?</h2>
+                           <a href = "#" class = "ui-btn ui-btn-inline ui-btn-b" data-rel = "back">
+                              Cancelar</a>
+                           <a  href = "#" class = "ui-btn ui-btn-inline ui-btn-b" data-rel = "back">
+                              Eliminar</a>
+                        </div>
+                     </div>
                     </li>
-                    <li >
-                        <a href="#ejerciciosSesion">Sesion 3 - 24/04/2018 - Psico Coles</a>
+                    <li > 
+                        <a style="background: linear-gradient(lightcyan, beige, gray);" href="#ejerciciosSesion">
+                            Sesion 3 - 24/04/2018 - Psico Coles</a> -->
                     <!-- GET/Sesions/{id}/ejercicios -->
                     <!-- Se le pasa el id de la sesion -->
-                        <a style="background-color: lightcoral;" href="#" class = " eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right"></a>
+                        <!-- <a style="background-color: lightcoral;" href="#" class = " eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right">
+
+                        </a> -->
+<!-- Nuevo . Añadido 07/06/18 -->
+                   <!-- <a style="background-color: lightcoral;" href = "#popup_dialog" data-rel = "popup" data-position-to = "window" 
+                        data-transition = "pop" class = "eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right"></a>
+                     <div data-role = "popup" id = "popup_dialog" data-theme = "a" 
+                        data-dismissible = "false">
+                        <div role = "main" class = "ui-content">
+                           <h2 style="font-size: 15px" class = "ui-title">¿Desea borrarlo ?</h2>
+                           <a href = "#" class = "ui-btn ui-btn-inline ui-btn-b" data-rel = "back">
+                              Cancelar</a>
+                           <a href = "#" class = "ui-btn ui-btn-inline ui-btn-b" data-rel = "back">
+                              Eliminar</a>
+                        </div>
+                     </div> -->
                         <!-- DELETE /Sesions/{id} -->
-                    </li>
+                    <!-- /li> -->
 
             </ul>
         </article>
@@ -263,17 +319,17 @@
                         <!-- GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual-->
                         <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                         <!-- GET /Grupos/{id} -->
-                        <a class="tabs" href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                        <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                     </li>
                     <li>
                         <!-- GET Usuarios/{id}/grupos -->
-                        <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
                     </li>
                     <li>
                         <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación, más recientes primero-->
                         <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                         <!-- GET /Grupos/{id} -->
-                        <a class="tabs" href="#sesiones" class="ui-btn-active ui-state-persist" data-icon="info">Sesiones</a>
+                        <a class="tabs" href="#sesiones" class="ui-btn-active ui-state-persist" data-icon="info" class="botonTabSesiones">Sesiones</a>
                     </li>
                     <li>
                         <!-- GET /Categoria -->
@@ -290,24 +346,18 @@
 </html>
 
 
-
-
-
-
-
-
 <!-- cuarta pagina , cuarto tab -->
 <section id="ejercicios" data-role="page">
         <div style="height: 20px;" data-role = "panel" id = "overlay_panel" data-display = "overlay">
                 <a style="border-radius: 50px;background-color: #f44242;" href = "#page1" data-rel = "close" class = "ui-btn ui-btn-a ui-icon-delete 
                 ui-btn-icon-notext ui-btn-right"></a>
                 <p>
-                    <center><img src="images\imagenes\user.png" alt="" width="60" height="60"></center>
+                    <center><img src="..\images\imagenes\user.png" alt="" width="60" height="60"></center>
                 </p>
-                <p style="text-align:center;">{Nombre del usuario}</p>
-                <p style="text-align:center;">{Correo del usuario}</p>
+                <p class="NombreUsuarioAutenticado" style="text-align:center;"></p>
+                <p class="EmailUsuarioAutenticado" style="text-align:center;"></p>
                 
-                <center><a style="display: inline-block; background: linear-gradient(to right, #f18da3 , rgb(243, 88, 88));color:black;" 
+                <center><a class="botonLogout"  style="display: inline-block; background: linear-gradient(to right, #f18da3 , rgb(243, 88, 88));color:black;" 
                     href = "#" class ="ui-btn">Cerrar sesion</a></center>
         </div>
     <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
@@ -318,19 +368,41 @@
         <h2>Lista de los ejercicios</h2>
 
         <input type="search" name="buscador-ejercicios" id="buscador-ejercicios" value="" placeholder="Buscar">
-        <ul data-role="listview" data-inset="true" data-divider-theme="b">
+        <ul id="listadoCategorias" data-role="listview" data-inset="true" data-divider-theme="b">
             <!-- Cada elemento de la lista debe llevar a otra pantalla donde salgan todos los ejercicios de esa categoría -->
-            <li > <a class="" href="#categoriaCalentamiento" data-icon="">Calentamiento</a></li>
-            <li ><a class="" href="#ejercicioEstiramientos" data-icon="">Estiramientos</a></li>
-            <li ><a class="" href="#ejercicioEquilibrio" data-icon="">Equilibrio</a></li>
-            <li ><a class="" href="#ejercicioDesplazamientos" data-icon="">Desplazamientos</a></li>
-            <li ><a class="" href="#ejercicioPelotas" data-icon="">Pelotas</a></li>
-            <li ><a class="" href="#ejercicioGiros" data-icon="">Giros</a></li>
-            <li ><a class="" href="#ejercicioCoordinación" data-icon="">Coordinación</a></li>
-            <li ><a class="" href="#ejercicioSaltos" data-icon="">Saltos</a></li>
-            <li ><a class="" href="#ejercicioCorporal" data-icon="">Esquema corporal</a></li>
-            <li ><a class="" href="#ejercicioRelajación" data-icon="">Relajación</a></li>
-            <li ><a class="" href="#ejercicioLateralidad" data-icon="">Lateralidad</a></li>
+            <!-- <li > <a style="background: linear-gradient(lightcyan, beige, gray);
+                border: 1px solid gray;
+               border-radius: 10px" class="" href="#categoriaCalentamiento" data-icon="">Calentamiento</a></li>
+            <li ><a style="background: linear-gradient(lightcyan, beige, gray);
+                border: 1px solid gray;
+               border-radius: 10px" class="" href="#ejercicioEstiramientos" data-icon="">Estiramientos</a></li>
+            <li ><a style="background: linear-gradient(lightcyan, beige, gray);
+                border: 1px solid gray;
+               border-radius: 10px" class="" href="#ejercicioEquilibrio" data-icon="">Equilibrio</a></li>
+            <li ><a style="background: linear-gradient(lightcyan, beige, gray);
+                border: 1px solid gray;
+               border-radius: 10px" class="" href="#ejercicioDesplazamientos" data-icon="">Desplazamientos</a></li>
+            <li ><a style="background: linear-gradient(lightcyan, beige, gray);
+                border: 1px solid gray;
+               border-radius: 10px" class="" href="#ejercicioPelotas" data-icon="">Pelotas</a></li>
+            <li ><a style="background: linear-gradient(lightcyan, beige, gray);
+                border: 1px solid gray;
+               border-radius: 10px" class="" href="#ejercicioGiros" data-icon="">Giros</a></li>
+            <li ><a style="background: linear-gradient(lightcyan, beige, gray);
+                border: 1px solid gray;
+               border-radius: 10px" class="" href="#ejercicioCoordinación" data-icon="">Coordinación</a></li>
+            <li ><a style="background: linear-gradient(lightcyan, beige, gray);
+                border: 1px solid gray;
+               border-radius: 10px" class="" href="#ejercicioSaltos" data-icon="">Saltos</a></li>
+            <li ><a style="background: linear-gradient(lightcyan, beige, gray);
+                border: 1px solid gray;
+               border-radius: 10px" class="" href="#ejercicioCorporal" data-icon="">Esquema corporal</a></li>
+            <li ><a style="background: linear-gradient(lightcyan, beige, gray);
+                border: 1px solid gray;
+               border-radius: 10px" class="" href="#ejercicioRelajación" data-icon="">Relajación</a></li>
+            <li ><a style="background: linear-gradient(lightcyan, beige, gray);
+                border: 1px solid gray;
+               border-radius: 10px" class="" href="#ejercicioLateralidad" data-icon="">Lateralidad</a></li> -->
         </ul>
 
 
@@ -344,17 +416,17 @@
                     <!-- GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual-->
                     <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                     <!-- GET /Grupos/{id} -->
-                    <a class="tabs" href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                    <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                 </li>
                 <li>
                     <!-- GET Usuarios/{id}/grupos -->
-                    <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                    <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
                 </li>
                 <li>
                     <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
                     <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                     <!-- GET /Grupos/{id} -->
-                    <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
+                    <a class="tabs" href="#sesiones" data-icon="info" class="botonTabSesiones">Sesiones</a>
                 </li>
                 <li>
                     <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
@@ -382,12 +454,12 @@
                 <a style="border-radius: 50px;background-color: #f44242;" href = "#page1" data-rel = "close" class = "ui-btn ui-btn-a ui-icon-delete 
                 ui-btn-icon-notext ui-btn-right"></a>
                 <p>
-                    <center><img src="images\imagenes\user.png" alt="" width="60" height="60"></center>
+                    <center><img src="..\images\imagenes\user.png" alt="" width="60" height="60"></center>
                 </p>
-                <p style="text-align:center;">{Nombre del usuario}</p>
-                <p style="text-align:center;">{Correo del usuario}</p>
+                <p class="NombreUsuarioAutenticado" style="text-align:center;"></p>
+                <p class="EmailUsuarioAutenticado" style="text-align:center;"></p>
                 
-                <center><a style="display: inline-block; background: linear-gradient(to right, #f18da3 , rgb(243, 88, 88));color:black;" 
+                <center><a class="botonLogout" style="display: inline-block; background: linear-gradient(to right, #f18da3 , rgb(243, 88, 88));color:black;" 
                     href = "#" class ="ui-btn">Cerrar sesion</a></center>
         </div>
     <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
@@ -398,13 +470,13 @@
     
     <div id="">
         <div id="cajaInformacion">
-            <h4 style="color:blue;">Rellena los siguientes datos </h4>
+            <h3 style="color:#424242;text-align: center;font-weight: bold;">Rellene los siguientes datos </h3>
             <form method="post" action="">
-                <label>Nombre del grupo</label>
-                <input  type="text" name="grupo">
+                <label class="estiloletra" style="margin-left: 20px;margin-right: 20px;font-family: Arial, Helvetica, sans-serif;color:#716e6e;font-weight:bold">Nombre del grupo</label>
+                <input  id="nombreGrupoNuevo" type="text" name="grupo">
                 <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
                 
-                    <legend>Días</legend>
+                    <legend style="font-family: Arial, Helvetica, sans-serif;color:#716e6e;font-weight:bold">Días</legend>
                 
                     <input type="checkbox" name="checkbox-lunes" id="checkbox-lunes">
                     <label for="checkbox-lunes">L</label>
@@ -420,11 +492,15 @@
                     <input type="checkbox" name="checkbox-viernes" id="checkbox-viernes">
                     <label for="checkbox-viernes">V</label>
                 </fieldset>
+                <br>
 
-                <label for="slider1">Número de alumnos: </label>
+                <label style="margin-left: 20px;margin-right: 20px;font-family: Arial, Helvetica, sans-serif;color:#716e6e;font-weight:bold" for="slider1">Número de alumnos: </label>
                 <input type="range" name="slider1" id="slider1" min="2" max="40" value="12">
-
-                <input align="center" type="submit" align="center" value="Crear" data-inline="true">
+                <br><br>
+                <a style="margin-left: 20px;margin-right: 20px;border-radius:5px;" href = "#page2" class="ui-btn ui-shadow ">Crear</a>
+                <!-- boton volver -->
+                <a style="margin-left: 20px;margin-right: 20px;background-color: rgb(207, 105, 98);border-radius:5px;" href = "#grupos" class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
+               
                 <!-- POST /Usuarios/{id}/grupos -->
             </form>
         </div>
@@ -436,16 +512,16 @@
                     <!-- GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual-->
                     <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                     <!-- GET /Grupos/{id} -->
-                    <a class="tabs" href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                    <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                 </li>
                 <li>
-                    <a class="tabs" href="#grupos" class="ui-btn-active ui-state-persist" data-icon="calendar">Grupos</a>
+                    <a class="tabs" href="#grupos" class="ui-btn-active ui-state-persist" data-icon="calendar" class="botonTabGrupos">Grupos</a>
                 </li>
                 <li>
                     <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
                     <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                     <!-- GET /Grupos/{id} -->
-                    <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
+                    <a class="tabs" href="#sesiones" data-icon="info" class="botonTabSesiones">Sesiones</a>
                 </li>
                 <li>
                     <!-- GET /Categoria -->
@@ -464,12 +540,12 @@
                 <a style="border-radius: 50px;background-color: #f44242;" href = "#page1" data-rel = "close" class = "ui-btn ui-btn-a ui-icon-delete 
                 ui-btn-icon-notext ui-btn-right"></a>
                 <p>
-                    <center><img src="images\imagenes\user.png" alt="" width="60" height="60"></center>
+                    <center><img src="..\images\imagenes\user.png" alt="" width="60" height="60"></center>
                 </p>
-                <p style="text-align:center;">{Nombre del usuario}</p>
-                <p style="text-align:center;">{Correo del usuario}</p>
+                <p class="NombreUsuarioAutenticado" style="text-align:center;"></p>
+                <p class="EmailUsuarioAutenticado" style="text-align:center;"></p>
                 
-                <center><a style="display: inline-block; background: linear-gradient(to right, #f18da3 , rgb(243, 88, 88));color:black;" 
+                <center><a class="botonLogout" style="display: inline-block; background: linear-gradient(to right, #f18da3 , rgb(243, 88, 88));color:black;" 
                     href = "#" class ="ui-btn">Cerrar sesion</a></center>
         </div>
     <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
@@ -479,22 +555,26 @@
     </header>
     <div id="">
         <div id="cajaSesion">
-            <h4 style="color:blue;">Rellena los siguientes datos </h4>
+            <h3 style="color:#424242;text-align: center;font-weight: bold;">Rellene los siguientes datos </h3>
             <form method="post" action="">
-                <label>Nombre sesión</label>
-                <input type="text" name="grupo">
+                <label style="margin-left: 20px;margin-right: 20px;font-family: Arial, Helvetica, sans-serif;color:#5c5a5a;font-weight:bold">Nombre sesión</label>
+                <input id="nombreNuevaSesion" type="text" name="grupo">
 
-                <label for="src1">Fecha</label>
-                <input type="date" data-clear-btn="true" id="src1">
+                <label for="src1" style="margin-left: 20px;margin-right: 20px;font-family: Arial, Helvetica, sans-serif;color:#5c5a5a;font-weight:bold">Fecha</label>
+                <input id="fechaNuevaSesion" type="date" data-clear-btn="true" id="src1">
 
-                <label for="Grupo">Grupo</label>
+                <label for="Grupo" style="margin-left: 20px;margin-right: 20px;font-family: Arial, Helvetica, sans-serif;color:#5c5a5a;font-weight:bold">Grupo</label>
                 <select name="Grupo" id="Grupo">
-                    <option value="1">Se pintarán todos los grupos</option>
+                    <option value="1" >Se pintarán todos los grupos</option>
                     <!-- GET Usuarios/{id}/grupos -->
 
                 </select>
+                <br>
                 <!-- Este botón crea la sesión con los datos introducidos y te lleva a la biblioteca de ejercicios para empezar a meterle ejercicios -->
-                <input align="center" type="submit" value="Añadir Ejercicios" data-inline="true">
+                <a style="margin-left: 10px;margin-right: 8px;border-radius: 5px" href = "#ejercicios" class="aniadir ui-btn ui-shadow ">Añadir Ejercicio</a>
+                <!-- boton volver -->
+                <a style="margin-left: 10px;margin-right: 8px;background-color: rgb(207, 105, 98);border-radius: 5px" href = "#sesiones" 
+                class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
                 <!-- POST /Usuarios/{id}/sesiones -->
             </form>
         </div>
@@ -506,14 +586,14 @@
                     <!-- GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual-->
                     <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                     <!-- GET /Grupos/{id} -->
-                    <a class="tabs" href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                    <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                 </li>
                 <li>
                     <!-- GET Usuarios/{id}/grupos -->
-                    <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                    <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
                 </li>
                 <li>
-                    <a class="tabs" href="#sesiones" class="ui-btn-active ui-state-persist" data-icon="info">Sesiones</a>
+                    <a class="tabs" href="#sesiones" class="ui-btn-active ui-state-persist" data-icon="info" class="botonTabSesiones">Sesiones</a>
                 </li>
                 <li>
                     <!-- GET /Categoria -->
@@ -531,12 +611,12 @@
                 <a style="border-radius: 50px;background-color: #f44242;" href = "#page1" data-rel = "close" class = "ui-btn ui-btn-a ui-icon-delete 
                 ui-btn-icon-notext ui-btn-right"></a>
                 <p>
-                    <center><img src="images\imagenes\user.png" alt="" width="60" height="60"></center>
+                    <center><img src="..\images\imagenes\user.png" alt="" width="60" height="60"></center>
                 </p>
-                <p style="text-align:center;">{Nombre del usuario}</p>
-                <p style="text-align:center;">{Correo del usuario}</p>
+                <p class="NombreUsuarioAutenticado" style="text-align:center;"></p>
+                <p class="EmailUsuarioAutenticado" style="text-align:center;"></p>
                 
-                <center><a style="display: inline-block; background: linear-gradient(to right, #f18da3 , rgb(243, 88, 88));color:black;" 
+                <center><a class="botonLogout" style="display: inline-block; background: linear-gradient(to right, #f18da3 , rgb(243, 88, 88));color:black;" 
                     href = "#" class ="ui-btn">Cerrar sesion</a></center>
         </div>
     <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
@@ -549,28 +629,28 @@
             <ul data-role="carousel" data-captions="true" data-shadow="true">
                 <li>
                     <a href="#imagenPop" data-rel="popup">
-                        <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="img/4.jpg" />
+                        <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="../img/4.jpg" />
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <img alt="" src="img/3.jpg" />
+                        <img alt="" src="../img/3.jpg" />
                     </a>
                 </li>
             </ul>
 
             <p>
-                <h5 style="font-weight: bold;color: green;">Descripcion Ejercicio</h5>
+                <h5 class="estiloDescripcion" >Descripcion Ejercicio</h5>
                 <code>{Descripción del ejercicio}</code>
             </p>
 
             <p>
-                <h5 style="font-weight: bold;color: green;">Duracion</h5>
+                <h5 class="estiloDescripcion" style="font-weight: bold;color: green;">Duracion</h5>
                 <code>{Duración del ejercicio}</code>
             </p>
 
             <p>
-                <h5 style="font-weight: bold;color: green;">Categoria:</h5>
+                <h5 class="estiloDescripcion" style="font-weight: bold;color: green;">Categoria:</h5>
                 <code>{Categoría del ejercicio}</code>
             </p>
 
@@ -579,11 +659,13 @@
             <div id="imagenPop" data-role="popup" data-theme="a" class="ui-content">
                 <a href="#" data-rel="back" class="ui-btn ui-btn-a ui-btn 
                                             ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-                <img alt="" src="img/4.jpg" style="width:100%; height:200px;" />
+                <img alt="" src="../img/4.jpg" style="width:100%; height:200px;" />
 
             </div>
 
-            <a href="#aniadirEjercicio" class="borrarEjercicio ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left">Añadir a Sesión</a>
+            <a href="#MiPopup" class="borrarEjercicio ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left">Añadir a Sesión</a>
+
+            
 
         </div>
     </div>
@@ -594,17 +676,17 @@
                     <!-- GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual-->
                     <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                     <!-- GET /Grupos/{id} -->
-                    <a class="tabs" href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                    <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                 </li>
                 <li>
                     <!-- GET Usuarios/{id}/grupos -->
-                    <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                    <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
                 </li>
                 <li>
                     <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
                     <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                     <!-- GET /Grupos/{id} -->
-                    <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
+                    <a class="tabs" href="#sesiones" data-icon="info"  class="botonTabSesiones">Sesiones</a>
                 </li>
                 <li>
                     <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
@@ -623,37 +705,125 @@
     </header>
     <article data-role="content">
         <h2>{Nombre de la sesión}</h2>
-        <ul data-role="listview" data-inset="true" data-divider-theme="b">
-            <li data-role="list-divider">Calentamiento</li>
-            <li>
-                <a  href="#ejercicio1" class = "">Movilidad articular</a> <a style="background-color: lightcoral;" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a>
-            </li>
-            <li>
-                <a href="#">Estiramientos</a><a style="background-color: lightcoral;" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a>
-                <!-- GET /Ejercicio/{id} -->
-            </li>
-            <li>
-                <a href="#">El Perrito</a><a style="background-color: lightcoral;" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a>
-                <!-- GET /Ejercicio/{id} -->
-            </li>
-            <li data-role="list-divider">Parte Principal</li>
-            <li>
-                <a href="#">Derribar los bolos</a><a style="background-color: lightcoral;" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a>
-                <!-- GET /Ejercicio/{id} -->
-            </li>
-            <li>
-                <a href="#">Circuito de Equilibrios</a><a style="background-color: lightcoral;" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a>
-                <!-- GET /Ejercicio/{id} -->
-            </li>
-            <li data-role="list-divider">Vuelta a la calma</li>
-            <li>
-                <a href="#">Osito Dormilón</a><a style="background-color: lightcoral;" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a>
-                <!-- GET /Ejercicio/{id} -->
-            </li>
-        </ul>
 
-        <input align="center" type="submit" value="Añadir Ejercicios" data-inline="true">
 
+        <div  id="c" data-role = "collapsible" >
+            <h4  style="color:blue">Calentamiento</h4>
+            <ul data-role = "listview">
+               <li><a style="background: #FFC991" href="#ejercicio1" class = "">
+                   Movilidad articular</a>
+                   <a style="background-color: lightcoral;" href = "#popup_dialog1" data-rel = "popup" data-position-to = "window" 
+                   data-transition = "pop" class = "eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right"></a>
+                <div data-role = "popup" id = "popup_dialog1" data-theme = "a" 
+                   data-dismissible = "false">
+                   <div role = "main" class = "ui-content">
+                      <h2 style="font-size: 15px" class = "ui-title">¿Desea borrarlo ?</h2>
+                      <a href = "#" class = "ui-btn ui-btn-inline ui-btn-b" data-rel = "back">
+                         Cancelar</a>
+                      <a href = "#" class = "ui-btn ui-btn-inline ui-btn-b" data-rel = "back">
+                         Eliminar</a>
+                   </div>
+                </div>
+                <!-- GET /Ejercicio/{id} -->
+                </li>
+                <li><a style="background: #FFC991" href="#ejercicio1" class = "">
+                        Estiramientos</a>
+                        <a style="background-color: lightcoral;" href = "#popup_dialog2" data-rel = "popup" data-position-to = "window" 
+                        data-transition = "pop" class = "eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right"></a>
+                     <div data-role = "popup" id = "popup_dialog2" data-theme = "a" 
+                        data-dismissible = "false">
+                        <div role = "main" class = "ui-content">
+                           <h2 style="font-size: 15px" class = "ui-title">¿Desea borrarlo ?</h2>
+                           <a href = "#" class = "ui-btn ui-btn-inline ui-btn-b" data-rel = "back">
+                              Cancelar</a>
+                           <a href = "#" class = "ui-btn ui-btn-inline ui-btn-b" data-rel = "back">
+                              Eliminar</a>
+                        </div>
+                     </div>
+                     <!-- GET /Ejercicio/{id} -->
+                </li>
+                <li><a style="background: #FFC991;" href="#ejercicio1" class = "">
+                    El Perrito</a>
+                    <a style="background-color: lightcoral;" href = "#popup_dialog3" data-rel = "popup" data-position-to = "window" 
+                    data-transition = "pop" class = "eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right"></a>
+                 <div data-role = "popup" id = "popup_dialog3" data-theme = "a" 
+                    data-dismissible = "false">
+                    <div role = "main" class = "ui-content">
+                       <h2 style="font-size: 15px" class = "ui-title">¿Desea borrarlo ?</h2>
+                       <a href = "#" class = "ui-btn ui-btn-inline ui-btn-b" data-rel = "back">
+                          Cancelar</a>
+                       <a href = "#" class = "ui-btn ui-btn-inline ui-btn-b" data-rel = "back">
+                          Eliminar</a>
+                    </div>
+                 </div>
+                         <!-- GET /Ejercicio/{id} -->
+                </li>
+            </ul>
+        </div>
+        <div id="pp" data-role = "collapsible" >
+                <h4 >Parte Principal</h4>
+                <ul data-role = "listview">
+                   <li><a style="background: #FFC991" href="#ejercicio1" class = "">
+                        Derribar los bolos</a>
+                       <!-- <a style="background-color: lightcoral;margin-right: 5px" href="#" class = " EliminarEjercicio ui-btn ui-icon-delete ui-btn-icon-right"></a> -->
+                       <a style="background-color: lightcoral;" href = "#popup_dialog4" data-rel = "popup" data-position-to = "window" 
+                       data-transition = "pop" class = "eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right"></a>
+                    <div data-role = "popup" id = "popup_dialog4" data-theme = "a" 
+                       data-dismissible = "false">
+                       <div role = "main" class = "ui-content">
+                          <h2 style="font-size: 15px" class = "ui-title">¿Desea borrarlo ?</h2>
+                          <a href = "#" class = "ui-btn ui-btn-inline ui-btn-b" data-rel = "back">
+                             Cancelar</a>
+                          <a href = "#" class = "ui-btn ui-btn-inline ui-btn-b" data-rel = "back">
+                             Eliminar</a>
+                       </div>
+                    </div>
+                    <!-- GET /Ejercicio/{id} -->
+                    </li>
+                    <li><a style="background: #FFC991" href="#ejercicio1" class = "">
+                            Circuito de Equilibrios</a>
+                            <a style="background-color: lightcoral;" href = "#popup_dialog5" data-rel = "popup" data-position-to = "window" 
+                            data-transition = "pop" class = "eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right"></a>
+                         <div data-role = "popup" id = "popup_dialog5" data-theme = "a" 
+                            data-dismissible = "false">
+                            <div role = "main" class = "ui-content">
+                               <h2 style="font-size: 15px" class = "ui-title">¿Desea borrarlo ?</h2>
+                               <a href = "#" class = "ui-btn ui-btn-inline ui-btn-b" data-rel = "back">
+                                  Cancelar</a>
+                               <a href = "#" class = "ui-btn ui-btn-inline ui-btn-b" data-rel = "back">
+                                  Eliminar</a>
+                            </div>
+                         </div>
+                         <!-- GET /Ejercicio/{id} -->
+                    </li>
+                </ul>
+        </div>
+        <div id="vc" data-role = "collapsible" >
+                    <h4 >Vuelta a la calma</h4>
+                    <ul data-role = "listview">
+                       <li><a style="background: #FFC991" href="#ejercicio1" class = "">
+                            Osito Dormilón</a>
+                            <a style="background-color: lightcoral;" href = "#popup_dialog6" data-rel = "popup" data-position-to = "window" 
+                            data-transition = "pop" class = "eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right"></a>
+                         <div data-role = "popup" id = "popup_dialog6" data-theme = "a" 
+                            data-dismissible = "false">
+                            <div role = "main" class = "ui-content">
+                               <h2 style="font-size: 15px" class = "ui-title">¿Desea borrarlo ?</h2>
+                               <a href = "#" class = "ui-btn ui-btn-inline ui-btn-b" data-rel = "back">
+                                  Cancelar</a>
+                               <a href = "#" class = "ui-btn ui-btn-inline ui-btn-b" data-rel = "back">
+                                  Eliminar</a>
+                            </div>
+                         </div>
+                        <!-- GET /Ejercicio/{id} -->
+                        </li>
+                    </ul>
+        </div>
+
+        <a style="margin-left: 10px;margin-right: 8px;border-radius: 5px" href = "#ejercicios" class="aniadir ui-btn ui-shadow ">Añadir Ejercicio</a>
+        <!-- boton volver -->
+        <a style="margin-left: 10px;margin-right: 8px;background-color: rgb(207, 105, 98);border-radius: 5px" href = "#inicio" 
+        class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
 
     </article>
     <footer data-role="footer" data-id="menuInferior" data-position="fixed" data-theme="a">
@@ -663,14 +833,14 @@
                     <!-- GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual-->
                     <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                     <!-- GET /Grupos/{id} -->
-                    <a href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                    <a href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                 </li>
                 <li>
                     <!-- GET Usuarios/{id}/grupos -->
-                    <a href="#grupos" data-icon="calendar">Grupos</a>
+                    <a href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
                 </li>
                 <li>
-                    <a href="#sesiones" class="ui-btn-active ui-state-persist" data-icon="info">Sesiones</a>
+                    <a href="#sesiones" class="ui-btn-active ui-state-persist" data-icon="info"  class="botonTabSesiones">Sesiones</a>
                 </li>
                 <li>
                     <!-- GET /Categoria -->
@@ -732,11 +902,11 @@
                     GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual
                     Con el id de grupo que devuelve sacamos el nombre del grupo también
                      GET /Grupos/{id}
-                    <a href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                    <a href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                 </li>
                 <li>
                     GET Usuarios/{id}/grupos
-                    <a href="#grupos" data-icon="calendar">Grupos</a>
+                    <a href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
                 </li>
                 <li>
                     <a href="#sesiones" class="ui-btn-active ui-state-persist" data-icon="info">Sesiones</a>
@@ -753,84 +923,6 @@
 
 
 <!-- ///////////////////////Categorias//////////////////////////////////////////  -->
-
-
-<!-- calentamiento -->
-<div data-role="page" id="categoriaCalentamiento">
-        <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
-            <h7>Proteged al Rey</h7>
-    
-        </header>
-        <div id="">
-            <div id="TodosEjercicios">
-                <!-- las imagenes de cada ejercicio -->
-                <ul data-role="carousel" data-captions="true" data-shadow="true">
-                    <li>
-                        <a href="#imagenPop" data-rel="popup">
-                            <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="img/4.jpg" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img alt="" src="img/3.jpg" />
-                        </a>
-                    </li>
-                </ul>
-    
-                <p>
-                    <h5 style="font-weight: bold;color: green;">Descripcion Ejercicio</h5>
-                    <code>{Descripción del ejercicio}</code>
-                </p>
-    
-                <p>
-                    <h5 style="font-weight: bold;color: green;">Duracion</h5>
-                    <code>{Duración del ejercicio}</code>
-                </p>
-    
-                <p>
-                    <h5 style="font-weight: bold;color: green;">Categoria:</h5>
-                    <code>{Categoría del ejercicio}</code>
-                </p>
-    
-                <!-- si queremos k al hacer clic en la imagen salga en grande -->
-    
-                <div id="imagenPop" data-role="popup" data-theme="a" class="ui-content">
-                    <a href="#" data-rel="back" class="ui-btn ui-btn-a ui-btn 
-                                                ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-                    <img alt="" src="img/4.jpg" style="width:100%; height:200px;" />
-    
-                </div>
-    
-                <a href="#aniadirEjercicio" class="borrarEjercicio ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left">Añadir a Sesión</a>
-    
-            </div>
-        </div>
-        <footer data-role="footer" data-id="menuInferior" data-position="fixed" data-theme="a">
-            <nav data-role="navbar">
-                <ul>
-                    <li>
-                        <!-- GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual-->
-                        <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
-                        <!-- GET /Grupos/{id} -->
-                        <a class="tabs" href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
-                    </li>
-                    <li>
-                        <!-- GET Usuarios/{id}/grupos -->
-                        <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
-                    </li>
-                    <li>
-                        <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
-                        <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
-                        <!-- GET /Grupos/{id} -->
-                        <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
-                    </li>
-                    <li>
-                        <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
-                    </li>
-                </ul>
-            </nav>
-        </footer>
-    </div>
     
     <!-- calentamiento -->
     <div data-role="page" id="categoriaCalentamiento">
@@ -840,32 +932,54 @@
         </header>
         <div id="">
             <div id="">
+            <!-- popupEjercicio -->
+            <div id = "MiPopup" >
+                    <!-- <div id = "page1" data-role = "main" class = "ui-content"> -->
+                        <center><a href = "#popup_menu_1" data-rel = "popup" data-transition = "slidedown" 
+                            class = "ui-btn ui-btn-inline ui-icon-home ui-btn-icon-left ui-btn-a">
+                            Añadir a la sesion</a></center>
+                        <!-- aqui es donde tienes que hacer lo k te dije -->
+                            <div data-role = "popup" id ="popup_menu_1" data-theme = "a">
+                            <ul data-role = "listview">
+                                <li data-role = "list-divider">Seleccione la parte donde lo desea añadirlo</li>
+                                <li><a href = "#c">Calentamiento</a></li>
+                                <li><a href = "#pp">Parte Principal</a></li>
+                                <li><a href = "#vc">Vuelta a la calma</a></li>
+                            </ul>
+                            <!-- <label style="color: #1d1c1c;font-weight: bold;padding-left: 15px;padding-right: 15px;" for = "select-custom">Seleccione la parte donde lo desea añadirlo </label>
+                            <select id = "select-custom" data-native-menu = "false">
+                                <option href="#sesiones" value = "Calentamiento" selected = "selected">Calentamiento</option>
+                                <option href="#sesiones" value = "PartePrincipal">Parte Principal</option>
+                                <option href="#sesiones" value = "Vueltaalacalma" >Vuelta a la calma</option>
+                            </select> -->
+                            </div>
+                </div>
                 <!-- las imagenes de cada ejercicio -->
                 <ul data-role="carousel" data-captions="true" data-shadow="true">
                     <li>
                         <a href="#imagenPop" data-rel="popup">
-                            <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="img/4.jpg" />
+                            <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="../img/4.jpg" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img alt="" src="img/3.jpg" />
+                            <img alt="" src="../img/3.jpg" />
                         </a>
                     </li>
                 </ul>
     
                 <p>
-                    <h5 style="font-weight: bold;color: green;">Descripcion Ejercicio</h5>
+                    <h5 class="estiloDescripcion" style="font-weight: bold;color: green;">Descripcion Ejercicio</h5>
                     <code>{Descripción del ejercicio}</code>
                 </p>
     
                 <p>
-                    <h5 style="font-weight: bold;color: green;">Duracion</h5>
+                    <h5 class="estiloDescripcion" style="font-weight: bold;color: green;">Duracion</h5>
                     <code>{Duración del ejercicio}</code>
                 </p>
     
                 <p>
-                    <h5 style="font-weight: bold;color: green;">Categoria:</h5>
+                    <h5 class="estiloDescripcion" style="font-weight: bold;color: green;">Categoria:</h5>
                     <code>{Categoría del ejercicio}</code>
                 </p>
     
@@ -874,11 +988,14 @@
                 <div id="imagenPop" data-role="popup" data-theme="a" class="ui-content">
                     <a href="#" data-rel="back" class="ui-btn ui-btn-a ui-btn 
                                                 ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-                    <img alt="" src="img/4.jpg" style="width:100%; height:200px;" />
+                    <img alt="" src="../img/4.jpg" style="width:100%; height:200px;" />
     
                 </div>
+
+                <a style="margin-left: 10px;margin-right: 8px;background-color: rgb(207, 105, 98);border-radius: 5px" href = "#ejercicios" 
+                class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
     
-                <a href="#aniadirEjercicio" class="borrarEjercicio ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left">Añadir a Sesión</a>
+
     
             </div>
         </div>
@@ -889,17 +1006,17 @@
                         <!-- GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual-->
                         <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                         <!-- GET /Grupos/{id} -->
-                        <a class="tabs" href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                        <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                     </li>
                     <li>
                         <!-- GET Usuarios/{id}/grupos -->
-                        <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
                     </li>
                     <li>
                         <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
                         <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                         <!-- GET /Grupos/{id} -->
-                        <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
+                        <a class="tabs" href="#sesiones" data-icon="info" class="botonTabSesiones">Sesiones</a>
                     </li>
                     <li>
                         <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
@@ -918,32 +1035,54 @@
         </header>
         <div id="">
             <div id="">
+                <!-- popupEjercicio -->
+                <div id = "MiPopup" >
+                        <!-- <div id = "page1" data-role = "main" class = "ui-content"> -->
+                            <center><a href = "#popup_menu_2" data-rel = "popup" data-transition = "slidedown" 
+                                class = "ui-btn ui-btn-inline ui-icon-home ui-btn-icon-left ui-btn-a">
+                                Añadir a la sesion</a></center>
+                            <!-- aqui es donde tienes que haer lo k te dije -->
+                                <div data-role = "popup" id ="popup_menu_2" data-theme = "a">
+                                <ul data-role = "listview">
+                                    <li data-role = "list-divider">Seleccione la parte donde lo desea añadirlo</li>
+                                    <li><a href = "#c">Calentamiento</a></li>
+                                    <li><a href = "#pp">Parte Principal</a></li>
+                                    <li><a href = "#vc">Vuelta a la calma</a></li>
+                                </ul>
+                                <!-- <label style="color: #1d1c1c;font-weight: bold;padding-left: 15px;padding-right: 15px;" for = "select-custom">Seleccione la parte donde lo desea añadirlo </label>
+                                <select id = "select-custom" data-native-menu = "false">
+                                    <option href="#sesiones" value = "Calentamiento" selected = "selected">Calentamiento</option>
+                                    <option href="#sesiones" value = "PartePrincipal">Parte Principal</option>
+                                    <option href="#sesiones" value = "Vueltaalacalma" >Vuelta a la calma</option>
+                                </select> -->
+                                </div>
+                    </div>  
                 <!-- las imagenes de cada ejercicio -->
                 <ul data-role="carousel" data-captions="true" data-shadow="true">
                     <li>
                         <a href="#imagenPop" data-rel="popup">
-                            <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="img/4.jpg" />
+                            <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="../img/4.jpg" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img alt="" src="img/3.jpg" />
+                            <img alt="" src="../img/3.jpg" />
                         </a>
                     </li>
                 </ul>
     
                 <p>
-                    <h5 style="font-weight: bold;color: green;">Descripcion Ejercicio</h5>
+                    <h5 class="estiloDescripcion" style="font-weight: bold;color: green;">Descripcion Ejercicio</h5>
                     <code>{Descripción del ejercicio}</code>
                 </p>
     
                 <p>
-                    <h5 style="font-weight: bold;color: green;">Duracion</h5>
+                    <h5 class="estiloDescripcion" style="font-weight: bold;color: green;">Duracion</h5>
                     <code>{Duración del ejercicio}</code>
                 </p>
     
                 <p>
-                    <h5 style="font-weight: bold;color: green;">Categoria:</h5>
+                    <h5 class="estiloDescripcion" style="font-weight: bold;color: green;">Categoria:</h5>
                     <code>{Categoría del ejercicio}</code>
                 </p>
     
@@ -952,14 +1091,16 @@
                 <div id="imagenPop" data-role="popup" data-theme="a" class="ui-content">
                     <a href="#" data-rel="back" class="ui-btn ui-btn-a ui-btn 
                                                 ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-                    <img alt="" src="img/4.jpg" style="width:100%; height:200px;" />
+                    <img alt="" src="../img/4.jpg" style="width:100%; height:200px;" />
     
                 </div>
-    
-                <a href="#aniadirEjercicio" class="borrarEjercicio ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left">Añadir a Sesión</a>
-    
+
+                <a style="margin-left: 10px;margin-right: 8px;background-color: rgb(207, 105, 98);border-radius: 5px" href = "#ejercicios" 
+                class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
+
             </div>
-        </div>
+        </div>       
+                
         <footer data-role="footer" data-id="menuInferior" data-position="fixed" data-theme="a">
             <nav data-role="navbar">
                 <ul>
@@ -967,17 +1108,17 @@
                         <!-- GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual-->
                         <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                         <!-- GET /Grupos/{id} -->
-                        <a class="tabs" href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                        <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                     </li>
                     <li>
                         <!-- GET Usuarios/{id}/grupos -->
-                        <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
                     </li>
                     <li>
                         <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
                         <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                         <!-- GET /Grupos/{id} -->
-                        <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
+                        <a class="tabs" href="#sesiones" data-icon="info" class="botonTabSesiones">Sesiones</a>
                     </li>
                     <li>
                         <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
@@ -996,32 +1137,54 @@
         </header>
         <div id="">
             <div id="">
+            <!-- popupEjercicio -->
+            <div id = "MiPopup" >
+                    <!-- <div id = "page1" data-role = "main" class = "ui-content"> -->
+                        <center><a href = "#popup_menu_3" data-rel = "popup" data-transition = "slidedown" 
+                            class = "ui-btn ui-btn-inline ui-icon-home ui-btn-icon-left ui-btn-a">
+                            Añadir a la sesion</a></center>
+                        <!-- aqui es donde tienes que haer lo k te dije -->
+                            <div data-role = "popup" id ="popup_menu_3" data-theme = "a">
+                            <ul data-role = "listview">
+                                <li data-role = "list-divider">Seleccione la parte donde lo desea añadirlo</li>
+                                <li><a href = "#c">Calentamiento</a></li>
+                                <li><a href = "#pp">Parte Principal</a></li>
+                                <li><a href = "#vc">Vuelta a la calma</a></li>
+                            </ul>
+                            <!-- <label style="color: #1d1c1c;font-weight: bold;padding-left: 15px;padding-right: 15px;" for = "select-custom">Seleccione la parte donde lo desea añadirlo </label>
+                            <select id = "select-custom" data-native-menu = "false">
+                                <option href="#sesiones" value = "Calentamiento" selected = "selected">Calentamiento</option>
+                                <option href="#sesiones" value = "PartePrincipal">Parte Principal</option>
+                                <option href="#sesiones" value = "Vueltaalacalma" >Vuelta a la calma</option>
+                            </select> -->
+                            </div>
+                </div>
                 <!-- las imagenes de cada ejercicio -->
                 <ul data-role="carousel" data-captions="true" data-shadow="true">
                     <li>
                         <a href="#imagenPop" data-rel="popup">
-                            <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="img/4.jpg" />
+                            <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="../img/4.jpg" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img alt="" src="img/3.jpg" />
+                            <img alt="" src="../img/3.jpg" />
                         </a>
                     </li>
                 </ul>
     
                 <p>
-                    <h5 style="font-weight: bold;color: green;">Descripcion Ejercicio</h5>
+                    <h5 class="estiloDescripcion" style="font-weight: bold;color: green;">Descripcion Ejercicio</h5>
                     <code>{Descripción del ejercicio}</code>
                 </p>
     
                 <p>
-                    <h5 style="font-weight: bold;color: green;">Duracion</h5>
+                    <h5 class="estiloDescripcion" style="font-weight: bold;color: green;">Duracion</h5>
                     <code>{Duración del ejercicio}</code>
                 </p>
     
                 <p>
-                    <h5 style="font-weight: bold;color: green;">Categoria:</h5>
+                    <h5 class="estiloDescripcion" style="font-weight: bold;color: green;">Categoria:</h5>
                     <code>{Categoría del ejercicio}</code>
                 </p>
     
@@ -1030,11 +1193,12 @@
                 <div id="imagenPop" data-role="popup" data-theme="a" class="ui-content">
                     <a href="#" data-rel="back" class="ui-btn ui-btn-a ui-btn 
                                                 ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-                    <img alt="" src="img/4.jpg" style="width:100%; height:200px;" />
+                    <img alt="" src="../img/4.jpg" style="width:100%; height:200px;" />
     
                 </div>
-    
-                <a href="#aniadirEjercicio" class="borrarEjercicio ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left">Añadir a Sesión</a>
+
+                <a style="margin-left: 10px;margin-right: 8px;background-color: rgb(207, 105, 98);border-radius: 5px" href = "#ejercicios" 
+                class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
     
             </div>
         </div>
@@ -1042,13 +1206,20 @@
             <nav data-role="navbar">
                 <ul>
                     <li>
-                        <a class="tabs" href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                    	<!-- GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual-->
+                        <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
+                        <!-- GET /Grupos/{id} -->
+                        <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                     </li>
                     <li>
-                        <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                    	<!-- GET Usuarios/{id}/grupos -->
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
                     </li>
                     <li>
-                        <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
+                    	<!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
+                        <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
+                        <!-- GET /Grupos/{id} -->
+                        <a class="tabs" href="#sesiones" data-icon="info" class="botonTabSesiones">Sesiones</a>
                     </li>
                     <li>
                         <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
@@ -1067,32 +1238,54 @@
         </header>
         <div id="">
             <div id="">
+            <!-- popupEjercicio -->
+            <div id = "MiPopup" >
+                    <!-- <div id = "page1" data-role = "main" class = "ui-content"> -->
+                        <center><a href = "#popup_menu_4" data-rel = "popup" data-transition = "slidedown" 
+                            class = "ui-btn ui-btn-inline ui-icon-home ui-btn-icon-left ui-btn-a">
+                            Añadir a la sesion</a></center>
+                        <!-- aqui es donde tienes que haer lo k te dije -->
+                            <div data-role = "popup" id ="popup_menu_4" data-theme = "a">
+                            <ul data-role = "listview">
+                                <li data-role = "list-divider">Seleccione la parte donde lo desea añadirlo</li>
+                                <li><a href = "#c">Calentamiento</a></li>
+                                <li><a href = "#pp">Parte Principal</a></li>
+                                <li><a href = "#vc">Vuelta a la calma</a></li>
+                            </ul>
+                            <!-- <label style="color: #1d1c1c;font-weight: bold;padding-left: 15px;padding-right: 15px;" for = "select-custom">Seleccione la parte donde lo desea añadirlo </label>
+                            <select id = "select-custom" data-native-menu = "false">
+                                <option href="#sesiones" value = "Calentamiento" selected = "selected">Calentamiento</option>
+                                <option href="#sesiones" value = "PartePrincipal">Parte Principal</option>
+                                <option href="#sesiones" value = "Vueltaalacalma" >Vuelta a la calma</option>
+                            </select> -->
+                            </div>
+                </div>
                 <!-- las imagenes de cada ejercicio -->
                 <ul data-role="carousel" data-captions="true" data-shadow="true">
                     <li>
                         <a href="#imagenPop" data-rel="popup">
-                            <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="img/4.jpg" />
+                            <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="../img/4.jpg" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img alt="" src="img/3.jpg" />
+                            <img alt="" src="../img/3.jpg" />
                         </a>
                     </li>
                 </ul>
     
                 <p>
-                    <h5 style="font-weight: bold;color: green;">Descripcion Ejercicio</h5>
+                    <h5 class="estiloDescripcion" style="font-weight: bold;color: green;">Descripcion Ejercicio</h5>
                     <code>{Descripción del ejercicio}</code>
                 </p>
     
                 <p>
-                    <h5 style="font-weight: bold;color: green;">Duracion</h5>
+                    <h5 class="estiloDescripcion" style="font-weight: bold;color: green;">Duracion</h5>
                     <code>{Duración del ejercicio}</code>
                 </p>
     
                 <p>
-                    <h5 style="font-weight: bold;color: green;">Categoria:</h5>
+                    <h5 class="estiloDescripcion" style="font-weight: bold;color: green;">Categoria:</h5>
                     <code>{Categoría del ejercicio}</code>
                 </p>
     
@@ -1101,11 +1294,12 @@
                 <div id="imagenPop" data-role="popup" data-theme="a" class="ui-content">
                     <a href="#" data-rel="back" class="ui-btn ui-btn-a ui-btn 
                                                 ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-                    <img alt="" src="img/4.jpg" style="width:100%; height:200px;" />
+                    <img alt="" src="../img/4.jpg" style="width:100%; height:200px;" />
     
                 </div>
-    
-                <a href="#aniadirEjercicio" class="borrarEjercicio ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left">Añadir a Sesión</a>
+
+                <a style="margin-left: 10px;margin-right: 8px;background-color: rgb(207, 105, 98);border-radius: 5px" href = "#ejercicios" 
+                class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
     
             </div>
         </div>
@@ -1116,17 +1310,17 @@
                         <!-- GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual-->
                         <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                         <!-- GET /Grupos/{id} -->
-                        <a class="tabs" href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                        <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                     </li>
                     <li>
                         <!-- GET Usuarios/{id}/grupos -->
-                        <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
                     </li>
                     <li>
                         <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
                         <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                         <!-- GET /Grupos/{id} -->
-                        <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
+                        <a class="tabs" href="#sesiones" data-icon="info"  class="botonTabSesiones">Sesiones</a>
                     </li>
                     <li>
                         <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
@@ -1146,32 +1340,53 @@
         </header>
         <div id="">
             <div id="">
+                    <div id = "MiPopup" >
+                            <!-- <div id = "page1" data-role = "main" class = "ui-content"> -->
+                                <center><a href = "#popup_menu_5" data-rel = "popup" data-transition = "slidedown" 
+                                    class = "ui-btn ui-btn-inline ui-icon-home ui-btn-icon-left ui-btn-a">
+                                    Añadir a la sesion</a></center>
+                                <!-- aqui es donde tienes que haer lo k te dije -->
+                                    <div data-role = "popup" id ="popup_menu_5" data-theme = "a">
+                                    <ul data-role = "listview">
+                                        <li data-role = "list-divider">Seleccione la parte donde lo desea añadirlo</li>
+                                        <li><a href = "#c">Calentamiento</a></li>
+                                        <li><a href = "#pp">Parte Principal</a></li>
+                                        <li><a href = "#vc">Vuelta a la calma</a></li>
+                                    </ul>
+                                    <!-- <label style="color: #1d1c1c;font-weight: bold;padding-left: 15px;padding-right: 15px;" for = "select-custom">Seleccione la parte donde lo desea añadirlo </label>
+                                    <select id = "select-custom" data-native-menu = "false">
+                                        <option href="#sesiones" value = "Calentamiento" selected = "selected">Calentamiento</option>
+                                        <option href="#sesiones" value = "PartePrincipal">Parte Principal</option>
+                                        <option href="#sesiones" value = "Vueltaalacalma" >Vuelta a la calma</option>
+                                    </select> -->
+                                    </div>
+                        </div>
                 <!-- las imagenes de cada ejercicio -->
                 <ul data-role="carousel" data-captions="true" data-shadow="true">
                     <li>
                         <a href="#imagenPop" data-rel="popup">
-                            <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="img/4.jpg" />
+                            <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="../img/4.jpg" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img alt="" src="img/3.jpg" />
+                            <img alt="" src="../img/3.jpg" />
                         </a>
                     </li>
                 </ul>
     
                 <p>
-                    <h5 style="font-weight: bold;color: green;">Descripcion Ejercicio</h5>
+                    <h5 class="estiloDescripcion" style="font-weight: bold;color: green;">Descripcion Ejercicio</h5>
                     <code>{Descripción del ejercicio}</code>
                 </p>
     
                 <p>
-                    <h5 style="font-weight: bold;color: green;">Duracion</h5>
+                    <h5 class="estiloDescripcion" style="font-weight: bold;color: green;">Duracion</h5>
                     <code>{Duración del ejercicio}</code>
                 </p>
     
                 <p>
-                    <h5 style="font-weight: bold;color: green;">Categoria:</h5>
+                    <h5 class="estiloDescripcion" style="font-weight: bold;color: green;">Categoria:</h5>
                     <code>{Categoría del ejercicio}</code>
                 </p>
     
@@ -1180,11 +1395,12 @@
                 <div id="imagenPop" data-role="popup" data-theme="a" class="ui-content">
                     <a href="#" data-rel="back" class="ui-btn ui-btn-a ui-btn 
                                                 ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-                    <img alt="" src="img/4.jpg" style="width:100%; height:200px;" />
+                    <img alt="" src="../img/4.jpg" style="width:100%; height:200px;" />
     
                 </div>
-    
-                <a href="#aniadirEjercicio" class="borrarEjercicio ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left">Añadir a Sesión</a>
+
+                <a style="margin-left: 10px;margin-right: 8px;background-color: rgb(207, 105, 98);border-radius: 5px" href = "#ejercicios" 
+                class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
     
             </div>
         </div>
@@ -1195,17 +1411,17 @@
                         <!-- GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual-->
                         <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                         <!-- GET /Grupos/{id} -->
-                        <a class="tabs" href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                        <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                     </li>
                     <li>
                         <!-- GET Usuarios/{id}/grupos -->
-                        <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
                     </li>
                     <li>
                         <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
                         <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                         <!-- GET /Grupos/{id} -->
-                        <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
+                        <a class="tabs" href="#sesiones" data-icon="info"  class="botonTabSesiones">Sesiones</a>
                     </li>
                     <li>
                         <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
@@ -1225,32 +1441,54 @@
         </header>
         <div id="">
             <div id="">
+                <!-- popupEjercicio -->
+                <div id = "MiPopup" >
+                        <!-- <div id = "page1" data-role = "main" class = "ui-content"> -->
+                            <center><a href = "#popup_menu_6" data-rel = "popup" data-transition = "slidedown" 
+                                class = "ui-btn ui-btn-inline ui-icon-home ui-btn-icon-left ui-btn-a">
+                                Añadir a la sesion</a></center>
+                            <!-- aqui es donde tienes que haer lo k te dije -->
+                                <div data-role = "popup" id ="popup_menu_6" data-theme = "a">
+                                <ul data-role = "listview">
+                                    <li data-role = "list-divider">Seleccione la parte donde lo desea añadirlo</li>
+                                    <li><a href = "#c">Calentamiento</a></li>
+                                    <li><a href = "#pp">Parte Principal</a></li>
+                                    <li><a href = "#vc">Vuelta a la calma</a></li>
+                                </ul>
+                                <!-- <label style="color: #1d1c1c;font-weight: bold;padding-left: 15px;padding-right: 15px;" for = "select-custom">Seleccione la parte donde lo desea añadirlo </label>
+                                <select id = "select-custom" data-native-menu = "false">
+                                    <option href="#sesiones" value = "Calentamiento" selected = "selected">Calentamiento</option>
+                                    <option href="#sesiones" value = "PartePrincipal">Parte Principal</option>
+                                    <option href="#sesiones" value = "Vueltaalacalma" >Vuelta a la calma</option>
+                                </select> -->
+                                </div>
+                    </div>
                 <!-- las imagenes de cada ejercicio -->
                 <ul data-role="carousel" data-captions="true" data-shadow="true">
                     <li>
                         <a href="#imagenPop" data-rel="popup">
-                            <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="img/4.jpg" />
+                            <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="../img/4.jpg" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img alt="" src="img/3.jpg" />
+                            <img alt="" src="../img/3.jpg" />
                         </a>
                     </li>
                 </ul>
     
                 <p>
-                    <h5 style="font-weight: bold;color: green;">Descripcion Ejercicio</h5>
+                    <h5 class="estiloDescripcion" style="font-weight: bold;color: green;">Descripcion Ejercicio</h5>
                     <code>{Descripción del ejercicio}</code>
                 </p>
     
                 <p>
-                    <h5 style="font-weight: bold;color: green;">Duracion</h5>
+                    <h5 class="estiloDescripcion" style="font-weight: bold;color: green;">Duracion</h5>
                     <code>{Duración del ejercicio}</code>
                 </p>
     
                 <p>
-                    <h5 style="font-weight: bold;color: green;">Categoria:</h5>
+                    <h5 class="estiloDescripcion" style="font-weight: bold;color: green;">Categoria:</h5>
                     <code>{Categoría del ejercicio}</code>
                 </p>
     
@@ -1259,11 +1497,12 @@
                 <div id="imagenPop" data-role="popup" data-theme="a" class="ui-content">
                     <a href="#" data-rel="back" class="ui-btn ui-btn-a ui-btn 
                                                 ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-                    <img alt="" src="img/4.jpg" style="width:100%; height:200px;" />
+                    <img alt="" src="../img/4.jpg" style="width:100%; height:200px;" />
     
                 </div>
-    
-                <a href="#aniadirEjercicio" class="borrarEjercicio ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left">Añadir a Sesión</a>
+
+                <a style="margin-left: 10px;margin-right: 8px;background-color: rgb(207, 105, 98);border-radius: 5px" href = "#ejercicios" 
+                class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
     
             </div>
         </div>
@@ -1274,17 +1513,17 @@
                         <!-- GET /Usuarios/{id}/sesiones Filtro: posteriores a la fecha actual-->
                         <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                         <!-- GET /Grupos/{id} -->
-                        <a class="tabs" href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                        <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                     </li>
                     <li>
                         <!-- GET Usuarios/{id}/grupos -->
-                        <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
                     </li>
                     <li>
                         <!-- GET /Usuarios/{id}/sesiones Filtro: ordenadas por fecha de creación-->
                         <!-- Con el id de grupo que devuelve sacamos el nombre del grupo también -->
                         <!-- GET /Grupos/{id} -->
-                        <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
+                        <a class="tabs" href="#sesiones" data-icon="info"  class="botonTabSesiones">Sesiones</a>
                     </li>
                     <li>
                         <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
@@ -1302,32 +1541,54 @@
         </header>
         <div id="">
             <div id="">
+            <!-- popupEjercicio -->
+            <div id = "MiPopup" >
+                    <!-- <div id = "page1" data-role = "main" class = "ui-content"> -->
+                        <center><a href = "#popup_menu_7" data-rel = "popup" data-transition = "slidedown" 
+                            class = "ui-btn ui-btn-inline ui-icon-home ui-btn-icon-left ui-btn-a">
+                            Añadir a la sesion</a></center>
+                        <!-- aqui es donde tienes que haer lo k te dije -->
+                            <div data-role = "popup" id ="popup_menu_7" data-theme = "a">
+                            <ul data-role = "listview">
+                                <li data-role = "list-divider">Seleccione la parte donde lo desea añadirlo</li>
+                                <li><a href = "#c">Calentamiento</a></li>
+                                <li><a href = "#pp">Parte Principal</a></li>
+                                <li><a href = "#vc">Vuelta a la calma</a></li>
+                            </ul>
+                            <!-- <label style="color: #1d1c1c;font-weight: bold;padding-left: 15px;padding-right: 15px;" for = "select-custom">Seleccione la parte donde lo desea añadirlo </label>
+                            <select id = "select-custom" data-native-menu = "false">
+                                <option href="#sesiones" value = "Calentamiento" selected = "selected">Calentamiento</option>
+                                <option href="#sesiones" value = "PartePrincipal">Parte Principal</option>
+                                <option href="#sesiones" value = "Vueltaalacalma" >Vuelta a la calma</option>
+                            </select> -->
+                            </div>
+                </div>
                 <!-- las imagenes de cada ejercicio -->
                 <ul data-role="carousel" data-captions="true" data-shadow="true">
                     <li>
                         <a href="#imagenPop" data-rel="popup">
-                            <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="img/4.jpg" />
+                            <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="../img/4.jpg" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img alt="" src="img/3.jpg" />
+                            <img alt="" src="../img/3.jpg" />
                         </a>
                     </li>
                 </ul>
     
                 <p>
-                    <h5 style="font-weight: bold;color: green;">Descripcion Ejercicio</h5>
+                    <h5 class="estiloDescripcion" style="font-weight: bold;color: green;">Descripcion Ejercicio</h5>
                     <code>{Descripción del ejercicio}</code>
                 </p>
     
                 <p>
-                    <h5 style="font-weight: bold;color: green;">Duracion</h5>
+                    <h5 class="estiloDescripcion" style="font-weight: bold;color: green;">Duracion</h5>
                     <code>{Duración del ejercicio}</code>
                 </p>
     
                 <p>
-                    <h5 style="font-weight: bold;color: green;">Categoria:</h5>
+                    <h5 class="estiloDescripcion" style="font-weight: bold;color: green;">Categoria:</h5>
                     <code>{Categoría del ejercicio}</code>
                 </p>
     
@@ -1336,11 +1597,11 @@
                 <div id="imagenPop" data-role="popup" data-theme="a" class="ui-content">
                     <a href="#" data-rel="back" class="ui-btn ui-btn-a ui-btn 
                                                 ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-                    <img alt="" src="img/4.jpg" style="width:100%; height:200px;" />
+                    <img alt="" src="../img/4.jpg" style="width:100%; height:200px;" />
     
                 </div>
-    
-                <a href="#aniadirEjercicio" class="borrarEjercicio ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left">Añadir a Sesión</a>
+                <a style="margin-left: 10px;margin-right: 8px;background-color: rgb(207, 105, 98);border-radius: 5px" href = "#ejercicios" 
+                class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
     
             </div>
         </div>
@@ -1349,13 +1610,13 @@
                 <ul>
                     <li>
     
-                        <a class="tabs" href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                        <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                     </li>
                     <li>
-                        <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
                     </li>
                     <li>
-                        <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
+                        <a class="tabs" href="#sesiones" data-icon="info"  class="botonTabSesiones">Sesiones</a>
                     </li>
                     <li>
                         <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
@@ -1374,32 +1635,54 @@
         </header>
         <div id="">
             <div id="">
+                <!-- popupEjercicio -->
+                <div id = "MiPopup" >
+                        <!-- <div id = "page1" data-role = "main" class = "ui-content"> -->
+                            <center><a href = "#popup_menu_8" data-rel = "popup" data-transition = "slidedown" 
+                                class = "ui-btn ui-btn-inline ui-icon-home ui-btn-icon-left ui-btn-a">
+                                Añadir a la sesion</a></center>
+                            <!-- aqui es donde tienes que haer lo k te dije -->
+                                <div data-role = "popup" id ="popup_menu_8" data-theme = "a">
+                                <ul data-role = "listview">
+                                    <li data-role = "list-divider">Seleccione la parte donde lo desea añadirlo</li>
+                                    <li><a href = "#c">Calentamiento</a></li>
+                                    <li><a href = "#pp">Parte Principal</a></li>
+                                    <li><a href = "#vc">Vuelta a la calma</a></li>
+                                </ul>
+                                <!-- <label style="color: #1d1c1c;font-weight: bold;padding-left: 15px;padding-right: 15px;" for = "select-custom">Seleccione la parte donde lo desea añadirlo </label>
+                                <select id = "select-custom" data-native-menu = "false">
+                                    <option href="#sesiones" value = "Calentamiento" selected = "selected">Calentamiento</option>
+                                    <option href="#sesiones" value = "PartePrincipal">Parte Principal</option>
+                                    <option href="#sesiones" value = "Vueltaalacalma" >Vuelta a la calma</option>
+                                </select> -->
+                                </div>
+                    </div>
                 <!-- las imagenes de cada ejercicio -->
                 <ul data-role="carousel" data-captions="true" data-shadow="true">
                     <li>
                         <a href="#imagenPop" data-rel="popup">
-                            <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="img/4.jpg" />
+                            <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="../img/4.jpg" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img alt="" src="img/3.jpg" />
+                            <img alt="" src="../img/3.jpg" />
                         </a>
                     </li>
                 </ul>
     
                 <p>
-                    <h5 style="font-weight: bold;color: green;">Descripcion Ejercicio</h5>
+                    <h5 class="estiloDescripcion" >Descripcion Ejercicio</h5>
                     <code>{Descripción del ejercicio}</code>
                 </p>
     
                 <p>
-                    <h5 style="font-weight: bold;color: green;">Duracion</h5>
+                    <h5 class="estiloDescripcion">Duracion</h5>
                     <code>{Duración del ejercicio}</code>
                 </p>
     
                 <p>
-                    <h5 style="font-weight: bold;color: green;">Categoria:</h5>
+                    <h5 class="estiloDescripcion">Categoria:</h5>
                     <code>{Categoría del ejercicio}</code>
                 </p>
     
@@ -1408,12 +1691,11 @@
                 <div id="imagenPop" data-role="popup" data-theme="a" class="ui-content">
                     <a href="#" data-rel="back" class="ui-btn ui-btn-a ui-btn 
                                                 ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-                    <img alt="" src="img/4.jpg" style="width:100%; height:200px;" />
+                    <img alt="" src="../img/4.jpg" style="width:100%; height:200px;" />
     
                 </div>
-    
-                <a href="#aniadirEjercicio" class="borrarEjercicio ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left">Añadir a Sesión</a>
-    
+                <a style="margin-left: 10px;margin-right: 8px;background-color: rgb(207, 105, 98);border-radius: 5px" href = "#ejercicios" 
+                class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
             </div>
         </div>
         <footer data-role="footer" data-id="menuInferior" data-position="fixed" data-theme="a">
@@ -1421,13 +1703,13 @@
                 <ul>
                     <li>
     
-                        <a class="tabs" href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                        <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                     </li>
                     <li>
-                        <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
                     </li>
                     <li>
-                        <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
+                        <a class="tabs" href="#sesiones" data-icon="info"  class="botonTabSesiones">Sesiones</a>
                     </li>
                     <li>
                         <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
@@ -1446,32 +1728,54 @@
         </header>
         <div id="">
             <div id="">
+            <!-- popupEjercicio -->
+            <div id = "MiPopup" >
+                    <!-- <div id = "page1" data-role = "main" class = "ui-content"> -->
+                        <center><a href = "#popup_menu_9" data-rel = "popup" data-transition = "slidedown" 
+                            class = "ui-btn ui-btn-inline ui-icon-home ui-btn-icon-left ui-btn-a">
+                            Añadir a la sesion</a></center>
+                        <!-- aqui es donde tienes que haer lo k te dije -->
+                            <div data-role = "popup" id ="popup_menu_9" data-theme = "a">
+                            <ul data-role = "listview">
+                                <li data-role = "list-divider">Seleccione la parte donde lo desea añadirlo</li>
+                                <li><a href = "#c">Calentamiento</a></li>
+                                <li><a href = "#pp">Parte Principal</a></li>
+                                <li><a href = "#vc">Vuelta a la calma</a></li>
+                            </ul>
+                            <!-- <label style="color: #1d1c1c;font-weight: bold;padding-left: 15px;padding-right: 15px;" for = "select-custom">Seleccione la parte donde lo desea añadirlo </label>
+                            <select id = "select-custom" data-native-menu = "false">
+                                <option href="#sesiones" value = "Calentamiento" selected = "selected">Calentamiento</option>
+                                <option href="#sesiones" value = "PartePrincipal">Parte Principal</option>
+                                <option href="#sesiones" value = "Vueltaalacalma" >Vuelta a la calma</option>
+                            </select> -->
+                            </div>
+                </div>
                 <!-- las imagenes de cada ejercicio -->
                 <ul data-role="carousel" data-captions="true" data-shadow="true">
                     <li>
                         <a href="#imagenPop" data-rel="popup">
-                            <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="img/4.jpg" />
+                            <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="../img/4.jpg" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img alt="" src="img/3.jpg" />
+                            <img alt="" src="../img/3.jpg" />
                         </a>
                     </li>
                 </ul>
     
                 <p>
-                    <h5 style="font-weight: bold;color: green;">Descripcion Ejercicio</h5>
+                    <h5 class="estiloDescripcion">Descripcion Ejercicio</h5>
                     <code>{Descripción del ejercicio}</code>
                 </p>
     
                 <p>
-                    <h5 style="font-weight: bold;color: green;">Duracion</h5>
+                    <h5 class="estiloDescripcion">Duracion</h5>
                     <code>{Duración del ejercicio}</code>
                 </p>
     
                 <p>
-                    <h5 style="font-weight: bold;color: green;">Categoria:</h5>
+                    <h5 class="estiloDescripcion">Categoria:</h5>
                     <code>{Categoría del ejercicio}</code>
                 </p>
     
@@ -1480,12 +1784,11 @@
                 <div id="imagenPop" data-role="popup" data-theme="a" class="ui-content">
                     <a href="#" data-rel="back" class="ui-btn ui-btn-a ui-btn 
                                                 ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-                    <img alt="" src="img/4.jpg" style="width:100%; height:200px;" />
+                    <img alt="" src="../img/4.jpg" style="width:100%; height:200px;" />
     
                 </div>
-    
-                <a href="#aniadirEjercicio" class="borrarEjercicio ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left">Añadir a Sesión</a>
-    
+                <a style="margin-left: 10px;margin-right: 8px;background-color: rgb(207, 105, 98);border-radius: 5px" href = "#ejercicios" 
+                class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
             </div>
         </div>
         <footer data-role="footer" data-id="menuInferior" data-position="fixed" data-theme="a">
@@ -1493,13 +1796,13 @@
                 <ul>
                     <li>
     
-                        <a class="tabs" href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                        <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                     </li>
                     <li>
-                        <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
                     </li>
                     <li>
-                        <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
+                        <a class="tabs" href="#sesiones" data-icon="info"  class="botonTabSesiones">Sesiones</a>
                     </li>
                     <li>
                         <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
@@ -1517,32 +1820,54 @@
         </header>
         <div id="">
             <div id="">
+            <div id = "MiPopup" >
+                    <!-- <div id = "page1" data-role = "main" class = "ui-content"> -->
+                        <center><a href = "#popup_menu_10" data-rel = "popup" data-transition = "slidedown" 
+                            class = "ui-btn ui-btn-inline ui-icon-home ui-btn-icon-left ui-btn-a">
+                            Añadir a la sesion</a></center>
+                        <!-- aqui es donde tienes que haer lo k te dije -->
+                            <div data-role = "popup" id ="popup_menu_10" data-theme = "a">
+                            <ul data-role = "listview">
+                                <li data-role = "list-divider">Seleccione la parte donde lo desea añadirlo</li>
+                                <li><a href = "#c">Calentamiento</a></li>
+                                <li><a href = "#pp">Parte Principal</a></li>
+                                <li><a href = "#vc">Vuelta a la calma</a></li>
+                            </ul>
+                            <!-- <label style="color: #1d1c1c;font-weight: bold;padding-left: 15px;padding-right: 15px;" for = "select-custom">Seleccione la parte donde lo desea añadirlo </label>
+                            <select id = "select-custom" data-native-menu = "false">
+                                <option href="#sesiones" value = "Calentamiento" selected = "selected">Calentamiento</option>
+                                <option href="#sesiones" value = "PartePrincipal">Parte Principal</option>
+                                <option href="#sesiones" value = "Vueltaalacalma" >Vuelta a la calma</option>
+                            </select> -->
+                            </div>
+                </div>
                 <!-- las imagenes de cada ejercicio -->
                 <ul data-role="carousel" data-captions="true" data-shadow="true">
                     <li>
                         <a href="#imagenPop" data-rel="popup">
-                            <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="img/4.jpg" />
+                            <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="../img/4.jpg" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img alt="" src="img/3.jpg" />
+                            <img alt="" src="../img/3.jpg" />
                         </a>
                     </li>
                 </ul>
-    
+                <!-- popupEjercicio -->
+
                 <p>
-                    <h5 style="font-weight: bold;color: green;">Descripcion Ejercicio</h5>
+                    <h5 class="estiloDescripcion">Descripcion Ejercicio</h5>
                     <code>{Descripción del ejercicio}</code>
                 </p>
     
                 <p>
-                    <h5 style="font-weight: bold;color: green;">Duracion</h5>
+                    <h5 class="estiloDescripcion">Duracion</h5>
                     <code>{Duración del ejercicio}</code>
                 </p>
     
                 <p>
-                    <h5 style="font-weight: bold;color: green;">Categoria:</h5>
+                    <h5 class="estiloDescripcion">Categoria:</h5>
                     <code>{Categoría del ejercicio}</code>
                 </p>
     
@@ -1551,11 +1876,12 @@
                 <div id="imagenPop" data-role="popup" data-theme="a" class="ui-content">
                     <a href="#" data-rel="back" class="ui-btn ui-btn-a ui-btn 
                                                 ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-                    <img alt="" src="img/4.jpg" style="width:100%; height:200px;" />
+                    <img alt="" src="../img/4.jpg" style="width:100%; height:200px;" />
     
                 </div>
     
-                <a href="#aniadirEjercicio" class="borrarEjercicio ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left">Añadir a Sesión</a>
+                <a style="margin-left: 10px;margin-right: 8px;background-color: rgb(207, 105, 98);border-radius: 5px" href = "#ejercicios" 
+                class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>    
     
             </div>
         </div>
@@ -1564,13 +1890,13 @@
                 <ul>
                     <li>
     
-                        <a class="tabs" href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                        <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                     </li>
                     <li>
-                        <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
                     </li>
                     <li>
-                        <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
+                        <a class="tabs" href="#sesiones" data-icon="info"  class="botonTabSesiones">Sesiones</a>
                     </li>
                     <li>
                         <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
@@ -1589,32 +1915,54 @@
         </header>
         <div id="">
             <div id="">
+                <!-- popupEjercicio -->
+                <div id = "MiPopup" >
+                        <!-- <div id = "page1" data-role = "main" class = "ui-content"> -->
+                            <center><a href = "#popup_menu_11" data-rel = "popup" data-transition = "slidedown" 
+                                class = "ui-btn ui-btn-inline ui-icon-home ui-btn-icon-left ui-btn-a">
+                                Añadir a la sesion</a></center>
+                            <!-- aqui es donde tienes que haer lo k te dije -->
+                                <div data-role = "popup" id ="popup_menu_11" data-theme = "a">
+                                <ul data-role = "listview">
+                                    <li data-role = "list-divider">Seleccione la parte donde lo desea añadirlo</li>
+                                    <li><a href = "#c">Calentamiento</a></li>
+                                    <li><a href = "#pp">Parte Principal</a></li>
+                                    <li><a href = "#vc">Vuelta a la calma</a></li>
+                                </ul>
+                                <!-- <label style="color: #1d1c1c;font-weight: bold;padding-left: 15px;padding-right: 15px;" for = "select-custom">Seleccione la parte donde lo desea añadirlo </label>
+                                <select id = "select-custom" data-native-menu = "false">
+                                    <option href="#sesiones" value = "Calentamiento" selected = "selected">Calentamiento</option>
+                                    <option href="#sesiones" value = "PartePrincipal">Parte Principal</option>
+                                    <option href="#sesiones" value = "Vueltaalacalma" >Vuelta a la calma</option>
+                                </select> -->
+                                </div>
+                    </div>
                 <!-- las imagenes de cada ejercicio -->
                 <ul data-role="carousel" data-captions="true" data-shadow="true">
                     <li>
                         <a href="#imagenPop" data-rel="popup">
-                            <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="img/4.jpg" />
+                            <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="../img/4.jpg" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img alt="" src="img/3.jpg" />
+                            <img alt="" src="../img/3.jpg" />
                         </a>
                     </li>
                 </ul>
     
                 <p>
-                    <h5 style="font-weight: bold;color: green;">Descripcion Ejercicio</h5>
+                    <h5 class="estiloDescripcion" >Descripcion Ejercicio</h5>
                     <code>{Descripción del ejercicio}</code>
                 </p>
     
                 <p>
-                    <h5 style="font-weight: bold;color: green;">Duracion</h5>
+                    <h5 class="estiloDescripcion" >Duracion</h5>
                     <code>{Duración del ejercicio}</code>
                 </p>
     
                 <p>
-                    <h5 style="font-weight: bold;color: green;">Categoria:</h5>
+                    <h5 class="estiloDescripcion" >Categoria:</h5>
                     <code>{Categoría del ejercicio}</code>
                 </p>
     
@@ -1623,11 +1971,12 @@
                 <div id="imagenPop" data-role="popup" data-theme="a" class="ui-content">
                     <a href="#" data-rel="back" class="ui-btn ui-btn-a ui-btn 
                                                 ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-                    <img alt="" src="img/4.jpg" style="width:100%; height:200px;" />
+                    <img alt="" src="../img/4.jpg" style="width:100%; height:200px;" />
     
                 </div>
     
-                <a href="#aniadirEjercicio" class="borrarEjercicio ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left">Añadir a Sesión</a>
+                <a style="margin-left: 10px;margin-right: 8px;background-color: rgb(207, 105, 98);border-radius: 5px" href = "#ejercicios" 
+                class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>    
     
             </div>
         </div>
@@ -1636,13 +1985,13 @@
                 <ul>
                     <li>
     
-                        <a class="tabs" href="#inicio" data-icon="home" id="botonTabInicio">Inicio</a>
+                        <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
                     </li>
                     <li>
-                        <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
                     </li>
                     <li>
-                        <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
+                        <a class="tabs" href="#sesiones" data-icon="info"  class="botonTabSesiones">Sesiones</a>
                     </li>
                     <li>
                         <a class="tabs" href="#ejercicios" class="ui-btn-active ui-state-persist" data-icon="bullets">Ejercicios</a>
@@ -1652,10 +2001,6 @@
         </footer>
     </div>
     
-
-
-
-
 
 
 
