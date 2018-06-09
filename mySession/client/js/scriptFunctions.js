@@ -143,10 +143,12 @@ $(document).ready(function () {
             fechaRecortada=obj.fecha.slice(0, 10);
             fechaRecortada=formatoFecha(fechaRecortada);
             
-            $("#listadoSesiones").append("<li class='ui-li-has-alt'><a class='ui-btn' style='background: linear-gradient(lightcyan, beige, gray);' href='#ejerciciosSesion'>"+obj.nombre+" - "+fechaRecortada+"</a><button id='botonEliminarSesion'  value='"+obj.id+"' style='background-color: lightcoral;' class = 'eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right ui-btn-icon-notext ui-icon-carat-r'></button></li>");
-//No me funciona 
-            //$("#listadoSesiones").append("<li class='ui-li-has-alt'><a class='ui-btn' style='background: linear-gradient(lightcyan, beige, gray);' href='#ejerciciosSesion'>"+obj.nombre+" - "+fechaRecortada+"</a><a style='background-color: lightcoral;' href ='#popup_dialog' data-rel ='popup' data-position-to ='window'data-transition ='pop' class ='eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right></a></li>");
-        });
+           //lista funcional fran 
+                //$("#listadoSesiones").append("<li class='ui-li-has-alt'><a class='ui-btn' style='background: linear-gradient(lightcyan, beige, gray);' href='#ejerciciosSesion'>"+obj.nombre+" - "+fechaRecortada+"</a><a style='background-color: lightcoral;' href = '#popup_dialog' data-rel = 'popup' data-position-to = 'window' data-transition = 'pop' class = 'eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right'></a></li>");
+                //lista Fatima
+                $("#listadoSesiones").append("<li><a class='tabs ui-btn ui-btn-icon-right ui-icon-carat-r' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'  href='#ejerciciosSesion'>"+obj.nombre+" - "+fechaRecortada+"</a></li>");
+
+            });
     }).fail(function (error) {
         console.log(error);
     });
@@ -286,7 +288,12 @@ $(document).ready(function () {
         $.get(urlApp + "Usuarios/" + getAllUrlParams(window.location.href).userid + "/grupos?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
 
             $.each(data, function (idx, obj) {
-                $(".listadoGrupos").append("<ul data-role='listview' data-inset='true' data-divider-theme='a' class='ui-listview ui-listview-inset ui-corner-all ui-shadow'><li class='listaGrupos ui-li-divider ui-bar-a ui-first-child' data-role='list-divider'>Nombre Grupo</li><li class='ui-li-static ui-body-inherit'>" + obj.nombre + "</li><li class='listaGrupos ui-li-divider ui-bar-a' data-role='list-divider'>Monitor</li><li class='ui-li-static ui-body-inherit'>" + nombreUsuarioGrupo + "</li><li class='listaGrupos ui-li-divider ui-bar-a ui-first-child' data-role='list-divider'>Horario</li><li class='ui-li-static ui-body-inherit'>" + obj.horario + "</li><li data-role='list-divider'><a href='#sesiones' class='ui-btn'>Ver Sesiones </a></li></ul>");
+                //$(".listadoGrupos").append("<ul data-role='listview' data-inset='true' data-divider-theme='a' class='ui-listview ui-listview-inset ui-corner-all ui-shadow'><li class='listaGrupos ui-li-divider ui-bar-a ui-first-child' data-role='list-divider'>Nombre Grupo</li><li class='ui-li-static ui-body-inherit'>" + obj.nombre + "</li><li class='listaGrupos ui-li-divider ui-bar-a' data-role='list-divider'>Monitor</li><li class='ui-li-static ui-body-inherit'>" + nombreUsuarioGrupo + "</li><li class='listaGrupos ui-li-divider ui-bar-a ui-first-child' data-role='list-divider'>Horario</li><li class='ui-li-static ui-body-inherit'>" + obj.horario + "</li><li data-role='list-divider'><a href='#sesiones' class='ui-btn'>Ver Sesiones </a></li></ul>");
+                $(".listadoGrupos").append("<ul data-role='listview' data-inset='true' data-divider-theme='a' class='ui-listview ui-listview-inset ui-corner-all ui-shadow'><li class='listaGrupos ui-li-divider ui-bar-a ui-first-child' data-role='list-divider'>Nombre Grupo</li><li style='margin-top:-8px;' class='ui-li-static ui-body-inherit'>" 
+            + obj.nombre + "</li><li class='listaGrupos ui-li-divider ui-bar-a ui-first-child' data-role='list-divider'>Monitor</li><li style='margin-top:-8px;' class='ui-li-static ui-body-inherit'>" 
+            + nombreUsuarioGrupo + "</li><li class='listaGrupos ui-li-divider ui-bar-a ui-first-child' data-role='list-divider'>Horario</li><li style='margin-top:-8px;' class='ui-li-static ui-body-inherit'>" + obj.horario + 
+            "</li><li data-role='list-divider'><a href='#sesiones' class='ui-btn'>Ver Sesiones </a></li><a style='background-color: #e65d5d ; ' href = '#popup_dialog' data-rel = 'popup' data-position-to = 'window'data-transition = 'pop' class = 'ui-btn'>Eliminar Grupo</a></ul>");
+//Fatima , la pregunta de confirmacion esta en el index , su id es "popup_dialog"
             });
         }).fail(function (error) {
             console.log(error);
@@ -307,8 +314,10 @@ $(document).ready(function () {
                 fechaRecortada=obj.fecha.slice(0, 10);
                 fechaRecortada=formatoFecha(fechaRecortada);
 //fatima cambio del boton eleiminar                 
-                //$("#listadoSesiones").append("<li class='ui-li-has-alt'><a class='ui-btn' style='background: linear-gradient(lightcyan, beige, gray);' href='#ejerciciosSesion'>"+obj.nombre+" - "+fechaRecortada+"</a><button id='botonEliminarSesion'  value='"+obj.id+"' style='background-color: lightcoral;' class = 'eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right ui-btn-icon-notext ui-icon-carat-r'></button></li>");
-                $("#listadoSesiones").append("<li class='ui-li-has-alt'><a class='ui-btn' style='background: linear-gradient(lightcyan, beige, gray);' href='#ejerciciosSesion'>"+obj.nombre+" - "+fechaRecortada+"</a><a style='background-color: lightcoral;' href = '#popup_dialog' data-rel = 'popup' data-position-to = 'window' data-transition = 'pop' class = 'eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right'></a></li>");
+               //lista funcional fran 
+                //$("#listadoSesiones").append("<li class='ui-li-has-alt'><a class='ui-btn' style='background: linear-gradient(lightcyan, beige, gray);' href='#ejerciciosSesion'>"+obj.nombre+" - "+fechaRecortada+"</a><a style='background-color: lightcoral;' href = '#popup_dialog' data-rel = 'popup' data-position-to = 'window' data-transition = 'pop' class = 'eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right'></a></li>");
+                //lista Fatima
+                $("#listadoSesiones").append("<li><a class='tabs ui-btn ui-btn-icon-right ui-icon-carat-r' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'  href='#ejerciciosSesion'>"+obj.nombre+" - "+fechaRecortada+"</a></li>");
 
             });
         }).fail(function (error) {
