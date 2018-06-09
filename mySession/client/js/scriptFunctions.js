@@ -472,26 +472,39 @@ $(document).ready(function () {
 
     });
 //EN CONSTRUCCION
+//LLAMADAS PARA PINTAR LA DESCRIPCION DEL EJERCICIO SELECCIONADO
     $(document.body).on("click", ".botonVerDescripcionEjercicio", function () {
-        $("#nombreDeLaSesion").text("");
-        $("#listadoEjerciciosSesionCalentamiento").html("");
-        $("#listadoEjerciciosSesionPartePrincipal").html("");
-        $("#listadoEjerciciosSesionVueltaALaCalma").html("");
-        var idEjercicioSeleccionado = $(this).attr("value");
 
+        var idEjercicioSeleccionado = $(this).attr("value");
+        var idCAtegoriaDelEjercicio;
 
         $.get(urlApp + "Ejercicios/" + idEjercicioSeleccionado + "?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
-            
-                console.log("Nombre: "+data.nombre);
-                console.log("Descripcion: "+data.descripcion);
-                console.log("url imagen: "+data.imagen);
 
+                $("#nombreDelEjercicio").text(data.nombre);
+                $("#imagenEjercicio1").html("<img style='width:100%; height:100%; margin-top: 0px;' alt='' src='"+data.imagen+"' />");
+                $("#imagenEjercicio2").html("<img style='width:100%; height:100%; margin-top: 0px;' alt='' src='"+data.imagen2+"' />");
+                $("#descripcionDelEjercicio").text(data.descripcion);
+                $("#duracionDelEjercicio").text(data.duracion);
+                idCAtegoriaDelEjercicio = data.categoriaId;
+
+
+                //$("#imagenPop").html("<a href="#" data-rel="back" class="ui-btn ui-btn-a ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img alt="" src="../img/4.jpg" style="width:100%; height:200px;" />");
+                $.get(urlApp + "Categoria/" + idCAtegoriaDelEjercicio + "?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
+
+                    $("#categoriaDelEjercicio").text(data.nombre);
+                    
+                
+                //$("#imagenPop").html("<a href="#" data-rel="back" class="ui-btn ui-btn-a ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img alt="" src="../img/4.jpg" style="width:100%; height:200px;" />");
+                
                 
                 });
+                
+                });
+                window.location.href = "http://localhost:3000/app/?userid=" + getAllUrlParams(window.location.href).userid + "&access_token=" + getAllUrlParams(window.location.href).access_token + "#ejercicioDescripcion";
         }).fail(function (error) {
             console.log(error);
         });
-        //window.location.href = "http://localhost:3000/app/?userid=" + getAllUrlParams(window.location.href).userid + "&access_token=" + getAllUrlParams(window.location.href).access_token + "#ejerciciosSesion";
+       
 
 
 });

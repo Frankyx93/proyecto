@@ -432,7 +432,7 @@
 
 </html>
 
-<section id="categoriasParaAnyadir" data-role="page">
+<section id="ejerciciosParaAnyadir" data-role="page">
     <div style="height: 20px;" data-role = "panel" id = "overlay_panel" data-display = "overlay">
             <a style="border-radius: 50px;background-color: #f44242;" href = "#page1" data-rel = "close" class = "ui-btn ui-btn-a ui-icon-delete 
             ui-btn-icon-notext ui-btn-right"></a>
@@ -685,7 +685,7 @@
 
 <!-- al hacer clic en un ejercicio en concreto  -->
 
-<div data-role="page" id="ejercicio1">
+<div data-role="page" id="ejercicioDescripcion">
         <div style="height: 20px;" data-role = "panel" id = "overlay_panel" data-display = "overlay">
                 <a style="border-radius: 50px;background-color: #f44242;" href = "#page1" data-rel = "close" class = "ui-btn ui-btn-a ui-icon-delete 
                 ui-btn-icon-notext ui-btn-right"></a>
@@ -699,7 +699,7 @@
                     href = "#" class ="ui-btn">Cerrar sesion</a></center>
         </div>
     <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
-        <h7>Proteged al Rey</h7>
+        <h7 id="nombreDelEjercicio"></h7>
         <a style="height:20px;border-radius: 100%;background-color: yellowgreen;" href = "#overlay_panel" class = "ui-btn ui-btn-icon-left ui-shadow ui-icon-user"></a>
     </header>
     <div id="">
@@ -707,30 +707,30 @@
             <!-- las imagenes de cada ejercicio -->
             <ul data-role="carousel" data-captions="true" data-shadow="true">
                 <li>
-                    <a href="#imagenPop" data-rel="popup">
-                        <img style="width:100%; height:100%; margin-top: 0px;" alt="" src="../img/4.jpg" />
+                    <a id="imagenEjercicio1" href="#imagenPop" data-rel="popup">
+
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <img alt="" src="../img/3.jpg" />
+                    <a id="imagenEjercicio2" href="#">
+
                     </a>
                 </li>
             </ul>
 
             <p>
                 <h5 class="estiloDescripcion" >Descripcion Ejercicio</h5>
-                <code>{Descripción del ejercicio}</code>
+                <p id="descripcionDelEjercicio"></p>
             </p>
 
             <p>
                 <h5 class="estiloDescripcion" style="font-weight: bold;color: green;">Duracion</h5>
-                <code>{Duración del ejercicio}</code>
+                <p id="duracionDelEjercicio"></p>
             </p>
 
             <p>
                 <h5 class="estiloDescripcion" style="font-weight: bold;color: green;">Categoria:</h5>
-                <code>{Categoría del ejercicio}</code>
+                <p id="categoriaDelEjercicio"></p>
             </p>
 
             <!-- si queremos k al hacer clic en la imagen salga en grande -->
@@ -742,7 +742,7 @@
 
             </div>
 
-            <a href="#MiPopup" class="borrarEjercicio ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left">Añadir a Sesión</a>
+            
 
             
 
@@ -803,7 +803,7 @@
                     </ul>
         </div>
 
-        <a style="margin-left: 10px;margin-right: 8px;border-radius: 5px" href = "#ejercicios" class="aniadir ui-btn ui-shadow ">Añadir Ejercicio</a>
+        <a style="margin-left: 10px;margin-right: 8px;border-radius: 5px" href = "#ejerciciosParaAnyadir" class="aniadir ui-btn ui-shadow ">Añadir Ejercicio</a>
 
         <!-- Boton eliminar una sesion , es el que estaba fuera -->
          <a id="botonEliminarSesion" style="background-color: #e65d5d ;margin-left: 10px;margin-right: 8px;border-radius: 5px" href = "#popup_dialog" data-rel = "popup" data-position-to = "window" 
