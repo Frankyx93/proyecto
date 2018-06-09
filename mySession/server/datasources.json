@@ -6,9 +6,9 @@
   "mySessionDS": {
     "host": "localhost",
     "port": 3306,
-    "url": "mysql://root:@localhost/mysession",
+    "url": "mysql://root:alumno@localhost/mysession",
     "database": "mysession",
-    "password": "",
+    "password": "alumno",
     "name": "mySessionDS",
     "user": "root",
     "connector": "mysql"
