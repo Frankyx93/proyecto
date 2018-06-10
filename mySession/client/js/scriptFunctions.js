@@ -157,7 +157,7 @@ $(document).ready(function () {
     $.get(urlApp + "Categoria?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
 
         $.each(data, function (idx, obj) {
-            $(".listadoCategorias").append("<li><a value='" + obj.id + "' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 10px' class='botonCategoria ui-btn ui-btn-icon-right ui-icon-carat-r' href='#categoriaCalentamiento' data-icon=''>" + obj.nombre + "</a></li>");
+            $(".listadoCategorias").append("<li><button value='" + obj.id + "' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 10px' class='botonCategoria ui-btn ui-btn-icon-right ui-icon-carat-r' data-icon=''>" + obj.nombre + "</button></li>");
         });
     }).fail(function (error) {
         console.log(error);
@@ -321,11 +321,49 @@ $(document).ready(function () {
             console.log(error);
         });
     });
+    //LLAMADAS DE LA TAB EJERCICIOS CUANDO SE PULSA SOBRE ALGUNA CATEGORIA
+    $(document.body).on("click", ".botonCategoria", function () {
+        $("#listadoEjerciciosPorCategoria").html("");
+        var idCategoriaSeleccionada = $(this).val();
+        var nombreCategoriaSeleccionada = $(this).text();
+        console.log("id Categoria: "+idCategoriaSeleccionada);
+        console.log("nombre Categoria: "+nombreCategoriaSeleccionada);
+        $("#nombreCategoriaSeleccionada").text(nombreCategoriaSeleccionada)
+        //$("#listadoEjerciciosPorCategoria").append();
+        //LLamada para saber el nombre de la categoria
+        $.get(urlApp + "Categoria/"+idCategoriaSeleccionada+"/ejercicios?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
+            
+            $.each(data, function (idx, obj) {
+                $("#listadoEjerciciosPorCategoria").append("<li><button value='" + obj.id + "' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 10px' class='botonEjercicio ui-btn ui-btn-icon-right ui-icon-carat-r' data-icon=''>" + obj.nombre + "</button></li>");
+            });
+        }).fail(function (error) {
+            console.log(error);
+        });
 
-    $(".botonCategoria").click(function () {
+        window.location.href = "http://localhost:3000/app/?userid=" + getAllUrlParams(window.location.href).userid + "&access_token=" + getAllUrlParams(window.location.href).access_token + "#ejerciciosporcategoria"
+    });
 
-        var idCategoriaSeleccionada = $(".botonCategoria").val();
-        console.log(idCategoriaSeleccionada);
+    //LLAMADAS DE LA TAB EJERCICIOS CUANDO SE PULSA SOBRE ALGUNA CATEGORIA CUANDO ESTAMOS AÑADIENDO EJERCICIO A ALGUNA SESION
+    //EN CONSTRUCCION
+    $(document.body).on("click", ".botonCategoriaParaAnyadir", function () {
+        $("#listadoEjerciciosPorCategoria").html("");
+        var idCategoriaSeleccionada = $(this).val();
+        var nombreCategoriaSeleccionada = $(this).text();
+        console.log("id Categoria: "+idCategoriaSeleccionada);
+        console.log("nombre Categoria: "+nombreCategoriaSeleccionada);
+        $("#nombreCategoriaSeleccionada").text(nombreCategoriaSeleccionada)
+        //$("#listadoEjerciciosPorCategoria").append();
+        //LLamada para saber el nombre de la categoria
+        $.get(urlApp + "Categoria/"+idCategoriaSeleccionada+"/ejercicios?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
+            
+            $.each(data, function (idx, obj) {
+                $("#listadoEjerciciosPorCategoria").append("<li><button value='" + obj.id + "' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 10px' class='botonEjercicio ui-btn ui-btn-icon-right ui-icon-carat-r' data-icon=''>" + obj.nombre + "</button></li>");
+            });
+        }).fail(function (error) {
+            console.log(error);
+        });
+
+        window.location.href = "http://localhost:3000/app/?userid=" + getAllUrlParams(window.location.href).userid + "&access_token=" + getAllUrlParams(window.location.href).access_token + "#ejerciciosporcategoria"
     });
 
     //LLAMADA PARA BORRAR UN GRUPO
@@ -416,6 +454,80 @@ $(document).ready(function () {
 
     });
 
+    //LLAMADA PARA BORRAR UNA SESION
+    $(document.body).on("click", ".botonEliminarSesion", function () {
+        console.log("FUNCIONA");
+        var idSesionQueVaASerBorrada = $(this).attr("value");
+        var urlBorrarSesion = urlApp + "Sesions/" + idSesionQueVaASerBorrada + "?access_token=" + getAllUrlParams(window.location.href).access_token;
+        var urlBorrarEjerciciosSesion = urlApp + "EjerciciosSesions?filter=%7B%22where%22%3A%7B%22idSesion%22%3A"+idSesionSeleccionada+"%7D%7D&access_token=" + getAllUrlParams(window.location.href).access_token;
+    //BORRAMOS PRIMERO TODAS LAS SESIONES QUE ESE GRUPO TENGA ASOCIADAS   
+        $.ajax({
+            url: urlBorrarEjerciciosSesion,
+            type: 'DELETE',
+            success: function (result) {
+    //BORRAMOS AHORA EL GRUPO EN CUESTIÓN
+                $.ajax({
+                    url: urlBorrarSesion,
+                    type: 'DELETE',
+                    success: function (result) {
+
+    //AHORA ACTUALIZAMOD TODAS LAS VISTAS DONDE APARECÍA ESTA SESION Y SUS EJERCICIOS
+            
+
+                        $("#listadoSesiones").html("");
+                        var fechaRecortada;
+                        $.get(urlApp + "Usuarios/" + getAllUrlParams(window.location.href).userid + "/sesiones?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
+
+                            $.each(data, function (idx, obj) {
+                                fechaRecortada = obj.fecha.slice(0, 10);
+                                fechaRecortada = formatoFecha(fechaRecortada);
+
+                                //fatima cambio del boton eleiminar                 
+                                //$("#listadoSesiones").append("<li class='ui-li-has-alt'><a class='ui-btn' style='background: linear-gradient(lightcyan, beige, gray);' href='#ejerciciosSesion'>"+obj.nombre+" - "+fechaRecortada+"</a><button id='botonEliminarSesion'  value='"+obj.id+"' style='background-color: lightcoral;' class = 'eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right ui-btn-icon-notext ui-icon-carat-r'></button></li>");
+                                $("#listadoSesiones").append("<li class='ui-li-has-alt'><button value='"+obj.id+"' class='botonVerEjerciciosSesion ui-btn' style='background: linear-gradient(lightcyan, beige, gray);'>" + obj.nombre + " - " + fechaRecortada + "</button><a style='background-color: lightcoral;' href = '#popup_dialog' data-rel = 'popup' data-position-to = 'window' data-transition = 'pop' class = 'eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right'></a></li>");
+                            });
+                        }).fail(function (error) {
+                            console.log(error);
+                        });
+
+
+                        $("#listaTabHome").html(" ");
+                        $.get(urlApp + "Usuarios/" + getAllUrlParams(window.location.href).userid + "/sesiones?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
+                            var grupoId;
+                            $.each(data, function (idx, obj) {
+                                grupoId = data[idx].grupoId
+                                sesionesUsuarioActual[idx] = obj.nombre
+
+                                // $("#listaTabHome").append("<li><a class='tabs ui-btn ui-btn-icon-right ui-icon-carat-r' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'  href='#ejerciciosSesion'>"+obj.nombre+"</a></li>");
+
+
+                                //AJAX SÍNCRONO PORQUE HASTA QUE NO ME DEVUELVE EL GRUPO NO QUIERO QUE SIGA
+                                $.ajax({
+                                    async: false,
+                                    type: 'GET',
+                                    url: urlApp + "Grupos/" + grupoId + "?access_token=" + getAllUrlParams(window.location.href).access_token,
+                                    success: function (data) {
+                                        //callback
+                                        gruposUsuarioActual[idx] = data.nombre
+                                        //  $("#listaTabHome").append("<li class='tabs ui-btn' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'>Grupo: "+data.nombre+"</li>");
+                                    }
+                                });
+                                $("#listaTabHome").append("<li><button class='tabs ui-btn ui-btn-icon-right ui-icon-carat-r' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'>" + sesionesUsuarioActual[idx] + " - " + gruposUsuarioActual[idx] + "</button></li>");
+                            });
+                        }).fail(function (error) {
+                            console.log(error);
+                        });
+
+                    }
+                });
+            }
+        });
+
+        window.location.href = "http://localhost:3000/app/?userid=" + getAllUrlParams(window.location.href).userid + "&access_token=" + getAllUrlParams(window.location.href).access_token + "#inicio"
+
+
+    });
+
     //LLAMADAS PARA PINTAR LOS EJERCICIOS QUE PERTENECEN A UNA SESIÓN
     $(document.body).on("click", ".botonVerEjerciciosSesion", function () {
         $("#nombreDeLaSesion").text("");
@@ -425,18 +537,18 @@ $(document).ready(function () {
         var idSesionSeleccionada = $(this).attr("value");
         var nombreSesionSeleccionada
 
-
+        //PAra conseguir el nombre de la sesion
         $.get(urlApp + "Sesions/" + idSesionSeleccionada + "?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
             nombreSesionSeleccionada = data.nombre 
+            $("#botonEliminarSesion").val(data.id);
             
         }).fail(function (error) {
             console.log(error);
         });
-
+        //Para conseguir los ejercicios que pertenecen a la sesion
         $.get(urlApp + "Sesions/" + idSesionSeleccionada + "/ejercicios?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
             
             $.each(data, function (idx, obj) {
-                console.log("Nombre: "+obj.nombre);
                 $("#nombreDeLaSesion").text(nombreSesionSeleccionada);
                 //AJAX SÍNCRONO PARA CONSEGUIR LA PARTE DE LA SESION A LA QUE PERTENECE CADA EJERCICIO
                 $.ajax({
@@ -445,7 +557,6 @@ $(document).ready(function () {
                     url: urlApp + "EjerciciosSesions?filter=%7B%22where%22%3A%7B%22idSesion%22%3A"+idSesionSeleccionada+"%7D%7D&access_token=" + getAllUrlParams(window.location.href).access_token,
                     success: function (datos) {
                         //callback
-                        console.log("Parte de la sesion: "+datos[idx].parteSesion);
                         if(datos[idx].parteSesion==0){
                             //Se pintan aquí si forman parte del calentamiento
                             $("#listadoEjerciciosSesionCalentamiento").append("<li><button value='"+obj.id+"' style='background: #FFC991' class = 'ui-btn botonVerDescripcionEjercicio'>"+obj.nombre+"</button>"+
@@ -471,7 +582,6 @@ $(document).ready(function () {
         window.location.href = "http://localhost:3000/app/?userid=" + getAllUrlParams(window.location.href).userid + "&access_token=" + getAllUrlParams(window.location.href).access_token + "#ejerciciosSesion";
 
     });
-//EN CONSTRUCCION
 //LLAMADAS PARA PINTAR LA DESCRIPCION DEL EJERCICIO SELECCIONADO
     $(document.body).on("click", ".botonVerDescripcionEjercicio", function () {
 
@@ -498,6 +608,7 @@ $(document).ready(function () {
                 
                 
                 });
+                
                 
                 });
                 window.location.href = "http://localhost:3000/app/?userid=" + getAllUrlParams(window.location.href).userid + "&access_token=" + getAllUrlParams(window.location.href).access_token + "#ejercicioDescripcion";
