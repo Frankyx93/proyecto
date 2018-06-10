@@ -70,7 +70,7 @@ function getAllUrlParams(url) {
 $(document).ready(function () {
 
     var urlApi = "http://localhost:3000/api/";
-    var urlApp = "http://localhost:3000/app/"
+    var urlApp = "http://localhost:3000/app/";
     var sesionesUsuarioActual = [];
     var gruposUsuarioActual = [];
 
@@ -158,13 +158,14 @@ $(document).ready(function () {
     $.get(urlApi + "Categoria?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
 
         $.each(data, function (idx, obj) {
-            $(".listadoCategorias").append("<li><button value='" + obj.id + "' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 10px' class='botonCategoria ui-btn ui-btn-icon-right ui-icon-carat-r' data-icon=''>" + obj.nombre + "</button></li>");
+            $(".listadoCategorias").append("<li><button value='" + obj.id + "' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 10px' class='botonCategoriaSinAnyadir ui-btn ui-btn-icon-right ui-icon-carat-r' data-icon=''>" + obj.nombre + "</button></li>");
+            $(".listadoCategoriasConAnyadir").append("<li><button value='" + obj.id + "' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 10px' class='botonCategoriaConAnyadir ui-btn ui-btn-icon-right ui-icon-carat-r' data-icon=''>" + obj.nombre + "</button></li>");
         });
     }).fail(function (error) {
         console.log(error);
     });
 
-    //LLAMADAS DEL BOTÓN DE CERRAR SESIÓN
+    //LLAMADAS DEL BOTÓN DE LOGOUT
 
     $(".botonLogout").click(function () {
         // POST/Usuarios/{idUsuarioAutenticado}/grupos
@@ -280,8 +281,13 @@ $(document).ready(function () {
     });
 
     //LLAMADAS DEL BOTÓN DE AÑADIR EJERCICIOS A UNA SESION
+    //EN CONSTRUCCION
+    var idSesionAlaQueVamosAgregarEjercicios;
 
-    $("#botonCrearEjerciciosSesion").click(function () {
+    $(document.body).on("click","#botonAnyadirEjerciciosSesion", function () {
+        idSesionAlaQueVamosAgregarEjercicios = $(this).val();
+        window.location.href = urlApp + "?userid=" + getAllUrlParams(window.location.href).userid + "&access_token=" + getAllUrlParams(window.location.href).access_token + "#categoriasparaanyadir"
+
         // POST/EjerciciosSesions el id de sesion se lo daremos dependiendo de la sesion a la que estemos pinchando
     });
 
@@ -365,7 +371,7 @@ $(document).ready(function () {
         });
     });
     //LLAMADAS DE LA TAB EJERCICIOS CUANDO SE PULSA SOBRE ALGUNA CATEGORIA
-    $(document.body).on("click", ".botonCategoria", function () {
+    $(document.body).on("click", ".botonCategoriaSinAnyadir", function () {
         $("#listadoEjerciciosPorCategoria").html("");
         var idCategoriaSeleccionada = $(this).val();
         var nombreCategoriaSeleccionada = $(this).text();
@@ -377,7 +383,7 @@ $(document).ready(function () {
         $.get(urlApi + "Categoria/" + idCategoriaSeleccionada + "/ejercicios?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
 
             $.each(data, function (idx, obj) {
-                $("#listadoEjerciciosPorCategoria").append("<li><button value='" + obj.id + "' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 10px' class='botonVerDescripcionEjercicio ui-btn ui-btn-icon-right ui-icon-carat-r' data-icon=''>" + obj.nombre + "</button></li>");
+                $("#listadoEjerciciosPorCategoria").append("<li><button value='" + obj.id + "' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 10px' class='botonVerDescripcionEjercicioSinAnyadir ui-btn ui-btn-icon-right ui-icon-carat-r' data-icon=''>" + obj.nombre + "</button></li>");
             });
         }).fail(function (error) {
             console.log(error);
@@ -388,8 +394,8 @@ $(document).ready(function () {
 
     //LLAMADAS DE LA TAB EJERCICIOS CUANDO SE PULSA SOBRE ALGUNA CATEGORIA CUANDO ESTAMOS AÑADIENDO EJERCICIO A ALGUNA SESION
     //EN CONSTRUCCION
-    $(document.body).on("click", ".botonCategoriaParaAnyadir", function () {
-        $("#listadoEjerciciosPorCategoria").html("");
+    $(document.body).on("click", ".botonCategoriaConAnyadir", function () {
+        $("#listadoCategoriasConAnyadir").html("");
         var idCategoriaSeleccionada = $(this).val();
         var nombreCategoriaSeleccionada = $(this).text();
         console.log("id Categoria: " + idCategoriaSeleccionada);
@@ -400,13 +406,13 @@ $(document).ready(function () {
         $.get(urlApi + "Categoria/" + idCategoriaSeleccionada + "/ejercicios?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
 
             $.each(data, function (idx, obj) {
-                $("#listadoEjerciciosPorCategoria").append("<li><button value='" + obj.id + "' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 10px' class='botonEjercicio ui-btn ui-btn-icon-right ui-icon-carat-r' data-icon=''>" + obj.nombre + "</button></li>");
+                $("#listadoCategoriasConAnyadir").append("<li><button value='" + obj.id + "' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 10px' class='botonEjercicioConAnyadir ui-btn ui-btn-icon-right ui-icon-carat-r' data-icon=''>" + obj.nombre + "</button></li>");
             });
         }).fail(function (error) {
             console.log(error);
         });
 
-        window.location.href = urlApp + "?userid=" + getAllUrlParams(window.location.href).userid + "&access_token=" + getAllUrlParams(window.location.href).access_token + "#ejerciciosporcategoria"
+        window.location.href = urlApp + "?userid=" + getAllUrlParams(window.location.href).userid + "&access_token=" + getAllUrlParams(window.location.href).access_token + "#ejerciciosporcategoriaConAnyadir"
     });
 
     //LLAMADA PARA BORRAR UN GRUPO
@@ -425,7 +431,7 @@ $(document).ready(function () {
                     type: 'DELETE',
                     success: function (result) {
 
-                        //AHORA ACTUALIZAMOD TODAS LAS VISTAS DONDE APARECÍA ESTE GRUPO Y SUS SESIONES
+                        //AHORA ACTUALIZAMOS TODAS LAS VISTAS DONDE APARECÍA ESTE GRUPO Y SUS SESIONES
                         $(".listadoGrupos").html("");
                         var nombreUsuarioGrupo = $("#NombreUsuarioAutenticado").text();
                         // GET/Usuarios/{idUsuarioAutenticado}/grupos
@@ -579,6 +585,7 @@ $(document).ready(function () {
         $.get(urlApi + "Sesions/" + idSesionSeleccionada + "?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
             nombreSesionSeleccionada = data.nombre
             $("#botonEliminarSesion").val(data.id);
+            $("#botonAnyadirEjerciciosSesion").val(data.id);
 
         }).fail(function (error) {
             console.log(error);
@@ -597,16 +604,16 @@ $(document).ready(function () {
                         //callback
                         if (datos[idx].parteSesion == 0) {
                             //Se pintan aquí si forman parte del calentamiento
-                            $("#listadoEjerciciosSesionCalentamiento").append("<li><button value='" + obj.id + "' style='background: #FFC991' class = 'ui-btn botonVerDescripcionEjercicio'>" + obj.nombre + "</button>" +
+                            $("#listadoEjerciciosSesionCalentamiento").append("<li><button value='" + obj.id + "' style='background: #FFC991' class = 'ui-btn botonVerDescripcionEjercicioSinAnyadir'>" + obj.nombre + "</button>" +
                                 "</li>");
 
                         } else if (datos[idx].parteSesion == 1) {
                             //Se pintan aquí si forman parte de la parte principal
-                            $("#listadoEjerciciosSesionPartePrincipal").append("<li><button value='" + obj.id + "' style='background: #FFC991' class = 'ui-btn botonVerDescripcionEjercicio'>" + obj.nombre + "</button>" +
+                            $("#listadoEjerciciosSesionPartePrincipal").append("<li><button value='" + obj.id + "' style='background: #FFC991' class = 'ui-btn botonVerDescripcionEjercicioSinAnyadir'>" + obj.nombre + "</button>" +
                                 "</li>");
                         } else if (datos[idx].parteSesion == 2) {
                             //Se pintan aquí si forman parte de la vuelta a la calma
-                            $("#listadoEjerciciosSesionVueltaALaCalma").append("<li><button value='" + obj.id + "' style='background: #FFC991' class = 'ui-btn botonVerDescripcionEjercicio'>" + obj.nombre + "</button>" +
+                            $("#listadoEjerciciosSesionVueltaALaCalma").append("<li><button value='" + obj.id + "' style='background: #FFC991' class = 'ui-btn botonVerDescripcionEjercicioSinAnyadir'>" + obj.nombre + "</button>" +
                                 "</li>");
                         }
                     }
@@ -620,8 +627,8 @@ $(document).ready(function () {
         window.location.href = urlApp + "?userid=" + getAllUrlParams(window.location.href).userid + "&access_token=" + getAllUrlParams(window.location.href).access_token + "#ejerciciosSesion";
 
     });
-    //LLAMADAS PARA PINTAR LA DESCRIPCION DEL EJERCICIO SELECCIONADO
-    $(document.body).on("click", ".botonVerDescripcionEjercicio", function () {
+    //LLAMADAS PARA PINTAR LA DESCRIPCION DEL EJERCICIO SELECCIONADO 
+    $(document.body).on("click", ".botonVerDescripcionEjercicioSinAnyadir", function () {
 
         var idEjercicioSeleccionado = $(this).attr("value");
         var idCAtegoriaDelEjercicio;
@@ -649,11 +656,43 @@ $(document).ready(function () {
 
 
         });
-        window.location.href = urlApp + "?userid=" + getAllUrlParams(window.location.href).userid + "&access_token=" + getAllUrlParams(window.location.href).access_token + "#ejercicioDescripcion";
+        window.location.href = urlApp + "?userid=" + getAllUrlParams(window.location.href).userid + "&access_token=" + getAllUrlParams(window.location.href).access_token + "#ejercicioDescripcionSinAnyadir";
     }).fail(function (error) {
         console.log(error);
     });
+    //LLAMADAS PARA PINTAR LA DESCRIPCION DEL EJERCICIO SELECCIONADO 
+    $(document.body).on("click", ".botonEjercicioConAnyadir", function () {
 
+        var idEjercicioSeleccionado = $(this).attr("value");
+        var idCAtegoriaDelEjercicio;
+
+        $.get(urlApi + "Ejercicios/" + idEjercicioSeleccionado + "?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
+
+            $("#nombreDelEjercicio").text(data.nombre);
+            $("#imagenEjercicio1").html("<img style='width:100%; height:100%; margin-top: 0px;' alt='' src='" + data.imagen + "' />");
+            $("#imagenEjercicio2").html("<img style='width:100%; height:100%; margin-top: 0px;' alt='' src='" + data.imagen2 + "' />");
+            $("#descripcionDelEjercicio").text(data.descripcion);
+            $("#duracionDelEjercicio").text(data.duracion);
+            idCAtegoriaDelEjercicio = data.categoriaId;
+
+
+            //$("#imagenPop").html("<a href="#" data-rel="back" class="ui-btn ui-btn-a ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img alt="" src="../img/4.jpg" style="width:100%; height:200px;" />");
+            $.get(urlApi + "Categoria/" + idCAtegoriaDelEjercicio + "?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
+
+                $("#categoriaDelEjercicio").text(data.nombre);
+
+
+                //$("#imagenPop").html("<a href="#" data-rel="back" class="ui-btn ui-btn-a ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img alt="" src="../img/4.jpg" style="width:100%; height:200px;" />");
+
+
+            });
+
+
+        });
+        window.location.href = urlApp + "?userid=" + getAllUrlParams(window.location.href).userid + "&access_token=" + getAllUrlParams(window.location.href).access_token + "#ejercicioDescripcionConAnyadir";
+    }).fail(function (error) {
+        console.log(error);
+    });
 
 
 });
