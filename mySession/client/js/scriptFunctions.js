@@ -69,7 +69,8 @@ function getAllUrlParams(url) {
 
 $(document).ready(function () {
 
-    var urlApp = "http://localhost:3000/api/";
+    var urlApi = "http://localhost:3000/api/";
+    var urlApp = "http://localhost:3000/app/"
     var sesionesUsuarioActual = [];
     var gruposUsuarioActual = [];
 
@@ -78,7 +79,7 @@ $(document).ready(function () {
 
 
     // GET/Usuarios/{idUsuarioAutenticado}/sesiones
-    $.get(urlApp + "Usuarios/" + getAllUrlParams(window.location.href).userid + "/sesiones?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
+    $.get(urlApi + "Usuarios/" + getAllUrlParams(window.location.href).userid + "/sesiones?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
         var grupoId;
         $.each(data, function (idx, obj) {
             grupoId = data[idx].grupoId
@@ -91,14 +92,14 @@ $(document).ready(function () {
             $.ajax({
                 async: false,
                 type: 'GET',
-                url: urlApp + "Grupos/" + grupoId + "?access_token=" + getAllUrlParams(window.location.href).access_token,
+                url: urlApi + "Grupos/" + grupoId + "?access_token=" + getAllUrlParams(window.location.href).access_token,
                 success: function (data) {
                     //callback
                     gruposUsuarioActual[idx] = data.nombre
                     //  $("#listaTabHome").append("<li class='tabs ui-btn' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'>Grupo: "+data.nombre+"</li>");
                 }
             });
-            $("#listaTabHome").append("<li><button value='"+obj.id+"' class='botonVerEjerciciosSesion tabs ui-btn ui-btn-icon-right ui-icon-carat-r' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'>" + sesionesUsuarioActual[idx] + " - " + gruposUsuarioActual[idx] + "</button></li>");
+            $("#listaTabHome").append("<li><button value='" + obj.id + "' class='botonVerEjerciciosSesion tabs ui-btn ui-btn-icon-right ui-icon-carat-r' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'>" + sesionesUsuarioActual[idx] + " - " + gruposUsuarioActual[idx] + "</button></li>");
         });
     }).fail(function (error) {
         console.log(error);
@@ -107,7 +108,7 @@ $(document).ready(function () {
     //LLAMADAS DE LA INFORMACIÓN DE USUARIO CUANDO SE ABRE LA APLICACIÓN
 
     //GET /Usuarios/{id}   INFORMACIÓN DEL USUARIO
-    $.get(urlApp + "Usuarios/" + getAllUrlParams(window.location.href).userid + "?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
+    $.get(urlApi + "Usuarios/" + getAllUrlParams(window.location.href).userid + "?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
         $(".NombreUsuarioAutenticado").text(data.nombre);
         $(".EmailUsuarioAutenticado").text(data.email);
 
@@ -119,7 +120,7 @@ $(document).ready(function () {
 
     var nombreUsuarioGrupo = $("#NombreUsuarioAutenticado").text();
     // GET/Usuarios/{idUsuarioAutenticado}/grupos
-    $.get(urlApp + "Usuarios/" + getAllUrlParams(window.location.href).userid + "/grupos?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
+    $.get(urlApi + "Usuarios/" + getAllUrlParams(window.location.href).userid + "/grupos?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
 
         $.each(data, function (idx, obj) {
             $("#selectGruposParaNuevaSesion").append("<option value=" + obj.id + ">" + obj.nombre + "</option>")
@@ -136,7 +137,7 @@ $(document).ready(function () {
 
     $("#listadoSesiones").html("");
 
-    $.get(urlApp + "Usuarios/" + getAllUrlParams(window.location.href).userid + "/sesiones?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
+    $.get(urlApi + "Usuarios/" + getAllUrlParams(window.location.href).userid + "/sesiones?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
         var fechaRecortada;
         $.each(data, function (idx, obj) {
             fechaRecortada = obj.fecha.slice(0, 10);
@@ -145,7 +146,7 @@ $(document).ready(function () {
             //lista funcional fran 
             //$("#listadoSesiones").append("<li class='ui-li-has-alt'><a class='ui-btn' style='background: linear-gradient(lightcyan, beige, gray);' href='#ejerciciosSesion'>"+obj.nombre+" - "+fechaRecortada+"</a><a style='background-color: lightcoral;' href = '#popup_dialog' data-rel = 'popup' data-position-to = 'window' data-transition = 'pop' class = 'eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right'></a></li>");
             //lista Fatima
-            $("#listadoSesiones").append("<li><button value='"+obj.id+"' class='botonVerEjerciciosSesion tabs ui-btn ui-btn-icon-right ui-icon-carat-r' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'>" + obj.nombre + " - " + fechaRecortada + "</button></li>");
+            $("#listadoSesiones").append("<li><button value='" + obj.id + "' class='botonVerEjerciciosSesion tabs ui-btn ui-btn-icon-right ui-icon-carat-r' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'>" + obj.nombre + " - " + fechaRecortada + "</button></li>");
 
         });
     }).fail(function (error) {
@@ -154,7 +155,7 @@ $(document).ready(function () {
 
     //LLAMADAS DE LA PÁGINA EJERCICIOS CUANDO SE ABRE LA APLICACIÓN
 
-    $.get(urlApp + "Categoria?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
+    $.get(urlApi + "Categoria?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
 
         $.each(data, function (idx, obj) {
             $(".listadoCategorias").append("<li><button value='" + obj.id + "' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 10px' class='botonCategoria ui-btn ui-btn-icon-right ui-icon-carat-r' data-icon=''>" + obj.nombre + "</button></li>");
@@ -168,7 +169,7 @@ $(document).ready(function () {
     $(".botonLogout").click(function () {
         // POST/Usuarios/{idUsuarioAutenticado}/grupos
 
-        $.post(urlApp + "Usuarios/logout?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
+        $.post(urlApi + "Usuarios/logout?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
             console.log("data: " + data);
             console.log("status: " + status);
             document.cookie = "access_token=" + getAllUrlParams(window.location.href).access_token + "; expires=Thu, 05 Dec 1970 12:00:00 UTC; path=/";
@@ -200,7 +201,7 @@ $(document).ready(function () {
             horarioGrupoNuevo += "V";
         }
 
-        $.post(urlApp + "Usuarios/" + getAllUrlParams(window.location.href).userid + "/grupos?access_token=" + getAllUrlParams(window.location.href).access_token, {
+        $.post(urlApi + "Usuarios/" + getAllUrlParams(window.location.href).userid + "/grupos?access_token=" + getAllUrlParams(window.location.href).access_token, {
             nombre: nombreGrupoNuevo,
             horario: horarioGrupoNuevo
         }).done(function (data) {
@@ -222,18 +223,60 @@ $(document).ready(function () {
         var nombreSesionNueva = $("#nombreNuevaSesion").val();
         var grupoIdSesionNueva = $("#selectGruposParaNuevaSesion").val();
         console.log(fechaSesionNueva);
-        $.post(urlApp + "Usuarios/" + getAllUrlParams(window.location.href).userid + "/sesiones?access_token=" + getAllUrlParams(window.location.href).access_token, {
+        $.post(urlApi + "Usuarios/" + getAllUrlParams(window.location.href).userid + "/sesiones?access_token=" + getAllUrlParams(window.location.href).access_token, {
             nombre: nombreSesionNueva,
             fecha: fechaSesionNueva,
             grupoId: grupoIdSesionNueva
         }).done(function (data) {
-            //POPUP SESIÓN CREADO
-            location.href = "http://localhost:3000/app/?userid=" + getAllUrlParams(window.location.href).userid + "&access_token=" + getAllUrlParams(window.location.href).access_token + "#categoriasParaAnyadir";
-            alert("Sesión creada");
+            //ACTUALIZAMOS TODAS LAS LISTAS PARA QUE APAREZCA ESTA SESION
+            $("#listadoSesiones").html("");
+                var fechaRecortada;
+                $.get(urlApi + "Usuarios/" + getAllUrlParams(window.location.href).userid + "/sesiones?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
+
+                    $.each(data, function (idx, obj) {
+                        fechaRecortada = obj.fecha.slice(0, 10);
+                        fechaRecortada = formatoFecha(fechaRecortada);
+
+                        //fatima cambio del boton eleiminar                 
+                        //$("#listadoSesiones").append("<li class='ui-li-has-alt'><a class='ui-btn' style='background: linear-gradient(lightcyan, beige, gray);' href='#ejerciciosSesion'>"+obj.nombre+" - "+fechaRecortada+"</a><button id='botonEliminarSesion'  value='"+obj.id+"' style='background-color: lightcoral;' class = 'eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right ui-btn-icon-notext ui-icon-carat-r'></button></li>");
+                        $("#listadoSesiones").append("<li class='ui-li-has-alt'><button value='" + obj.id + "' class='botonVerEjerciciosSesion ui-btn' style='background: linear-gradient(lightcyan, beige, gray);'>" + obj.nombre + " - " + fechaRecortada + "</button></li>");
+                    });
+                }).fail(function (error) {
+                    console.log(error);
+                });
+
+
+                $("#listaTabHome").html(" ");
+                $.get(urlApi + "Usuarios/" + getAllUrlParams(window.location.href).userid + "/sesiones?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
+                    var grupoId;
+                    $.each(data, function (idx, obj) {
+                        grupoId = data[idx].grupoId
+                        sesionesUsuarioActual[idx] = obj.nombre
+
+                        // $("#listaTabHome").append("<li><a class='tabs ui-btn ui-btn-icon-right ui-icon-carat-r' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'  href='#ejerciciosSesion'>"+obj.nombre+"</a></li>");
+
+
+                        //AJAX SÍNCRONO PORQUE HASTA QUE NO ME DEVUELVE EL GRUPO NO QUIERO QUE SIGA
+                        $.ajax({
+                            async: false,
+                            type: 'GET',
+                            url: urlApi + "Grupos/" + grupoId + "?access_token=" + getAllUrlParams(window.location.href).access_token,
+                            success: function (data) {
+                                //callback
+                                gruposUsuarioActual[idx] = data.nombre
+                                //  $("#listaTabHome").append("<li class='tabs ui-btn' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'>Grupo: "+data.nombre+"</li>");
+                            }
+                        });
+                        $("#listaTabHome").append("<li><button class='tabs ui-btn ui-btn-icon-right ui-icon-carat-r' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'>" + sesionesUsuarioActual[idx] + " - " + gruposUsuarioActual[idx] + "</button></li>");
+                    });
+                }).fail(function (error) {
+                    console.log(error);
+                });
         }).fail(function (error) {
             console.log(error);
             console.log("Error");
         })
+        window.location.href = urlApp + "?userid=" + getAllUrlParams(window.location.href).userid + "&access_token=" + getAllUrlParams(window.location.href).access_token + "#categoriasparaanyadir"
     });
 
     //LLAMADAS DEL BOTÓN DE AÑADIR EJERCICIOS A UNA SESION
@@ -248,7 +291,7 @@ $(document).ready(function () {
 
         //MACHACA EL RESULTADO ANTERIOR
         $("#listaTabHome").html(" ");
-        $.get(urlApp + "Usuarios/" + getAllUrlParams(window.location.href).userid + "/sesiones?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
+        $.get(urlApi + "Usuarios/" + getAllUrlParams(window.location.href).userid + "/sesiones?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
             var grupoId;
             $.each(data, function (idx, obj) {
                 grupoId = data[idx].grupoId
@@ -261,14 +304,14 @@ $(document).ready(function () {
                 $.ajax({
                     async: false,
                     type: 'GET',
-                    url: urlApp + "Grupos/" + grupoId + "?access_token=" + getAllUrlParams(window.location.href).access_token,
+                    url: urlApi + "Grupos/" + grupoId + "?access_token=" + getAllUrlParams(window.location.href).access_token,
                     success: function (data) {
                         //callback
                         gruposUsuarioActual[idx] = data.nombre
                         //  $("#listaTabHome").append("<li class='tabs ui-btn' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'>Grupo: "+data.nombre+"</li>");
                     }
                 });
-                $("#listaTabHome").append("<li><button value='"+obj.id+"' class='botonVerEjerciciosSesion tabs ui-btn ui-btn-icon-right ui-icon-carat-r' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'>" + sesionesUsuarioActual[idx] + " - " + gruposUsuarioActual[idx] + "</button></li>");
+                $("#listaTabHome").append("<li><button value='" + obj.id + "' class='botonVerEjerciciosSesion tabs ui-btn ui-btn-icon-right ui-icon-carat-r' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'>" + sesionesUsuarioActual[idx] + " - " + gruposUsuarioActual[idx] + "</button></li>");
             });
         }).fail(function (error) {
             console.log(error);
@@ -284,7 +327,7 @@ $(document).ready(function () {
         $(".listadoGrupos").html("");
         var nombreUsuarioGrupo = $("#NombreUsuarioAutenticado").text();
         // GET/Usuarios/{idUsuarioAutenticado}/grupos
-        $.get(urlApp + "Usuarios/" + getAllUrlParams(window.location.href).userid + "/grupos?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
+        $.get(urlApi + "Usuarios/" + getAllUrlParams(window.location.href).userid + "/grupos?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
 
             $.each(data, function (idx, obj) {
                 //$(".listadoGrupos").append("<ul data-role='listview' data-inset='true' data-divider-theme='a' class='ui-listview ui-listview-inset ui-corner-all ui-shadow'><li class='listaGrupos ui-li-divider ui-bar-a ui-first-child' data-role='list-divider'>Nombre Grupo</li><li class='ui-li-static ui-body-inherit'>" + obj.nombre + "</li><li class='listaGrupos ui-li-divider ui-bar-a' data-role='list-divider'>Monitor</li><li class='ui-li-static ui-body-inherit'>" + nombreUsuarioGrupo + "</li><li class='listaGrupos ui-li-divider ui-bar-a ui-first-child' data-role='list-divider'>Horario</li><li class='ui-li-static ui-body-inherit'>" + obj.horario + "</li><li data-role='list-divider'><a href='#sesiones' class='ui-btn'>Ver Sesiones </a></li></ul>");
@@ -307,7 +350,7 @@ $(document).ready(function () {
 
         $("#listadoSesiones").html("");
         var fechaRecortada;
-        $.get(urlApp + "Usuarios/" + getAllUrlParams(window.location.href).userid + "/sesiones?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
+        $.get(urlApi + "Usuarios/" + getAllUrlParams(window.location.href).userid + "/sesiones?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
 
             $.each(data, function (idx, obj) {
                 fechaRecortada = obj.fecha.slice(0, 10);
@@ -315,7 +358,7 @@ $(document).ready(function () {
 
                 //fatima cambio del boton eleiminar                 
                 //$("#listadoSesiones").append("<li class='ui-li-has-alt'><a class='ui-btn' style='background: linear-gradient(lightcyan, beige, gray);' href='#ejerciciosSesion'>"+obj.nombre+" - "+fechaRecortada+"</a><button id='botonEliminarSesion'  value='"+obj.id+"' style='background-color: lightcoral;' class = 'eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right ui-btn-icon-notext ui-icon-carat-r'></button></li>");
-                $("#listadoSesiones").append("<li class='ui-li-has-alt'><button value='"+obj.id+"' class='botonVerEjerciciosSesion ui-btn' style='background: linear-gradient(lightcyan, beige, gray);'>" + obj.nombre + " - " + fechaRecortada + "</button><a style='background-color: lightcoral;' href = '#popup_dialog' data-rel = 'popup' data-position-to = 'window' data-transition = 'pop' class = 'eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right'></a></li>");
+                $("#listadoSesiones").append("<li class='ui-li-has-alt'><button value='" + obj.id + "' class='botonVerEjerciciosSesion ui-btn' style='background: linear-gradient(lightcyan, beige, gray);'>" + obj.nombre + " - " + fechaRecortada + "</button></li>");
             });
         }).fail(function (error) {
             console.log(error);
@@ -326,21 +369,21 @@ $(document).ready(function () {
         $("#listadoEjerciciosPorCategoria").html("");
         var idCategoriaSeleccionada = $(this).val();
         var nombreCategoriaSeleccionada = $(this).text();
-        console.log("id Categoria: "+idCategoriaSeleccionada);
-        console.log("nombre Categoria: "+nombreCategoriaSeleccionada);
+        console.log("id Categoria: " + idCategoriaSeleccionada);
+        console.log("nombre Categoria: " + nombreCategoriaSeleccionada);
         $("#nombreCategoriaSeleccionada").text(nombreCategoriaSeleccionada)
         //$("#listadoEjerciciosPorCategoria").append();
         //LLamada para saber el nombre de la categoria
-        $.get(urlApp + "Categoria/"+idCategoriaSeleccionada+"/ejercicios?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
-            
+        $.get(urlApi + "Categoria/" + idCategoriaSeleccionada + "/ejercicios?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
+
             $.each(data, function (idx, obj) {
-                $("#listadoEjerciciosPorCategoria").append("<li><button value='" + obj.id + "' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 10px' class='botonEjercicio ui-btn ui-btn-icon-right ui-icon-carat-r' data-icon=''>" + obj.nombre + "</button></li>");
+                $("#listadoEjerciciosPorCategoria").append("<li><button value='" + obj.id + "' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 10px' class='botonVerDescripcionEjercicio ui-btn ui-btn-icon-right ui-icon-carat-r' data-icon=''>" + obj.nombre + "</button></li>");
             });
         }).fail(function (error) {
             console.log(error);
         });
 
-        window.location.href = "http://localhost:3000/app/?userid=" + getAllUrlParams(window.location.href).userid + "&access_token=" + getAllUrlParams(window.location.href).access_token + "#ejerciciosporcategoria"
+        window.location.href = urlApp + "?userid=" + getAllUrlParams(window.location.href).userid + "&access_token=" + getAllUrlParams(window.location.href).access_token + "#ejerciciosporcategoria"
     });
 
     //LLAMADAS DE LA TAB EJERCICIOS CUANDO SE PULSA SOBRE ALGUNA CATEGORIA CUANDO ESTAMOS AÑADIENDO EJERCICIO A ALGUNA SESION
@@ -349,13 +392,13 @@ $(document).ready(function () {
         $("#listadoEjerciciosPorCategoria").html("");
         var idCategoriaSeleccionada = $(this).val();
         var nombreCategoriaSeleccionada = $(this).text();
-        console.log("id Categoria: "+idCategoriaSeleccionada);
-        console.log("nombre Categoria: "+nombreCategoriaSeleccionada);
+        console.log("id Categoria: " + idCategoriaSeleccionada);
+        console.log("nombre Categoria: " + nombreCategoriaSeleccionada);
         $("#nombreCategoriaSeleccionada").text(nombreCategoriaSeleccionada)
         //$("#listadoEjerciciosPorCategoria").append();
         //LLamada para saber el nombre de la categoria
-        $.get(urlApp + "Categoria/"+idCategoriaSeleccionada+"/ejercicios?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
-            
+        $.get(urlApi + "Categoria/" + idCategoriaSeleccionada + "/ejercicios?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
+
             $.each(data, function (idx, obj) {
                 $("#listadoEjerciciosPorCategoria").append("<li><button value='" + obj.id + "' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 10px' class='botonEjercicio ui-btn ui-btn-icon-right ui-icon-carat-r' data-icon=''>" + obj.nombre + "</button></li>");
             });
@@ -363,30 +406,30 @@ $(document).ready(function () {
             console.log(error);
         });
 
-        window.location.href = "http://localhost:3000/app/?userid=" + getAllUrlParams(window.location.href).userid + "&access_token=" + getAllUrlParams(window.location.href).access_token + "#ejerciciosporcategoria"
+        window.location.href = urlApp + "?userid=" + getAllUrlParams(window.location.href).userid + "&access_token=" + getAllUrlParams(window.location.href).access_token + "#ejerciciosporcategoria"
     });
 
     //LLAMADA PARA BORRAR UN GRUPO
     $(document.body).on("click", ".botonEliminarGrupo", function () {
         var idGrupoQueVaASerBorrado = $(this).attr("value");
-        var urlBorrarGrupo = urlApp + "Grupos/" + idGrupoQueVaASerBorrado + "?access_token=" + getAllUrlParams(window.location.href).access_token;
-        var urlBorrarSesionesdelGrupo = urlApp + "Grupos/" + idGrupoQueVaASerBorrado + "/sesiones?access_token=" + getAllUrlParams(window.location.href).access_token;
-    //BORRAMOS PRIMERO TODAS LAS SESIONES QUE ESE GRUPO TENGA ASOCIADAS   
+        var urlBorrarGrupo = urlApi + "Grupos/" + idGrupoQueVaASerBorrado + "?access_token=" + getAllUrlParams(window.location.href).access_token;
+        var urlBorrarSesionesdelGrupo = urlApi + "Grupos/" + idGrupoQueVaASerBorrado + "/sesiones?access_token=" + getAllUrlParams(window.location.href).access_token;
+        //BORRAMOS PRIMERO TODAS LAS SESIONES QUE ESE GRUPO TENGA ASOCIADAS   
         $.ajax({
             url: urlBorrarSesionesdelGrupo,
             type: 'DELETE',
             success: function (result) {
-    //BORRAMOS AHORA EL GRUPO EN CUESTIÓN
+                //BORRAMOS AHORA EL GRUPO EN CUESTIÓN
                 $.ajax({
                     url: urlBorrarGrupo,
                     type: 'DELETE',
                     success: function (result) {
 
-    //AHORA ACTUALIZAMOD TODAS LAS VISTAS DONDE APARECÍA ESTE GRUPO Y SUS SESIONES
+                        //AHORA ACTUALIZAMOD TODAS LAS VISTAS DONDE APARECÍA ESTE GRUPO Y SUS SESIONES
                         $(".listadoGrupos").html("");
                         var nombreUsuarioGrupo = $("#NombreUsuarioAutenticado").text();
                         // GET/Usuarios/{idUsuarioAutenticado}/grupos
-                        $.get(urlApp + "Usuarios/" + getAllUrlParams(window.location.href).userid + "/grupos?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
+                        $.get(urlApi + "Usuarios/" + getAllUrlParams(window.location.href).userid + "/grupos?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
 
                             $.each(data, function (idx, obj) {
                                 //$(".listadoGrupos").append("<ul data-role='listview' data-inset='true' data-divider-theme='a' class='ui-listview ui-listview-inset ui-corner-all ui-shadow'><li class='listaGrupos ui-li-divider ui-bar-a ui-first-child' data-role='list-divider'>Nombre Grupo</li><li class='ui-li-static ui-body-inherit'>" + obj.nombre + "</li><li class='listaGrupos ui-li-divider ui-bar-a' data-role='list-divider'>Monitor</li><li class='ui-li-static ui-body-inherit'>" + nombreUsuarioGrupo + "</li><li class='listaGrupos ui-li-divider ui-bar-a ui-first-child' data-role='list-divider'>Horario</li><li class='ui-li-static ui-body-inherit'>" + obj.horario + "</li><li data-role='list-divider'><a href='#sesiones' class='ui-btn'>Ver Sesiones </a></li></ul>");
@@ -402,7 +445,7 @@ $(document).ready(function () {
 
                         $("#listadoSesiones").html("");
                         var fechaRecortada;
-                        $.get(urlApp + "Usuarios/" + getAllUrlParams(window.location.href).userid + "/sesiones?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
+                        $.get(urlApi + "Usuarios/" + getAllUrlParams(window.location.href).userid + "/sesiones?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
 
                             $.each(data, function (idx, obj) {
                                 fechaRecortada = obj.fecha.slice(0, 10);
@@ -410,7 +453,7 @@ $(document).ready(function () {
 
                                 //fatima cambio del boton eleiminar                 
                                 //$("#listadoSesiones").append("<li class='ui-li-has-alt'><a class='ui-btn' style='background: linear-gradient(lightcyan, beige, gray);' href='#ejerciciosSesion'>"+obj.nombre+" - "+fechaRecortada+"</a><button id='botonEliminarSesion'  value='"+obj.id+"' style='background-color: lightcoral;' class = 'eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right ui-btn-icon-notext ui-icon-carat-r'></button></li>");
-                                $("#listadoSesiones").append("<li class='ui-li-has-alt'><button value='"+obj.id+"' class='botonVerEjerciciosSesion ui-btn' style='background: linear-gradient(lightcyan, beige, gray);'>" + obj.nombre + " - " + fechaRecortada + "</button><a style='background-color: lightcoral;' href = '#popup_dialog' data-rel = 'popup' data-position-to = 'window' data-transition = 'pop' class = 'eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right'></a></li>");
+                                $("#listadoSesiones").append("<li class='ui-li-has-alt'><button value='" + obj.id + "' class='botonVerEjerciciosSesion ui-btn' style='background: linear-gradient(lightcyan, beige, gray);'>" + obj.nombre + " - " + fechaRecortada + "</button></li>");
                             });
                         }).fail(function (error) {
                             console.log(error);
@@ -418,7 +461,7 @@ $(document).ready(function () {
 
 
                         $("#listaTabHome").html(" ");
-                        $.get(urlApp + "Usuarios/" + getAllUrlParams(window.location.href).userid + "/sesiones?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
+                        $.get(urlApi + "Usuarios/" + getAllUrlParams(window.location.href).userid + "/sesiones?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
                             var grupoId;
                             $.each(data, function (idx, obj) {
                                 grupoId = data[idx].grupoId
@@ -431,7 +474,7 @@ $(document).ready(function () {
                                 $.ajax({
                                     async: false,
                                     type: 'GET',
-                                    url: urlApp + "Grupos/" + grupoId + "?access_token=" + getAllUrlParams(window.location.href).access_token,
+                                    url: urlApi + "Grupos/" + grupoId + "?access_token=" + getAllUrlParams(window.location.href).access_token,
                                     success: function (data) {
                                         //callback
                                         gruposUsuarioActual[idx] = data.nombre
@@ -449,81 +492,76 @@ $(document).ready(function () {
             }
         });
 
-        window.location.href = "http://localhost:3000/app/?userid=" + getAllUrlParams(window.location.href).userid + "&access_token=" + getAllUrlParams(window.location.href).access_token + "#inicio"
+        window.location.href = urlApp + "?userid=" + getAllUrlParams(window.location.href).userid + "&access_token=" + getAllUrlParams(window.location.href).access_token + "#inicio"
 
 
     });
 
     //LLAMADA PARA BORRAR UNA SESION
-    $(document.body).on("click", ".botonEliminarSesion", function () {
-        console.log("FUNCIONA");
+    $(document.body).on("click", "#botonEliminarSesion", function () {
+
         var idSesionQueVaASerBorrada = $(this).attr("value");
-        var urlBorrarSesion = urlApp + "Sesions/" + idSesionQueVaASerBorrada + "?access_token=" + getAllUrlParams(window.location.href).access_token;
-        var urlBorrarEjerciciosSesion = urlApp + "EjerciciosSesions?filter=%7B%22where%22%3A%7B%22idSesion%22%3A"+idSesionSeleccionada+"%7D%7D&access_token=" + getAllUrlParams(window.location.href).access_token;
-    //BORRAMOS PRIMERO TODAS LAS SESIONES QUE ESE GRUPO TENGA ASOCIADAS   
+        var urlBorrarSesion = urlApi + "Sesions/" + idSesionQueVaASerBorrada + "?access_token=" + getAllUrlParams(window.location.href).access_token;
+        //var urlBorrarEjerciciosSesion = urlApi + "EjerciciosSesions?filter=%7B%22where%22%3A%7B%22idSesion%22%3A"+idSesionQueVaASerBorrada+"%7D%7D&access_token=" + getAllUrlParams(window.location.href).access_token;
+        //BORRAMOS PRIMERO TODOS LOS EJERCICIOS ASOCIADOS A ESTA SESION, OJO NO LA INSTANCIA, SI LA RELACION  
+
+        //BORRAMOS AHORA LA SESION EN CUESTIÓN
         $.ajax({
-            url: urlBorrarEjerciciosSesion,
+            url: urlBorrarSesion,
             type: 'DELETE',
             success: function (result) {
-    //BORRAMOS AHORA EL GRUPO EN CUESTIÓN
-                $.ajax({
-                    url: urlBorrarSesion,
-                    type: 'DELETE',
-                    success: function (result) {
-
-    //AHORA ACTUALIZAMOD TODAS LAS VISTAS DONDE APARECÍA ESTA SESION Y SUS EJERCICIOS
-            
-
-                        $("#listadoSesiones").html("");
-                        var fechaRecortada;
-                        $.get(urlApp + "Usuarios/" + getAllUrlParams(window.location.href).userid + "/sesiones?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
-
-                            $.each(data, function (idx, obj) {
-                                fechaRecortada = obj.fecha.slice(0, 10);
-                                fechaRecortada = formatoFecha(fechaRecortada);
-
-                                //fatima cambio del boton eleiminar                 
-                                //$("#listadoSesiones").append("<li class='ui-li-has-alt'><a class='ui-btn' style='background: linear-gradient(lightcyan, beige, gray);' href='#ejerciciosSesion'>"+obj.nombre+" - "+fechaRecortada+"</a><button id='botonEliminarSesion'  value='"+obj.id+"' style='background-color: lightcoral;' class = 'eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right ui-btn-icon-notext ui-icon-carat-r'></button></li>");
-                                $("#listadoSesiones").append("<li class='ui-li-has-alt'><button value='"+obj.id+"' class='botonVerEjerciciosSesion ui-btn' style='background: linear-gradient(lightcyan, beige, gray);'>" + obj.nombre + " - " + fechaRecortada + "</button><a style='background-color: lightcoral;' href = '#popup_dialog' data-rel = 'popup' data-position-to = 'window' data-transition = 'pop' class = 'eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right'></a></li>");
-                            });
-                        }).fail(function (error) {
-                            console.log(error);
-                        });
+                //AHORA ACTUALIZAMOS TODAS LAS VISTAS DONDE APARECÍA ESTA SESION Y SUS EJERCICIOS
 
 
-                        $("#listaTabHome").html(" ");
-                        $.get(urlApp + "Usuarios/" + getAllUrlParams(window.location.href).userid + "/sesiones?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
-                            var grupoId;
-                            $.each(data, function (idx, obj) {
-                                grupoId = data[idx].grupoId
-                                sesionesUsuarioActual[idx] = obj.nombre
+                $("#listadoSesiones").html("");
+                var fechaRecortada;
+                $.get(urlApi + "Usuarios/" + getAllUrlParams(window.location.href).userid + "/sesiones?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
 
-                                // $("#listaTabHome").append("<li><a class='tabs ui-btn ui-btn-icon-right ui-icon-carat-r' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'  href='#ejerciciosSesion'>"+obj.nombre+"</a></li>");
+                    $.each(data, function (idx, obj) {
+                        fechaRecortada = obj.fecha.slice(0, 10);
+                        fechaRecortada = formatoFecha(fechaRecortada);
 
-
-                                //AJAX SÍNCRONO PORQUE HASTA QUE NO ME DEVUELVE EL GRUPO NO QUIERO QUE SIGA
-                                $.ajax({
-                                    async: false,
-                                    type: 'GET',
-                                    url: urlApp + "Grupos/" + grupoId + "?access_token=" + getAllUrlParams(window.location.href).access_token,
-                                    success: function (data) {
-                                        //callback
-                                        gruposUsuarioActual[idx] = data.nombre
-                                        //  $("#listaTabHome").append("<li class='tabs ui-btn' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'>Grupo: "+data.nombre+"</li>");
-                                    }
-                                });
-                                $("#listaTabHome").append("<li><button class='tabs ui-btn ui-btn-icon-right ui-icon-carat-r' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'>" + sesionesUsuarioActual[idx] + " - " + gruposUsuarioActual[idx] + "</button></li>");
-                            });
-                        }).fail(function (error) {
-                            console.log(error);
-                        });
-
-                    }
+                        //fatima cambio del boton eleiminar                 
+                        //$("#listadoSesiones").append("<li class='ui-li-has-alt'><a class='ui-btn' style='background: linear-gradient(lightcyan, beige, gray);' href='#ejerciciosSesion'>"+obj.nombre+" - "+fechaRecortada+"</a><button id='botonEliminarSesion'  value='"+obj.id+"' style='background-color: lightcoral;' class = 'eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right ui-btn-icon-notext ui-icon-carat-r'></button></li>");
+                        $("#listadoSesiones").append("<li class='ui-li-has-alt'><button value='" + obj.id + "' class='botonVerEjerciciosSesion ui-btn' style='background: linear-gradient(lightcyan, beige, gray);'>" + obj.nombre + " - " + fechaRecortada + "</button></li>");
+                    });
+                }).fail(function (error) {
+                    console.log(error);
                 });
+
+
+                $("#listaTabHome").html(" ");
+                $.get(urlApi + "Usuarios/" + getAllUrlParams(window.location.href).userid + "/sesiones?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
+                    var grupoId;
+                    $.each(data, function (idx, obj) {
+                        grupoId = data[idx].grupoId
+                        sesionesUsuarioActual[idx] = obj.nombre
+
+                        // $("#listaTabHome").append("<li><a class='tabs ui-btn ui-btn-icon-right ui-icon-carat-r' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'  href='#ejerciciosSesion'>"+obj.nombre+"</a></li>");
+
+
+                        //AJAX SÍNCRONO PORQUE HASTA QUE NO ME DEVUELVE EL GRUPO NO QUIERO QUE SIGA
+                        $.ajax({
+                            async: false,
+                            type: 'GET',
+                            url: urlApi + "Grupos/" + grupoId + "?access_token=" + getAllUrlParams(window.location.href).access_token,
+                            success: function (data) {
+                                //callback
+                                gruposUsuarioActual[idx] = data.nombre
+                                //  $("#listaTabHome").append("<li class='tabs ui-btn' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'>Grupo: "+data.nombre+"</li>");
+                            }
+                        });
+                        $("#listaTabHome").append("<li><button class='tabs ui-btn ui-btn-icon-right ui-icon-carat-r' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'>" + sesionesUsuarioActual[idx] + " - " + gruposUsuarioActual[idx] + "</button></li>");
+                    });
+                }).fail(function (error) {
+                    console.log(error);
+                });
+
             }
         });
 
-        window.location.href = "http://localhost:3000/app/?userid=" + getAllUrlParams(window.location.href).userid + "&access_token=" + getAllUrlParams(window.location.href).access_token + "#inicio"
+
+        window.location.href = urlApp + "?userid=" + getAllUrlParams(window.location.href).userid + "&access_token=" + getAllUrlParams(window.location.href).access_token + "#sesiones"
 
 
     });
@@ -538,84 +576,84 @@ $(document).ready(function () {
         var nombreSesionSeleccionada
 
         //PAra conseguir el nombre de la sesion
-        $.get(urlApp + "Sesions/" + idSesionSeleccionada + "?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
-            nombreSesionSeleccionada = data.nombre 
+        $.get(urlApi + "Sesions/" + idSesionSeleccionada + "?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
+            nombreSesionSeleccionada = data.nombre
             $("#botonEliminarSesion").val(data.id);
-            
+
         }).fail(function (error) {
             console.log(error);
         });
         //Para conseguir los ejercicios que pertenecen a la sesion
-        $.get(urlApp + "Sesions/" + idSesionSeleccionada + "/ejercicios?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
-            
+        $.get(urlApi + "Sesions/" + idSesionSeleccionada + "/ejercicios?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
+
             $.each(data, function (idx, obj) {
                 $("#nombreDeLaSesion").text(nombreSesionSeleccionada);
                 //AJAX SÍNCRONO PARA CONSEGUIR LA PARTE DE LA SESION A LA QUE PERTENECE CADA EJERCICIO
                 $.ajax({
                     async: false,
                     type: 'GET',
-                    url: urlApp + "EjerciciosSesions?filter=%7B%22where%22%3A%7B%22idSesion%22%3A"+idSesionSeleccionada+"%7D%7D&access_token=" + getAllUrlParams(window.location.href).access_token,
+                    url: urlApi + "EjerciciosSesions?filter=%7B%22where%22%3A%7B%22idSesion%22%3A" + idSesionSeleccionada + "%7D%7D&access_token=" + getAllUrlParams(window.location.href).access_token,
                     success: function (datos) {
                         //callback
-                        if(datos[idx].parteSesion==0){
+                        if (datos[idx].parteSesion == 0) {
                             //Se pintan aquí si forman parte del calentamiento
-                            $("#listadoEjerciciosSesionCalentamiento").append("<li><button value='"+obj.id+"' style='background: #FFC991' class = 'ui-btn botonVerDescripcionEjercicio'>"+obj.nombre+"</button>"+
-                         "</li>");    
-        
-                        }else if(datos[idx].parteSesion==1){
+                            $("#listadoEjerciciosSesionCalentamiento").append("<li><button value='" + obj.id + "' style='background: #FFC991' class = 'ui-btn botonVerDescripcionEjercicio'>" + obj.nombre + "</button>" +
+                                "</li>");
+
+                        } else if (datos[idx].parteSesion == 1) {
                             //Se pintan aquí si forman parte de la parte principal
-                            $("#listadoEjerciciosSesionPartePrincipal").append("<li><button value='"+obj.id+"' style='background: #FFC991' class = 'ui-btn botonVerDescripcionEjercicio'>"+obj.nombre+"</button>"+
-                         "</li>");
-                        }else if(datos[idx].parteSesion==2){
+                            $("#listadoEjerciciosSesionPartePrincipal").append("<li><button value='" + obj.id + "' style='background: #FFC991' class = 'ui-btn botonVerDescripcionEjercicio'>" + obj.nombre + "</button>" +
+                                "</li>");
+                        } else if (datos[idx].parteSesion == 2) {
                             //Se pintan aquí si forman parte de la vuelta a la calma
-                            $("#listadoEjerciciosSesionVueltaALaCalma").append("<li><button value='"+obj.id+"' style='background: #FFC991' class = 'ui-btn botonVerDescripcionEjercicio'>"+obj.nombre+"</button>"+
-                         "</li>");
+                            $("#listadoEjerciciosSesionVueltaALaCalma").append("<li><button value='" + obj.id + "' style='background: #FFC991' class = 'ui-btn botonVerDescripcionEjercicio'>" + obj.nombre + "</button>" +
+                                "</li>");
                         }
                     }
                 });
 
-                
-                });
+
+            });
         }).fail(function (error) {
             console.log(error);
         });
-        window.location.href = "http://localhost:3000/app/?userid=" + getAllUrlParams(window.location.href).userid + "&access_token=" + getAllUrlParams(window.location.href).access_token + "#ejerciciosSesion";
+        window.location.href = urlApp + "?userid=" + getAllUrlParams(window.location.href).userid + "&access_token=" + getAllUrlParams(window.location.href).access_token + "#ejerciciosSesion";
 
     });
-//LLAMADAS PARA PINTAR LA DESCRIPCION DEL EJERCICIO SELECCIONADO
+    //LLAMADAS PARA PINTAR LA DESCRIPCION DEL EJERCICIO SELECCIONADO
     $(document.body).on("click", ".botonVerDescripcionEjercicio", function () {
 
         var idEjercicioSeleccionado = $(this).attr("value");
         var idCAtegoriaDelEjercicio;
 
-        $.get(urlApp + "Ejercicios/" + idEjercicioSeleccionado + "?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
+        $.get(urlApi + "Ejercicios/" + idEjercicioSeleccionado + "?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
 
-                $("#nombreDelEjercicio").text(data.nombre);
-                $("#imagenEjercicio1").html("<img style='width:100%; height:100%; margin-top: 0px;' alt='' src='"+data.imagen+"' />");
-                $("#imagenEjercicio2").html("<img style='width:100%; height:100%; margin-top: 0px;' alt='' src='"+data.imagen2+"' />");
-                $("#descripcionDelEjercicio").text(data.descripcion);
-                $("#duracionDelEjercicio").text(data.duracion);
-                idCAtegoriaDelEjercicio = data.categoriaId;
+            $("#nombreDelEjercicio").text(data.nombre);
+            $("#imagenEjercicio1").html("<img style='width:100%; height:100%; margin-top: 0px;' alt='' src='" + data.imagen + "' />");
+            $("#imagenEjercicio2").html("<img style='width:100%; height:100%; margin-top: 0px;' alt='' src='" + data.imagen2 + "' />");
+            $("#descripcionDelEjercicio").text(data.descripcion);
+            $("#duracionDelEjercicio").text(data.duracion);
+            idCAtegoriaDelEjercicio = data.categoriaId;
+
+
+            //$("#imagenPop").html("<a href="#" data-rel="back" class="ui-btn ui-btn-a ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img alt="" src="../img/4.jpg" style="width:100%; height:200px;" />");
+            $.get(urlApi + "Categoria/" + idCAtegoriaDelEjercicio + "?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
+
+                $("#categoriaDelEjercicio").text(data.nombre);
 
 
                 //$("#imagenPop").html("<a href="#" data-rel="back" class="ui-btn ui-btn-a ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img alt="" src="../img/4.jpg" style="width:100%; height:200px;" />");
-                $.get(urlApp + "Categoria/" + idCAtegoriaDelEjercicio + "?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
 
-                    $("#categoriaDelEjercicio").text(data.nombre);
-                    
-                
-                //$("#imagenPop").html("<a href="#" data-rel="back" class="ui-btn ui-btn-a ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img alt="" src="../img/4.jpg" style="width:100%; height:200px;" />");
-                
-                
-                });
-                
-                
-                });
-                window.location.href = "http://localhost:3000/app/?userid=" + getAllUrlParams(window.location.href).userid + "&access_token=" + getAllUrlParams(window.location.href).access_token + "#ejercicioDescripcion";
-        }).fail(function (error) {
-            console.log(error);
+
+            });
+
+
         });
-       
+        window.location.href = urlApp + "?userid=" + getAllUrlParams(window.location.href).userid + "&access_token=" + getAllUrlParams(window.location.href).access_token + "#ejercicioDescripcion";
+    }).fail(function (error) {
+        console.log(error);
+    });
+
 
 
 });
