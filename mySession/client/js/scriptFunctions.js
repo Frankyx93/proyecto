@@ -199,9 +199,9 @@ $(document).ready(function () {
         // POST/Usuarios/{idUsuarioAutenticado}/grupos
 
         var nombreGrupoNuevo = $("#nombreGrupoNuevo").val();
-        var horarioGrupoNuevo
+        var horarioGrupoNuevo = ""
         if ($('#checkbox-lunes').is(":checked")) {
-            horarioGrupoNuevo = "L ";
+            horarioGrupoNuevo += "L ";
         }
         if ($('#checkbox-martes').is(":checked")) {
             horarioGrupoNuevo += "M ";
@@ -221,7 +221,7 @@ $(document).ready(function () {
             horario: horarioGrupoNuevo
         }).done(function (data) {
             //POPUP GRUPO CREADO
-            location.href = "?userid=" + getAllUrlParams(window.location.href).userid + "&access_token=" + getAllUrlParams(window.location.href).access_token;
+            location.href = "?userid=" + getAllUrlParams(window.location.href).userid + "&access_token=" + getAllUrlParams(window.location.href).access_token+"#grupos";
             alert("Grupo creado");
         }).fail(function (error) {
             console.log(error);
@@ -309,7 +309,7 @@ $(document).ready(function () {
             orden: 0
         }).done(function (data) {
             //ACTUALIZAMOS PARA QUE APAREZCA ESTE EJERCICIO
-
+            
             
         }).fail(function (error) {
             console.log(error);
@@ -347,40 +347,36 @@ $(document).ready(function () {
             console.log(error);
         });
         //Para conseguir los ejercicios que pertenecen a la sesion
-        $.get(urlApi + "Sesions/" + idSesionSeleccionada + "/ejercicios?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
-
-            $.each(data, function (idx, obj) {
-                $("#nombreDeLaSesion").text(nombreSesionSeleccionada);
-                
-                //AJAX SÍNCRONO PARA CONSEGUIR LA PARTE DE LA SESION A LA QUE PERTENECE CADA EJERCICIO
-                $.ajax({
-                    async: false,
-                    type: 'GET',
-                    url: urlApi + "EjerciciosSesions?filter=%7B%22where%22%3A%7B%22idSesion%22%3A" + idSesionSeleccionada + "%7D%7D&access_token=" + getAllUrlParams(window.location.href).access_token,
-                    success: function (datos) {
-                        //callback
-                        $("#selectEjercicio").append("<option value=" + datos[idx].id + ">" + obj.nombre + "</option>");
+        $.ajax({
+            async: false,
+            type: 'GET',
+            url: urlApi + "EjerciciosSesions?filter=%7B%22where%22%3A%7B%22idSesion%22%3A" + idSesionSeleccionada + "%7D%7D&access_token=" + getAllUrlParams(window.location.href).access_token,
+            success: function (datos) {
+                //callback
+                $.each(datos, function (idx, obj){
+                    $.get(urlApi + "Ejercicios/" + datos[idx].idEjercicio + "?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
+                        console.log("idx: "+idx);   
+                        $("#selectEjercicio").append("<option value=" + datos[idx].id + ">" + data.nombre + "</option>");
                         if (datos[idx].parteSesion == 0) {
                             //Se pintan aquí si forman parte del calentamiento
-                            $("#listadoEjerciciosSesionCalentamiento").append("<li><button value='" + obj.id + "' style='background: #FFC991' class = 'botonVerDescripcionEjercicio ui-btn'>" + obj.nombre + "</button>" +
+                            $("#listadoEjerciciosSesionCalentamiento").append("<li><button value='" + data.id + "' style='background: #FFC991' class = 'botonVerDescripcionEjercicio ui-btn'>" + data.nombre + "</button>" +
                                 "</li>");
 
                         } else if (datos[idx].parteSesion == 1) {
                             //Se pintan aquí si forman parte de la parte principal
-                            $("#listadoEjerciciosSesionPartePrincipal").append("<li><button value='" + obj.id + "' style='background: #FFC991' class = 'ui-btn botonVerDescripcionEjercicio'>" + obj.nombre + "</button>" +
+                            $("#listadoEjerciciosSesionPartePrincipal").append("<li><button value='" + data.id + "' style='background: #FFC991' class = 'ui-btn botonVerDescripcionEjercicio'>" + data.nombre + "</button>" +
                                 "</li>");
                         } else if (datos[idx].parteSesion == 2) {
                             //Se pintan aquí si forman parte de la vuelta a la calma
-                            $("#listadoEjerciciosSesionVueltaALaCalma").append("<li><button value='" + obj.id + "' style='background: #FFC991' class = 'ui-btn botonVerDescripcionEjercicio'>" + obj.nombre + "</button>" +
+                            $("#listadoEjerciciosSesionVueltaALaCalma").append("<li><button value='" + data.id + "' style='background: #FFC991' class = 'ui-btn botonVerDescripcionEjercicio'>" + data.nombre + "</button>" +
                                 "</li>");
                         }
-                    }
-                });
-
-
-            });
-        }).fail(function (error) {
-            console.log(error);
+                    }).fail(function (error) {
+                        console.log(error);
+                    });
+                    window.location.href = urlApp + "?userid=" + getAllUrlParams(window.location.href).userid + "&access_token=" + getAllUrlParams(window.location.href).access_token + "#ejerciciosSesion";
+                })
+            }
         });
         }
     });
@@ -683,7 +679,7 @@ $(document).ready(function () {
         idSesionSeleccionada = $(this).attr("value");
         var nombreSesionSeleccionada
 
-        //PAra conseguir el nombre de la sesion
+        //Para conseguir el nombre de la sesion
         $.get(urlApi + "Sesions/" + idSesionSeleccionada + "?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
             nombreSesionSeleccionada = data.nombre
             $("#botonEliminarSesion").val(data.id);
@@ -692,9 +688,52 @@ $(document).ready(function () {
         }).fail(function (error) {
             console.log(error);
         });
+//EN CONSTRUCCION
+        //HACER PRIMERO CONSULTA A EJERCICIOSSESIONS
+        $.ajax({
+            async: false,
+            type: 'GET',
+            url: urlApi + "EjerciciosSesions?filter=%7B%22where%22%3A%7B%22idSesion%22%3A" + idSesionSeleccionada + "%7D%7D&access_token=" + getAllUrlParams(window.location.href).access_token,
+            success: function (datos) {
+                //callback
+                $.each(datos, function (idx, obj){
+                    $.get(urlApi + "Ejercicios/" + datos[idx].idEjercicio + "?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
+                        console.log("idx: "+idx);   
+                        $("#selectEjercicio").append("<option value=" + datos[idx].id + ">" + data.nombre + "</option>");
+                        if (datos[idx].parteSesion == 0) {
+                            //Se pintan aquí si forman parte del calentamiento
+                            $("#listadoEjerciciosSesionCalentamiento").append("<li><button value='" + data.id + "' style='background: #FFC991' class = 'botonVerDescripcionEjercicio ui-btn'>" + data.nombre + "</button>" +
+                                "</li>");
+
+                        } else if (datos[idx].parteSesion == 1) {
+                            //Se pintan aquí si forman parte de la parte principal
+                            $("#listadoEjerciciosSesionPartePrincipal").append("<li><button value='" + data.id + "' style='background: #FFC991' class = 'ui-btn botonVerDescripcionEjercicio'>" + data.nombre + "</button>" +
+                                "</li>");
+                        } else if (datos[idx].parteSesion == 2) {
+                            //Se pintan aquí si forman parte de la vuelta a la calma
+                            $("#listadoEjerciciosSesionVueltaALaCalma").append("<li><button value='" + data.id + "' style='background: #FFC991' class = 'ui-btn botonVerDescripcionEjercicio'>" + data.nombre + "</button>" +
+                                "</li>");
+                        }
+                    }).fail(function (error) {
+                        console.log(error);
+                    });
+                    window.location.href = urlApp + "?userid=" + getAllUrlParams(window.location.href).userid + "&access_token=" + getAllUrlParams(window.location.href).access_token + "#ejerciciosSesion";
+                })
+            }
+        });
+
+
+
+
+
+
+
+
+
+        /*
         //Para conseguir los ejercicios que pertenecen a la sesion
         $.get(urlApi + "Sesions/" + idSesionSeleccionada + "/ejercicios?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
-
+            
             $.each(data, function (idx, obj) {
                 $("#nombreDeLaSesion").text(nombreSesionSeleccionada);
                 
@@ -705,6 +744,7 @@ $(document).ready(function () {
                     url: urlApi + "EjerciciosSesions?filter=%7B%22where%22%3A%7B%22idSesion%22%3A" + idSesionSeleccionada + "%7D%7D&access_token=" + getAllUrlParams(window.location.href).access_token,
                     success: function (datos) {
                         //callback
+                        console.log("idx: "+idx);   
                         $("#selectEjercicio").append("<option value=" + datos[idx].id + ">" + obj.nombre + "</option>");
                         if (datos[idx].parteSesion == 0) {
                             //Se pintan aquí si forman parte del calentamiento
@@ -729,7 +769,7 @@ $(document).ready(function () {
             console.log(error);
         });
         window.location.href = urlApp + "?userid=" + getAllUrlParams(window.location.href).userid + "&access_token=" + getAllUrlParams(window.location.href).access_token + "#ejerciciosSesion";
-
+        */
     });
 //LLAMADAS PARA PINTAR LA DESCRIPCION DEL EJERCICIO SELECCIONADO (CON y SIN y INFOSESION)
     //SIN
