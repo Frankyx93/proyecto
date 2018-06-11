@@ -30,12 +30,15 @@
                 <header data-role="header" class="">
                         <h2>MySession</h2>
                 </header>
+                <br>
+                <br>
                 <article data-role="content">
                         <div role="main" class="ui-content">
 
                                 <!-- meter alguna imagen o algo de diseño  -->
                                 <div data-role="controlgroup">
-                                        <a href="#registro" data-role="button">Crear Cuenta </a>
+                                        <a style="margin-top:60%;" href="#registro" data-role="button">Crear Cuenta </a>
+                                        <br>
                                         <a href="#iniciar" data-role="button">Iniciar Sesión</a>
                                 </div>
                         </div>
@@ -51,23 +54,26 @@
 </html>
 
 <!-- esta parte del registro -->
-<div data-role="page" id="registro" class="jqm-demos ui-responsive-panel">
+
+<div data-role="page" id="registro" class="jqm-demos ui-responsive-panel" style="background-image: url('images/imagenes/gradient.jpg');">
         <header data-role="header" class="">
                 <h1>Registro</h1>
 
         </header>
         <div id="">
-                <div class="registroUsuario">
+                
+                <div class="registroUsuario" >
                         <form>
-                                <label>Nombre :</label>
+   
+                                <label style="margin-top:20%;color:rgb(59, 59, 114);font-weight:bold;margin-left:20px;font-size:23px;">Nombre :</label>
                                 <input type="text" id="nombreUsuarioNuevo"/>
                                 <br />
 
-                                <label>Correo Electrónico :</label>
+                                <label style="color:rgb(59, 59, 114);font-weight:bold;margin-left:20px;font-size:23px;">Correo Electrónico :</label>
                                 <input type="email" id="emailUsuarioNuevo"/>
                                 <br />
 
-                                <label>Contraseña :</label>
+                                <label style="color:rgb(59, 59, 114);font-weight:bold;margin-left:20px;font-size:23px;">Contraseña :</label>
                                 <input type="password" id="passUsuarioNuevo"/>
                                 <br />
 
@@ -78,12 +84,12 @@
 
                                 <div class="action_btns">
                                         <div>
-                                                <a href="#inicio" data-icon="arrow-l" data-role="button"> Volver</a>
+                                                <a style="margin-left: 10px;margin-right: 8px;background-color: rgb(231, 129, 122);border-radius: 5px;color:antiquewhite" href="#inicio" data-icon="arrow-l" data-role="button"> Volver</a>
                                         </div>
                                         <div>
 
                                                 <!-- POST /Usuarios -->
-                                                <a href="#" data-icon="plus" data-role="button" id="crearUsuario">Crear Cuenta</a>
+                                                <a style="margin-left: 10px;margin-right: 8px;background-color: rgb(70, 151, 70);border-radius: 5px;color:antiquewhite" href="#" data-icon="plus" data-role="button" id="crearUsuario">Crear Cuenta</a>
                                         </div>
                                 </div>
                         </form>
@@ -95,7 +101,7 @@
 </div>
 
 <!-- esta parte para iniciar sesion-->
-<div data-role="page" id="iniciar" class="jqm-demos ui-responsive-panel">
+<div data-role="page" id="iniciar" class="jqm-demos ui-responsive-panel" style="background-image: url('images/imagenes/gradient.jpg');">
         <header data-role="header" class="">
                 <h1>Iniciar Sesión</h1>
 
@@ -103,11 +109,11 @@
         <div id="">
                 <div class="inicioSesion">
                         <form>
-                                <label>Correo Electrónico</label>
+                                <label style="margin-top:20%;color:rgb(59, 59, 114);font-weight:bold;margin-left:20px;font-size:20px;">Correo Electrónico</label>
                                 <input id="emailUsuario" type="text" />
                                 <br />
 
-                                <label>Contraseña</label>
+                                <label style="color:rgb(59, 59, 114);font-weight:bold;margin-left:20px;font-size:20px;">Contraseña</label>
                                 <input id="passwordUsuario" type="password" />
                                 <br />
                                 <!-- 
@@ -117,11 +123,11 @@
                                     </div> -->
                                 <div class="action_btns">
                                         <div>
-                                                <a href="#inicio" data-icon="arrow-l" data-role="button"> Volver</a>
+                                                <a style="margin-left: 10px;margin-right: 8px;background-color: rgb(231, 129, 122);border-radius: 5px;color:antiquewhite" href="#inicio" data-icon="arrow-l" data-role="button"> Volver</a>
                                         </div>
                                         <div>
                                                 <!-- POST /Usuarios/login -->
-                                                <a href="#" data-icon="check" id="iniciarSesion" data-role="button">Iniciar Sesión</a>
+                                                <a style="margin-left: 10px;margin-right: 8px;background-color: rgb(70, 151, 70);border-radius: 5px;color:antiquewhite" href="#" data-icon="check" id="iniciarSesion" data-role="button">Iniciar Sesión</a>
                                         </div>
                                 </div>
                         </form>

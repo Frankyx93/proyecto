@@ -58,12 +58,12 @@
         </div>
         <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
             <h2>MySession</h2>
-            <a style="height:20px;border-radius: 100%;background-color: yellowgreen;" href="#overlay_panel" class="ui-btn ui-btn-icon-left ui-shadow ui-icon-user"></a>
+            <a style="height:20px;border-radius: 100%;background-color:rgb(57, 142, 190);margin-top:10px;" href="#overlay_panel" class="ui-btn ui-btn-icon-left ui-shadow ui-icon-user"></a>
         </header>
         <article data-role="content">
             <div role="main" class="ui-content">
                 <h4 class="bienvenido">Bienvenido a MySession</h4>
-                <br>
+               <!-- <br> -->
                 <ul data-role="listview" id="listaTabHome">
                 </ul>
             </div>
@@ -71,16 +71,16 @@
         <footer data-role="footer" data-id="menuInferior" data-position="fixed" data-theme="a">
             <nav data-role="navbar">
                 <ul>
-                    <li>
+                    <li class="fondoLista">
                         <a href="#inicio" class="ui-btn-active ui-state-persist" data-icon="home" class="botonTabInicio">Inicio</a>
                     </li>
-                    <li>
+                    <li class="fondoLista">
                         <a class="tabs" href="#grupos" data-icon="calendar">Grupos</a>
                     </li>
-                    <li>
+                    <li class="fondoLista">
                         <a class="tabs" href="#sesiones" data-icon="info">Sesiones</a>
                     </li>
-                    <li>
+                    <li class="fondoLista">
                         <a class="tabs" href="#ejercicios" data-icon="bullets">Ejercicios</a>
                     </li>
                 </ul>
@@ -106,7 +106,7 @@
         </div>
         <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
             <h2>Mis Grupos</h2>
-            <a style="height:20px;border-radius: 100%;background-color: yellowgreen;" href="#overlay_panel" class="ui-btn ui-btn-icon-left ui-shadow ui-icon-user"></a>
+            <a style="height:20px;border-radius: 100%;background-color: rgb(57, 142, 190);margin-top:10px;" href="#overlay_panel" class="ui-btn ui-btn-icon-left ui-shadow ui-icon-user"></a>
         </header>
         <article data-role="content">
             <p>
@@ -156,7 +156,7 @@
         </div>
         <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
             <h4>Sesiones</h4>
-            <a style="height:20px;border-radius: 100%;background-color: yellowgreen;" href="#overlay_panel" class="ui-btn ui-btn-icon-left ui-shadow ui-icon-user"></a>
+            <a style="height:20px;border-radius: 100%;background-color: rgb(57, 142, 190);margin-top:10px;" href="#overlay_panel" class="ui-btn ui-btn-icon-left ui-shadow ui-icon-user"></a>
         </header>
         <article data-role="content">
             <p>
@@ -210,10 +210,10 @@
         </div>
         <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
             <h5>Ejercicios</h5>
-            <a style="height:20px;border-radius: 100%;background-color: yellowgreen;" href="#overlay_panel" class="ui-btn ui-btn-icon-left ui-shadow ui-icon-user"></a>
+            <a style="height:20px;border-radius: 100%;background-color: rgb(57, 142, 190);margin-top:10px;" href="#overlay_panel" class="ui-btn ui-btn-icon-left ui-shadow ui-icon-user"></a>
         </header>
         <article data-role="content">
-            <h2>Categorías</h2>
+            <h2 class="titulos">Categorías</h2>
             <input type="search" id="searchCategorias" name="buscador-ejercicios" class="buscador-ejercicios" value="" placeholder="Buscar">
             <ul id="listadoCategorias" data-role="listview" data-inset="true" data-divider-theme="b">
             </ul>
@@ -261,15 +261,15 @@
         </div>
         <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
             <h5>Ejercicios</h5>
-            <a style="height:20px;border-radius: 100%;background-color: yellowgreen;" href="#overlay_panel" class="ui-btn ui-btn-icon-left ui-shadow ui-icon-user"></a>
+            <a style="height:20px;border-radius: 100%;background-color: rgb(57, 142, 190);margin-top:10px;" href="#overlay_panel" class="ui-btn ui-btn-icon-left ui-shadow ui-icon-user"></a>
         </header>
         <article data-role="content">
-            <h2 id="nombreCategoriaSeleccionada"></h2>
+            <h2 class="titulos" id="nombreCategoriaSeleccionada"></h2>
 
             <input type="search" id="searchEjercicios" name="buscador-ejercicios" class="buscador-ejercicios" value="" placeholder="Buscar">
             <ul id="listadoEjerciciosPorCategoria" data-role="listview" data-inset="true" data-divider-theme="b">
             </ul>
-            <a style="margin-left: 20px;margin-right: 20px;background-color: rgb(207, 105, 98);border-radius:5px;" href="#ejercicios"
+            <a style="margin-left: 20px;margin-right: 20px;background-color: rgb(207, 105, 98);border-radius:5px;color:bisque;" href="#ejercicios"
                 class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
         </article>
         <footer data-role="footer" data-id="menuInferior" data-position="fixed" data-theme="a">
@@ -313,7 +313,7 @@
         </div>
         <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
             <h7 id="nombreDelEjercicio"></h7>
-            <a style="height:20px;border-radius: 100%;background-color: yellowgreen;" href="#overlay_panel" class="ui-btn ui-btn-icon-left ui-shadow ui-icon-user"></a>
+            <a style="height:20px;border-radius: 100%;background-color: rgb(57, 142, 190);margin-bottom:60px" href="#overlay_panel" class="ui-btn ui-btn-icon-left ui-shadow ui-icon-user"></a>
         </header>
         <div id="">
             <div id="TodosEjercicios">
@@ -332,19 +332,19 @@
                 </ul>
 
                 <p>
-                    <h5 class="estiloDescripcion">Descripcion Ejercicio</h5>
-                    <p id="descripcionDelEjercicio"></p>
+                    <h5 class="estiloDescripcion" >Descripcion Ejercicio</h5>
+                    <p class="estiloparrafo" id="descripcionDelEjercicio"></p>
                 </p>
 
                 <p>
-                    <h5 class="estiloDescripcion" style="font-weight: bold;color: green;">Duracion</h5>
-                    <p id="duracionDelEjercicio"></p>
+                    <h5 class="estiloDescripcion" >Duracion</h5>
+                    <p class="estiloparrafo" id="duracionDelEjercicio"></p>
                 </p>
 
-                <p>
-                    <h5 class="estiloDescripcion" style="font-weight: bold;color: green;">Categoria:</h5>
-                    <p id="categoriaDelEjercicio"></p>
-                </p>
+               <!-- <p>
+                    <h5 class="estiloDescripcion" >Categoria:</h5>
+                    <p class="estiloparrafo" id="categoriaDelEjercicio"></p>
+                </p> -->
 
                 <!-- si queremos k al hacer clic en la imagen salga en grande -->
 
@@ -353,8 +353,8 @@
 
                 </div>
                 <a id="botonAnyadirEjerciciosSesion1" style="margin-left: 10px;margin-right: 8px;border-radius: 5px" href="#anyadirejercicioasesion" class="aniadir ui-btn ui-shadow ">Añadir Ejercicio a una Sesión</a>
-                <a style="margin-left: 10px;margin-right: 8px;background-color: rgb(207, 105, 98);border-radius:5px;" href="#ejerciciosPorCategoria"
-                    id="volverSinAnyadir" class="ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
+                <a style="margin-left: 10px;margin-right: 8px;background-color: rgb(207, 105, 98);border-radius:5px;color:bisque;" href="#ejerciciosPorCategoria"
+                    id="volverSinAnyadir" class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
 
 
 
@@ -400,7 +400,7 @@
         </div>
         <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
             <h5>Ejercicios</h5>
-            <a style="height:20px;border-radius: 100%;background-color: yellowgreen;" href="#overlay_panel" class="ui-btn ui-btn-icon-left ui-shadow ui-icon-user"></a>
+            <a style="height:20px;border-radius: 100%;background-color: rgb(57, 142, 190);margin-top:10px;" href="#overlay_panel" class="ui-btn ui-btn-icon-left ui-shadow ui-icon-user"></a>
         </header>
         <article data-role="content">
             <h2>Categorías</h2>
@@ -452,7 +452,7 @@
         </div>
         <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
             <h5>Ejercicios</h5>
-            <a style="height:20px;border-radius: 100%;background-color: yellowgreen;" href="#overlay_panel" class="ui-btn ui-btn-icon-left ui-shadow ui-icon-user"></a>
+            <a style="height:20px;border-radius: 100%;background-color: rgb(57, 142, 190);margin-top:10px;" href="#overlay_panel" class="ui-btn ui-btn-icon-left ui-shadow ui-icon-user"></a>
         </header>
         <article data-role="content">
             <h2 class="nombreCategoriaSeleccionada"></h2>
@@ -504,7 +504,7 @@
         </div>
         <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
             <h7 class="nombreDelEjercicio"></h7>
-            <a style="height:20px;border-radius: 100%;background-color: yellowgreen;" href="#overlay_panel" class="ui-btn ui-btn-icon-left ui-shadow ui-icon-user"></a>
+            <a style="height:20px;border-radius: 100%;background-color: rgb(57, 142, 190);margin-top:10px;" href="#overlay_panel" class="ui-btn ui-btn-icon-left ui-shadow ui-icon-user"></a>
         </header>
         <div id="">
             <div id="TodosEjercicios">
@@ -523,11 +523,11 @@
                     <p class="descripcionDelEjercicio"></p>
                 </p>
                 <p>
-                    <h5 class="estiloDescripcion" style="font-weight: bold;color: green;">Duracion</h5>
+                    <h5 class="estiloDescripcion" style="font-weight: bold;color: rgb(107, 187, 197);">Duracion</h5>
                     <p class="duracionDelEjercicio"></p>
                 </p>
                 <p>
-                    <h5 class="estiloDescripcion" style="font-weight: bold;color: green;">Categoria:</h5>
+                    <h5 class="estiloDescripcion" style="font-weight: bold;color: rgb(107, 187, 197);">Categoria:</h5>
                     <p class="categoriaDelEjercicio"></p>
                 </p>
 
@@ -578,7 +578,7 @@
         </div>
         <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
             <h7 id="nombreDelEjercicioInfoSesion"></h7>
-            <a style="height:20px;border-radius: 100%;background-color: yellowgreen;" href="#overlay_panel" class="ui-btn ui-btn-icon-left ui-shadow ui-icon-user"></a>
+            <a style="height:20px;border-radius: 100%;background-color: rgb(57, 142, 190);margin-top:10px;" href="#overlay_panel" class="ui-btn ui-btn-icon-left ui-shadow ui-icon-user"></a>
         </header>
         <div id="">
             <div id="TodosEjercicios">
@@ -597,11 +597,11 @@
                     <p id="descripcionDelEjercicioInfoSesion"></p>
                 </p>
                 <p>
-                    <h5 class="estiloDescripcion" style="font-weight: bold;color: green;">Duracion</h5>
+                    <h5 class="estiloDescripcion" style="font-weight: bold;color: rgb(107, 187, 197);">Duracion</h5>
                     <p id="duracionDelEjercicioInfoSesion"></p>
                 </p>
                 <p>
-                    <h5 class="estiloDescripcion" style="font-weight: bold;color: green;">Categoria:</h5>
+                    <h5 class="estiloDescripcion" style="font-weight: bold;color: rgb(107, 187, 197);">Categoria:</h5>
                     <p id="categoriaDelEjercicioInfoSesion"></p>
                 </p>
                 
@@ -651,19 +651,19 @@
         </div>
         <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
             <h1>Grupos</h1>
-            <a style="height:20px;border-radius: 100%;background-color: yellowgreen;" href="#overlay_panel" class="ui-btn ui-btn-icon-left ui-shadow ui-icon-user"></a>
+            <a style="height:20px;border-radius: 100%;background-color: rgb(57, 142, 190);margin-top:10px;" href="#overlay_panel" class="ui-btn ui-btn-icon-left ui-shadow ui-icon-user"></a>
 
         </header>
 
         <div id="">
             <div id="cajaInformacion">
-                <h3 style="color:#424242;text-align: center;font-weight: bold;">Rellene los siguientes datos </h3>
+                <h3 style="color:whitesmoke;text-align: center;font-weight: bold;">Rellene los siguientes datos </h3>
                 <form method="post" action="">
-                    <label class="estiloletra" style="margin-left: 20px;margin-right: 20px;font-family: Arial, Helvetica, sans-serif;color:#716e6e;font-weight:bold">Nombre del grupo</label>
+                    <label class="estiloletra" style="margin-left: 20px;margin-right: 20px;font-family: Arial, Helvetica, sans-serif;color:#ece6e6;font-weight:bold">Nombre del grupo</label>
                     <input id="nombreGrupoNuevo" type="text" name="grupo">
                     <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
 
-                        <legend style="font-family: Arial, Helvetica, sans-serif;color:#716e6e;font-weight:bold">Días</legend>
+                        <legend style="margin-left: 20px;margin-right: 20px;font-family: Arial, Helvetica, sans-serif;color:#ece6e6;font-weight:bold">Días</legend>
 
                         <input type="checkbox" name="checkbox-lunes" id="checkbox-lunes">
                         <label for="checkbox-lunes">L</label>
@@ -683,7 +683,7 @@
                     <br>
                     <br>
                     <a id="botonCrearGrupo" style="margin-left: 20px;margin-right: 20px;border-radius:5px;" href="#page2" class="ui-btn ui-shadow ">Crear</a>
-                    <a style="margin-left: 20px;margin-right: 20px;background-color: rgb(207, 105, 98);border-radius:5px;" href="#grupos" class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
+                    <a style="margin-left: 20px;margin-right: 20px;background-color: rgb(207, 105, 98);border-radius:5px;color:bisque;" href="#grupos" class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
 
                 </form>
             </div>
@@ -730,25 +730,27 @@
         </div>
         <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
             <h1>Nueva Sesión</h1>
-            <a style="height:20px;border-radius: 100%;background-color: yellowgreen;" href="#overlay_panel" class="ui-btn ui-btn-icon-left ui-shadow ui-icon-user"></a>
+            <a style="height:20px;border-radius: 100%;background-color: rgb(57, 142, 190);margin-top:10px;" href="#overlay_panel" class="ui-btn ui-btn-icon-left ui-shadow ui-icon-user"></a>
         </header>
         <div id="">
             <div id="cajaSesion">
-                <h3 style="color:#424242;text-align: center;font-weight: bold;">Rellene los siguientes datos </h3>
+                <h3 style="color:whitesmoke;text-align: center;font-weight: bold;">Rellene los siguientes datos </h3>
                 <form method="post" action="">
-                    <label style="margin-left: 20px;margin-right: 20px;font-family: Arial, Helvetica, sans-serif;color:#5c5a5a;font-weight:bold">Nombre sesión</label>
+                    <label style="margin-left: 20px;margin-right: 20px;font-family: Arial, Helvetica, sans-serif;color:#ece6e6;font-weight:bold">Nombre sesión</label>
                     <input id="nombreNuevaSesion" type="text" name="grupo">
 
-                    <label for="src1" style="margin-left: 20px;margin-right: 20px;font-family: Arial, Helvetica, sans-serif;color:#5c5a5a;font-weight:bold">Fecha</label>
+                    <label for="src1" style="margin-left: 20px;margin-right: 20px;font-family: Arial, Helvetica, sans-serif;color:#ece6e6;font-weight:bold">Fecha</label>
                     <input id="fechaNuevaSesion" type="date" data-clear-btn="true" id="src1">
 
-                    <label for="Grupo">Grupo</label>
-                    <select id="selectGruposParaNuevaSesion" name="Grupo">
+                    <label for="Grupo" style="margin-left: 20px;margin-right: 20px;font-family: Arial, Helvetica, sans-serif;color:#ece6e6;font-weight:bold" >Grupo</label>
+                    <select style="margin-left:10px;margin-right:10px;" id="selectGruposParaNuevaSesion" name="Grupo">
 
                     </select>
                     <br>
-                    <input id="botonCrearNuevaSesion" align="center" type="submit" value="Añadir Ejercicios" data-inline="true">
-                    <a style="margin-left: 10px;margin-right: 8px;background-color: rgb(207, 105, 98);border-radius: 5px" href="#sesiones" class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
+                    <!-- <input style="margin-left: 10px;margin-right: 8px;" id="botonCrearNuevaSesion" align="center" type="submit" value="Añadir Ejercicios" data-inline=""> -->
+                    <button style="margin-left:10px;margin-right:10px;" id="botonCrearNuevaSesion" >Añadir Ejercicios</button>
+                    
+                    <a style="margin-left: 10px;margin-right: 8px;background-color: rgb(207, 105, 98);border-radius: 5px;color:bisque;" href="#sesiones" class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
                 </form>
             </div>
         </div>
@@ -793,13 +795,13 @@
         </div>
         <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
             <h1>Nuevo Ejercicio</h1>
-            <a style="height:20px;border-radius: 100%;background-color: yellowgreen;" href="#overlay_panel" class="ui-btn ui-btn-icon-left ui-shadow ui-icon-user"></a>
+            <a style="height:20px;border-radius: 100%;background-color: rgb(57, 142, 190);margin-top:10px;" href="#overlay_panel" class="ui-btn ui-btn-icon-left ui-shadow ui-icon-user"></a>
         </header>
         <div id="">
             <div id="cajaEjercicioSesion">
                 <h3 style="color:#424242;text-align: center;font-weight: bold;">Rellene los siguientes datos </h3>
                 <form method="post" action="">
-                    <label style="margin-left: 20px;margin-right: 20px;font-family: Arial, Helvetica, sans-serif;color:#5c5a5a;font-weight:bold">Nombre sesión</label>
+                    <label style="margin-left: 20px;margin-right: 20px;font-family: Arial, Helvetica, sans-serif;color:#ece6e6;font-weight:bold">Nombre sesión</label>
                     <select id="selectSesion" type="text" name="selectSesion">
 
                     </select>
@@ -811,7 +813,7 @@
                     </select>
                     <br>
                     <input id="botonAnyadirEjercicioASesion" align="center" type="submit" value="Añadir Ejercicio" data-inline="true">
-                    <a style="margin-left: 10px;margin-right: 8px;background-color: rgb(207, 105, 98);border-radius: 5px" href="#ejercicioDescripcion" class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
+                    <a style="margin-left: 10px;margin-right: 8px;background-color: rgb(207, 105, 98);border-radius: 5px;color:bisque;" href="#ejercicioDescripcion" class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
                 </form>
             </div>
         </div>
@@ -856,16 +858,16 @@
             </div>
             <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
                 <h1>Quitar un Ejercicio</h1>
-                <a style="height:20px;border-radius: 100%;background-color: yellowgreen;" href="#overlay_panel" class="ui-btn ui-btn-icon-left ui-shadow ui-icon-user"></a>
+                <a style="height:20px;border-radius: 100%;background-color: rgb(57, 142, 190);margin-top:10px;" href="#overlay_panel" class="ui-btn ui-btn-icon-left ui-shadow ui-icon-user"></a>
             </header>
             <div id="">
                 <div id="cajaEjercicioSesion">
                     <form method="post" action="">
-                        <label style="margin-left: 20px;margin-right: 20px;font-family: Arial, Helvetica, sans-serif;color:#5c5a5a;font-weight:bold">Selecciona un Ejercicio</label>
+                        <label style="margin-left: 20px;margin-right: 20px;font-family: Arial, Helvetica, sans-serif;color:#ece6e6;font-weight:bold">Selecciona un Ejercicio</label>
                         <select id="selectEjercicio" type="text" name="selectEjercicio">
                         <br>
                         <input id="botonQuitarEjercicioASesion" align="center" type="submit" value="Eliminar Ejercicio de la Sesión" data-inline="true">
-                        <a style="margin-left: 10px;margin-right: 8px;background-color: rgb(207, 105, 98);border-radius: 5px" href="#ejerciciosSesion" class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
+                        <a style="margin-left: 10px;margin-right: 8px;background-color: rgb(207, 105, 98);border-radius: 5px;color:bisque;" href="#ejerciciosSesion" class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
                     </form>
                 </div>
             </div>
@@ -921,7 +923,7 @@
             <button id="botonEliminarSesion" style="background-color: #e65d5d ;margin-left: 10px;margin-right: 8px;border-radius: 5px"
                 class="ui-btn">Eliminar Sesion</button>
             <!-- boton volver -->
-            <a style="margin-left: 10px;margin-right: 8px;background-color: rgb(207, 105, 98);border-radius: 5px" href="#sesiones" class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
+            <a style="margin-left: 10px;margin-right: 8px;background-color: rgb(207, 105, 98);border-radius: 5px;color:bisque;" href="#sesiones" class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
         </article>
         <footer data-role="footer" data-id="menuInferior" data-position="fixed" data-theme="a">
             <nav data-role="navbar">

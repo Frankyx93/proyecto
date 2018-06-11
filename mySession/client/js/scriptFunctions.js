@@ -113,7 +113,7 @@ $(document).ready(function () {
                     gruposUsuarioActual[idx] = data.nombre
                 }
             });
-            $("#listaTabHome").append("<li><button value='" + obj.id + "' class='botonVerEjerciciosSesion tabs ui-btn ui-btn-icon-right ui-icon-carat-r' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'>" + sesionesUsuarioActual[idx] + " - " + gruposUsuarioActual[idx] + "</button></li>");
+            $("#listaTabHome").append("<li style='background: none;'><button value='" + obj.id + "' class='botonVerEjerciciosSesion tabs ui-btn ui-btn-icon-right ui-icon-carat-r' style='background: linear-gradient(lightcyan, lightblue);border: 1px solid gray;border-radius: 15px;'>" + sesionesUsuarioActual[idx] + " - " + gruposUsuarioActual[idx] + "</button></li>");
         });
     }).fail(function (error) {
         console.log(error);
@@ -155,9 +155,9 @@ $(document).ready(function () {
             fechaRecortada = formatoFecha(fechaRecortada);
 
             //lista funcional fran 
-            //$("#listadoSesiones").append("<li class='ui-li-has-alt'><a class='ui-btn' style='background: linear-gradient(lightcyan, beige, gray);' href='#ejerciciosSesion'>"+obj.nombre+" - "+fechaRecortada+"</a><a style='background-color: lightcoral;' href = '#popup_dialog' data-rel = 'popup' data-position-to = 'window' data-transition = 'pop' class = 'eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right'></a></li>");
+            //$("#listadoSesiones").append("<li class='ui-li-has-alt'><a class='ui-btn' style='background: linear-gradient(lightcyan, lightblue);' href='#ejerciciosSesion'>"+obj.nombre+" - "+fechaRecortada+"</a><a style='background-color: lightcoral;' href = '#popup_dialog' data-rel = 'popup' data-position-to = 'window' data-transition = 'pop' class = 'eliminarSesion ui-btn ui-icon-delete ui-btn-icon-right'></a></li>");
             //lista Fatima
-            $("#listadoSesiones").append("<li><button value='" + obj.id + "' class='botonVerEjerciciosSesion tabs ui-btn ui-btn-icon-right ui-icon-carat-r' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'>" + obj.nombre + " - " + fechaRecortada + "</button></li>");
+            $("#listadoSesiones").append("<li style='background: none;'><button value='" + obj.id + "' class='botonVerEjerciciosSesion tabs ui-btn ui-btn-icon-right ui-icon-carat-r' style='background: linear-gradient(lightcyan, lightblue);border: 1px solid gray;border-radius: 15px;'>" + obj.nombre + " - " + fechaRecortada + "</button></li>");
 
         });
     }).fail(function (error) {
@@ -169,7 +169,7 @@ $(document).ready(function () {
     $.get(urlApi + "Categoria?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
 
         $.each(data, function (idx, obj) {
-            $("#listadoCategorias").append("<li><button value='" + obj.id + "' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 10px' class='botonCategoria ui-btn ui-btn-icon-right ui-icon-carat-r' data-icon=''>" + obj.nombre + "</button></li>");
+            $("#listadoCategorias").append("<li style='background: none;border-color: transparent;margin-bottom: -10px;'><button value='" + obj.id + "' style='background: linear-gradient(lightcyan, lightblue);border: 1px solid gray;border-radius: 10px' class='botonCategoria ui-btn ui-btn-icon-right ui-icon-carat-r' data-icon=''>" + obj.nombre + "</button></li>");
         });
     }).fail(function (error) {
         console.log(error);
@@ -246,7 +246,7 @@ $(document).ready(function () {
                         
                         $("#selectSesion").append("<option value=" + obj.id + ">" + obj.nombre + " - "+ fechaRecortada +"</option>");
 
-                        $("#listadoSesiones").append("<li class='ui-li-has-alt'><button value='" + obj.id + "' class='botonVerEjerciciosSesion ui-btn' style='background: linear-gradient(lightcyan, beige, gray);'>" + obj.nombre + " - " + fechaRecortada + "</button></li>");
+                        $("#listadoSesiones").append("<li class='ui-li-has-alt' style='background: none;border-color: transparent;margin-bottom: -7px;'><button value='" + obj.id + "' class='botonVerEjerciciosSesion ui-btn' style='background: linear-gradient(lightcyan, lightblue);'>" + obj.nombre + " - " + fechaRecortada + "</button></li>");
                     });
                 }).fail(function (error) {
                     console.log(error);
@@ -274,7 +274,7 @@ $(document).ready(function () {
                                
                             }
                         });
-                        $("#listaTabHome").append("<li><button class='tabs ui-btn ui-btn-icon-right ui-icon-carat-r' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'>" + sesionesUsuarioActual[idx] + " - " + gruposUsuarioActual[idx] + "</button></li>");
+                        $("#listaTabHome").append("<li style='background: none;'><button class='tabs ui-btn ui-btn-icon-right ui-icon-carat-r' style='background: linear-gradient(lightcyan, lightblue);border: 1px solid gray;border-radius: 15px;'>" + sesionesUsuarioActual[idx] + " - " + gruposUsuarioActual[idx] + "</button></li>");
                     });
                 }).fail(function (error) {
                     console.log(error);
@@ -396,7 +396,7 @@ $(document).ready(function () {
                         gruposUsuarioActual[idx] = data.nombre;
                     }
                 });
-                $("#listaTabHome").append("<li><button value='" + obj.id + "' class='botonVerEjerciciosSesion tabs ui-btn ui-btn-icon-right ui-icon-carat-r' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'>" + sesionesUsuarioActual[idx] + " - " + gruposUsuarioActual[idx] + "</button></li>");
+                $("#listaTabHome").append("<li style='background: none;'><button value='" + obj.id + "' class='botonVerEjerciciosSesion tabs ui-btn ui-btn-icon-right ui-icon-carat-r' style='background: linear-gradient(lightcyan, lightblue);border: 1px solid gray;border-radius: 15px;'>" + sesionesUsuarioActual[idx] + " - " + gruposUsuarioActual[idx] + "</button></li>");
             });
         }).fail(function (error) {
             console.log(error);
@@ -437,7 +437,7 @@ $(document).ready(function () {
             $.each(data, function (idx, obj) {
                 fechaRecortada = obj.fecha.slice(0, 10);
                 fechaRecortada = formatoFecha(fechaRecortada);
-                $("#listadoSesiones").append("<li class='ui-li-has-alt'><button value='" + obj.id + "' class='botonVerEjerciciosSesion ui-btn' style='background: linear-gradient(lightcyan, beige, gray);'>" + obj.nombre + " - " + fechaRecortada + "</button></li>");
+                $("#listadoSesiones").append("<li class='ui-li-has-alt' style='background: none;'><button value='" + obj.id + "' class='botonVerEjerciciosSesion ui-btn' style='background: linear-gradient(lightcyan, lightblue);'>" + obj.nombre + " - " + fechaRecortada + "</button></li>");
             });
         }).fail(function (error) {
             console.log(error);
@@ -455,7 +455,7 @@ $(document).ready(function () {
         $.get(urlApi + "Categoria/" + idCategoriaSeleccionada + "/ejercicios?access_token=" + getAllUrlParams(window.location.href).access_token, function (data, status) {
 
             $.each(data, function (idx, obj) {
-                $("#listadoEjerciciosPorCategoria").append("<li><button value='" + obj.id + "' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 10px' class='botonVerDescripcionEjercicio ui-btn ui-btn-icon-right ui-icon-carat-r' data-icon=''>" + obj.nombre + "</button></li>");
+                $("#listadoEjerciciosPorCategoria").append("<li style='background: none;'><button value='" + obj.id + "' style='background: linear-gradient(lightcyan, lightblue);border: 1px solid gray;border-radius: 10px' class='botonVerDescripcionEjercicio ui-btn ui-btn-icon-right ui-icon-carat-r' data-icon=''>" + obj.nombre + "</button></li>");
             });
         }).fail(function (error) {
             console.log(error);
@@ -508,7 +508,7 @@ $(document).ready(function () {
                                 $("#selectSesion").append("<option value=" + obj.id + ">" + obj.nombre + " - "+ fechaRecortada +"</option>");
 
                                 
-                                $("#listadoSesiones").append("<li class='ui-li-has-alt'><button value='" + obj.id + "' class='botonVerEjerciciosSesion ui-btn' style='background: linear-gradient(lightcyan, beige, gray);'>" + obj.nombre + " - " + fechaRecortada + "</button></li>");
+                                $("#listadoSesiones").append("<li class='ui-li-has-alt' style='background: none;'><button value='" + obj.id + "' class='botonVerEjerciciosSesion ui-btn' style='background: linear-gradient(lightcyan, lightblue);'>" + obj.nombre + " - " + fechaRecortada + "</button></li>");
                             });
                         }).fail(function (error) {
                             console.log(error);
@@ -533,7 +533,7 @@ $(document).ready(function () {
                                         gruposUsuarioActual[idx] = data.nombre;
                                     }
                                 });
-                                $("#listaTabHome").append("<li><button class='tabs ui-btn ui-btn-icon-right ui-icon-carat-r' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'>" + sesionesUsuarioActual[idx] + " - " + gruposUsuarioActual[idx] + "</button></li>");
+                                $("#listaTabHome").append("<li style='background: none;'><button class='tabs ui-btn ui-btn-icon-right ui-icon-carat-r' style='background: linear-gradient(lightcyan, lightblue);border: 1px solid gray;border-radius: 15px;'>" + sesionesUsuarioActual[idx] + " - " + gruposUsuarioActual[idx] + "</button></li>");
                             });
                         }).fail(function (error) {
                             console.log(error);
@@ -575,7 +575,7 @@ $(document).ready(function () {
                         
                         $("#selectSesion").append("<option value=" + obj.id + ">" + obj.nombre + " - "+ fechaRecortada +"</option>");
                    
-                        $("#listadoSesiones").append("<li class='ui-li-has-alt'><button value='" + obj.id + "' class='botonVerEjerciciosSesion ui-btn' style='background: linear-gradient(lightcyan, beige, gray);'>" + obj.nombre + " - " + fechaRecortada + "</button></li>");
+                        $("#listadoSesiones").append("<li class='ui-li-has-alt' style='background: none;'><button value='" + obj.id + "' class='botonVerEjerciciosSesion ui-btn' style='background: linear-gradient(lightcyan, lightblue);'>" + obj.nombre + " - " + fechaRecortada + "</button></li>");
                     });
                 }).fail(function (error) {
                     console.log(error);
@@ -599,7 +599,7 @@ $(document).ready(function () {
                                 gruposUsuarioActual[idx] = data.nombre;                              
                             }
                         });
-                        $("#listaTabHome").append("<li><button class='tabs ui-btn ui-btn-icon-right ui-icon-carat-r' style='background: linear-gradient(lightcyan, beige, gray);border: 1px solid gray;border-radius: 15px;'>" + sesionesUsuarioActual[idx] + " - " + gruposUsuarioActual[idx] + "</button></li>");
+                        $("#listaTabHome").append("<li style='background: none;'><button class='tabs ui-btn ui-btn-icon-right ui-icon-carat-r' style='background: linear-gradient(lightcyan, lightblue);border: 1px solid gray;border-radius: 15px;'>" + sesionesUsuarioActual[idx] + " - " + gruposUsuarioActual[idx] + "</button></li>");
                     });
                 }).fail(function (error) {
                     console.log(error);

@@ -3,7 +3,7 @@
     /* background: linear-gradient(to right, #abdeae , rgb(215, 252, 255)); */
     /* background: linear-gradient(to right, white , rgb(255, 159, 159)); */
     /* background: linear-gradient(to right, #b4dde4 , white); */
-    background: linear-gradient(to bottom, #82e5a3, rgb(215, 252, 255));
+    background: linear-gradient(to top, rgb(216, 114, 118), #B1476A,#9B3766); 
     /* background: linear-gradient(to bottom, rgb(216, 114, 118), #B1476A,#9B3766); */
 
 }
@@ -18,6 +18,15 @@
     font-size: 100px;
    
 } */
+.bienvenido{
+    color:whitesmoke;
+    text-align: center;
+    font-family:courier;
+    font-size: 25px;
+    margin-top: -20px;
+    /*margin-bottom: 10px;*/
+
+}
 
 nav{
    background-color: black;
@@ -50,3 +59,35 @@ header{
     border-radius:8px;
 }
 
+.fondoLista{
+    background: none;
+}
+
+.estiloparrafo{
+    color: whitesmoke;
+    font-family: arial;
+    margin-right: 10px;
+    margin-left: 10px;
+    font-size: 17px;
+}
+
+.estiloDescripcion{
+    color: rgb(79, 227, 227);
+    font-weight: bold;
+    font-size: 19px;
+    text-align: center;
+    text-shadow: none;
+}
+
+.titulos{
+    color: whitesmoke;
+    font-weight: bold;
+    text-align: center;
+    font-family: courier;
+    font-size: 25px;
+}
+
+.volver{
+    color: beige;
+    font-weight: bold;
+}
