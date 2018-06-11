@@ -39,7 +39,7 @@
 </head>
 
 <body id="">
-    <!-- Primera pagina ,TAB HOME -->
+<!-- TAB HOME -->
     <section id="inicio" data-role="page" data-theme="a">
         <div style="height: 20px;" data-role="panel" id="overlay_panel" data-display="overlay">
             <a style="border-radius: 50px;background-color: #f44242;" href="#page1" data-rel="close" class="ui-btn ui-btn-a ui-icon-delete 
@@ -87,7 +87,7 @@
             </nav>
         </footer>
     </section>
-    <!-- segunda pagina , TAB GRUPOS -->
+<!-- TAB GRUPOS -->
     <section id="grupos" data-role="page">
         <div style="height: 20px;" data-role="panel" id="overlay_panel" data-display="overlay">
             <a style="border-radius: 50px;background-color: #f44242;" href="#page1" data-rel="close" class="ui-btn ui-btn-a ui-icon-delete 
@@ -136,7 +136,7 @@
     </section>
 
 
-    <!-- tercera pagina , TAB SESIONES -->
+<!-- TAB SESIONES -->
     <section id="sesiones" data-role="page">
         <div style="height: 20px;" data-role="panel" id="overlay_panel" data-display="overlay">
             <a style="border-radius: 50px;background-color: #f44242;" href="#page1" data-rel="close" class="ui-btn ui-btn-a ui-icon-delete 
@@ -191,7 +191,7 @@
 
 
 
-    <!-- cuarta pagina , TAB EJERCICIOS, sin añadir -->
+<!-- TAB EJERCICIOS, sin añadir -->
     <section id="ejercicios" data-role="page">
         <div style="height: 20px;" data-role="panel" id="overlay_panel" data-display="overlay">
             <a style="border-radius: 50px;background-color: #f44242;" href="#page1" data-rel="close" class="ui-btn ui-btn-a ui-icon-delete 
@@ -214,8 +214,8 @@
         </header>
         <article data-role="content">
             <h2>Categorías</h2>
-            <input type="search" name="buscador-ejercicios" class="buscador-ejercicios" value="" placeholder="Buscar">
-            <ul class="listadoCategoriasSinAnyadir" data-role="listview" data-inset="true" data-divider-theme="b">
+            <input type="search" id="searchCategorias" name="buscador-ejercicios" class="buscador-ejercicios" value="" placeholder="Buscar">
+            <ul id="listadoCategorias" data-role="listview" data-inset="true" data-divider-theme="b">
             </ul>
         </article>
         <footer data-role="footer" data-id="menuInferior" data-position="fixed" data-theme="a">
@@ -241,8 +241,8 @@
 
 
 
-    <!-- quinta pagina , Ejercicios por categoria sin añadir -->
-    <section id="ejerciciosPorCategoriaSinAnyadir" data-role="page">
+<!-- Ejercicios por categoria sin añadir -->
+    <section id="ejerciciosPorCategoria" data-role="page">
         <div style="height: 20px;" data-role="panel" id="overlay_panel" data-display="overlay">
             <a style="border-radius: 50px;background-color: #f44242;" href="#page1" data-rel="close" class="ui-btn ui-btn-a ui-icon-delete 
                 ui-btn-icon-notext ui-btn-right"></a>
@@ -266,8 +266,8 @@
         <article data-role="content">
             <h2 id="nombreCategoriaSeleccionada"></h2>
 
-            <input type="search" name="buscador-ejercicios" class="buscador-ejercicios" value="" placeholder="Buscar">
-            <ul id="listadoEjerciciosPorCategoriaSinAnyadir" data-role="listview" data-inset="true" data-divider-theme="b">
+            <input type="search" id="searchEjercicios" name="buscador-ejercicios" class="buscador-ejercicios" value="" placeholder="Buscar">
+            <ul id="listadoEjerciciosPorCategoria" data-role="listview" data-inset="true" data-divider-theme="b">
             </ul>
             <a style="margin-left: 20px;margin-right: 20px;background-color: rgb(207, 105, 98);border-radius:5px;" href="#ejercicios"
                 class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
@@ -292,9 +292,9 @@
         </footer>
     </section>
 
-    <!-- Descripcion ejercicio sin Añadir  -->
+<!-- Descripcion ejercicio sin Añadir  -->
 
-    <div data-role="page" id="ejercicioDescripcionSinAnyadir">
+    <div data-role="page" id="ejercicioDescripcion">
         <div style="height: 20px;" data-role="panel" id="overlay_panel" data-display="overlay">
             <a style="border-radius: 50px;background-color: #f44242;" href="#page1" data-rel="close" class="ui-btn ui-btn-a ui-icon-delete 
                 ui-btn-icon-notext ui-btn-right"></a>
@@ -312,7 +312,7 @@
             </center>
         </div>
         <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
-            <h7 class="nombreDelEjercicio"></h7>
+            <h7 id="nombreDelEjercicio"></h7>
             <a style="height:20px;border-radius: 100%;background-color: yellowgreen;" href="#overlay_panel" class="ui-btn ui-btn-icon-left ui-shadow ui-icon-user"></a>
         </header>
         <div id="">
@@ -320,12 +320,12 @@
                 <!-- las imagenes de cada ejercicio -->
                 <ul data-role="carousel" data-captions="true" data-shadow="true">
                     <li>
-                        <a class="imagenEjercicio1" href="#imagenPop" data-rel="popup">
+                        <a id="imagenEjercicio1" href="#imagenPop" data-rel="popup">
 
                         </a>
                     </li>
                     <li>
-                        <a class="imagenEjercicio2" href="#">
+                        <a id="imagenEjercicio2" href="#">
 
                         </a>
                     </li>
@@ -333,7 +333,7 @@
 
                 <p>
                     <h5 class="estiloDescripcion">Descripcion Ejercicio</h5>
-                    <p class="descripcionDelEjercicio"></p>
+                    <p id="descripcionDelEjercicio"></p>
                 </p>
 
                 <p>
@@ -348,13 +348,13 @@
 
                 <!-- si queremos k al hacer clic en la imagen salga en grande -->
 
-                <div id="imagenPop" data-role="popup" data-theme="a" class="ui-content">
+                <div class="imagenPop" data-role="popup" data-theme="a" class="ui-content">
 
 
                 </div>
-
-                <a style="margin-left: 20px;margin-right: 20px;background-color: rgb(207, 105, 98);border-radius:5px;" href="#ejerciciosPorCategoriaSinAnyadir"
-                    class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
+                <a id="botonAnyadirEjerciciosSesion1" style="margin-left: 10px;margin-right: 8px;border-radius: 5px" href="#anyadirejercicioasesion" class="aniadir ui-btn ui-shadow ">Añadir Ejercicio a una Sesión</a>
+                <a style="margin-left: 10px;margin-right: 8px;background-color: rgb(207, 105, 98);border-radius:5px;" href="#ejerciciosPorCategoria"
+                    id="volverSinAnyadir" class="ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
 
 
 
@@ -380,8 +380,8 @@
         </footer>
     </div>
 
-    <!-- Categorias con añadir -->
-    <section id="ejerciciosConAnyadir" data-role="page">
+<!-- Categorias con añadir -->
+    <!--<section id="ejerciciosConAnyadir" data-role="page">
         <div style="height: 20px;" data-role="panel" id="overlay_panel" data-display="overlay">
             <a style="border-radius: 50px;background-color: #f44242;" href="#page1" data-rel="close" class="ui-btn ui-btn-a ui-icon-delete 
             ui-btn-icon-notext ui-btn-right"></a>
@@ -406,7 +406,7 @@
             <h2>Categorías</h2>
 
             <input type="search" name="buscador-ejercicios" class="buscador-ejercicios" value="" placeholder="Buscar">
-            <ul class="listadoCategoriasConAnyadir" data-role="listview" data-inset="true" data-divider-theme="b">
+            <ul id="listadoCategoriasConAnyadir" data-role="listview" data-inset="true" data-divider-theme="b">
             </ul>
             <a style="margin-left: 20px;margin-right: 20px;background-color: rgb(207, 105, 98);border-radius:5px;" href="#ejerciciosSesion"
                 class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
@@ -430,10 +430,10 @@
                 </ul>
             </nav>
         </footer>
-    </section>
+    </section> -->
 
-    <!--  Ejercicios por categoria con añadir -->
-    <section id="ejerciciosPorCategoriaConAnyadir" data-role="page">
+<!--  Ejercicios por categoria con añadir -->
+    <!--<section id="ejerciciosPorCategoriaConAnyadir" data-role="page">
         <div style="height: 20px;" data-role="panel" id="overlay_panel" data-display="overlay">
             <a style="border-radius: 50px;background-color: #f44242;" href="#page1" data-rel="close" class="ui-btn ui-btn-a ui-icon-delete 
                 ui-btn-icon-notext ui-btn-right"></a>
@@ -455,13 +455,13 @@
             <a style="height:20px;border-radius: 100%;background-color: yellowgreen;" href="#overlay_panel" class="ui-btn ui-btn-icon-left ui-shadow ui-icon-user"></a>
         </header>
         <article data-role="content">
-            <h2 id="nombreCategoriaSeleccionada"></h2>
+            <h2 class="nombreCategoriaSeleccionada"></h2>
 
             <input type="search" name="buscador-ejercicios" class="buscador-ejercicios" value="" placeholder="Buscar">
             <ul id="listadoEjerciciosPorCategoriaConAnyadir" data-role="listview" data-inset="true" data-divider-theme="b">
             </ul>
             <a style="margin-left: 20px;margin-right: 20px;background-color: rgb(207, 105, 98);border-radius:5px;" href="#ejerciciosConAnyadir"
-                class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
+                class="volverConAnyadir ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
         </article>
         <footer data-role="footer" data-id="menuInferior" data-position="fixed" data-theme="a">
             <nav data-role="navbar">
@@ -481,11 +481,11 @@
                 </ul>
             </nav>
         </footer>
-    </section>
+    </section>-->
 
-    <!-- Descripcion ejercicio con Añadir  -->
+<!-- Descripcion ejercicio con Añadir  -->
 
-    <div data-role="page" id="ejercicioDescripcionConAnyadir">
+    <!--<div data-role="page" id="ejercicioDescripcionConAnyadir">
         <div style="height: 20px;" data-role="panel" id="overlay_panel" data-display="overlay">
             <a style="border-radius: 50px;background-color: #f44242;" href="#page1" data-rel="close" class="ui-btn ui-btn-a ui-icon-delete 
                 ui-btn-icon-notext ui-btn-right"></a>
@@ -508,7 +508,7 @@
         </header>
         <div id="">
             <div id="TodosEjercicios">
-                <!-- las imagenes de cada ejercicio -->
+
                 <ul data-role="carousel" data-captions="true" data-shadow="true">
                     <li>
                         <a class="imagenEjercicio1" href="#imagenPop" data-rel="popup"></a>
@@ -524,14 +524,14 @@
                 </p>
                 <p>
                     <h5 class="estiloDescripcion" style="font-weight: bold;color: green;">Duracion</h5>
-                    <p id="duracionDelEjercicio"></p>
+                    <p class="duracionDelEjercicio"></p>
                 </p>
                 <p>
                     <h5 class="estiloDescripcion" style="font-weight: bold;color: green;">Categoria:</h5>
-                    <p id="categoriaDelEjercicio"></p>
+                    <p class="categoriaDelEjercicio"></p>
                 </p>
-                <!-- Popup para que la imagen salga en grande al pulsarla EN CONSTRUCCION -->
-                <div id="imagenPop" data-role="popup" data-theme="a" class="ui-content">
+
+                <div class="imagenPop" data-role="popup" data-theme="a" class="ui-content">
                 </div>
                 <a style="margin-left: 20px;margin-right: 20px;background-color: rgb(207, 105, 98);border-radius:5px;" href="#ejerciciosPorCategoriaConAnyadir"
                     class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
@@ -555,11 +555,11 @@
                 </ul>
             </nav>
         </footer>
-    </div>
+    </div> -->
 
-    <!-- Descripcion ejercicio sin Añadir, que viene desde la info de la sesión  -->
+<!-- Descripcion ejercicio sin Añadir, que viene desde la info de la sesión  -->
 
-    <div data-role="page" id="ejercicioDescripcionConAnyadir">
+    <!--<div data-role="page" id="ejercicioDescripcionInfoSesion">
         <div style="height: 20px;" data-role="panel" id="overlay_panel" data-display="overlay">
             <a style="border-radius: 50px;background-color: #f44242;" href="#page1" data-rel="close" class="ui-btn ui-btn-a ui-icon-delete 
                 ui-btn-icon-notext ui-btn-right"></a>
@@ -577,38 +577,38 @@
             </center>
         </div>
         <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
-            <h7 class="nombreDelEjercicio"></h7>
+            <h7 id="nombreDelEjercicioInfoSesion"></h7>
             <a style="height:20px;border-radius: 100%;background-color: yellowgreen;" href="#overlay_panel" class="ui-btn ui-btn-icon-left ui-shadow ui-icon-user"></a>
         </header>
         <div id="">
             <div id="TodosEjercicios">
-                <!-- las imagenes de cada ejercicio -->
+                
                 <ul data-role="carousel" data-captions="true" data-shadow="true">
                     <li>
-                        <a class="imagenEjercicio1" href="#imagenPop" data-rel="popup"></a>
+                        <a id="imagenEjercicio1InfoSesion" href="#imagenPop" data-rel="popup"></a>
                     </li>
                     <li>
-                        <a class="imagenEjercicio2" href="#">
+                        <a id="imagenEjercicio2InfoSesion" href="#">
                         </a>
                     </li>
                 </ul>
                 <p>
                     <h5 class="estiloDescripcion">Descripcion Ejercicio</h5>
-                    <p class="descripcionDelEjercicio"></p>
+                    <p id="descripcionDelEjercicioInfoSesion"></p>
                 </p>
                 <p>
                     <h5 class="estiloDescripcion" style="font-weight: bold;color: green;">Duracion</h5>
-                    <p id="duracionDelEjercicio"></p>
+                    <p id="duracionDelEjercicioInfoSesion"></p>
                 </p>
                 <p>
                     <h5 class="estiloDescripcion" style="font-weight: bold;color: green;">Categoria:</h5>
-                    <p id="categoriaDelEjercicio"></p>
+                    <p id="categoriaDelEjercicioInfoSesion"></p>
                 </p>
-                <!-- Popup para que la imagen salga en grande al pulsarla EN CONSTRUCCION -->
-                <div id="imagenPop" data-role="popup" data-theme="a" class="ui-content">
+                
+                <div class="imagenPop" data-role="popup" data-theme="a" class="ui-content">
                 </div>
                 <a style="margin-left: 20px;margin-right: 20px;background-color: rgb(207, 105, 98);border-radius:5px;" href="#ejerciciosSesion"
-                    class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
+                    id="volverInfoSesion" class="ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
             </div>
         </div>
         <footer data-role="footer" data-id="menuInferior" data-position="fixed" data-theme="a">
@@ -629,9 +629,9 @@
                 </ul>
             </nav>
         </footer>
-    </div>
-    <!-- ejecucion de los botones  -->
-    <!-- Formulario para crear Grupo  -->
+    </div>-->
+<!-- ejecucion de los botones  -->
+<!-- Formulario para crear Grupo  -->
     <div data-role="page" id="formulario" class="jqm-demos ui-responsive-panel">
         <div style="height: 20px;" data-role="panel" id="overlay_panel" data-display="overlay">
             <a style="border-radius: 50px;background-color: #f44242;" href="#page1" data-rel="close" class="ui-btn ui-btn-a ui-icon-delete 
@@ -709,7 +709,7 @@
     </div>
 
 
-    <!-- Formulario para crear una Sesion -->
+<!-- Formulario para crear una Sesion -->
 
     <div data-role="page" id="aniadirsesion" class="">
         <div style="height: 20px;" data-role="panel" id="overlay_panel" data-display="overlay">
@@ -771,7 +771,124 @@
             </nav>
         </footer>
     </div>
-    <!-- Página que muestra los Ejercicios por los que está comprendida una Sesión -->
+
+<!-- Formulario para Añadir un ejercicio a una Sesion -->
+
+    <div data-role="page" id="anyadirejercicioasesion" class="">
+        <div style="height: 20px;" data-role="panel" id="overlay_panel" data-display="overlay">
+            <a style="border-radius: 50px;background-color: #f44242;" href="#page1" data-rel="close" class="ui-btn ui-btn-a ui-icon-delete 
+            ui-btn-icon-notext ui-btn-right"></a>
+            <p>
+                <center>
+                    <img src="..\images\imagenes\user.png" alt="" width="60" height="60">
+                </center>
+            </p>
+            <p class="NombreUsuarioAutenticado" style="text-align:center;"></p>
+            <p class="EmailUsuarioAutenticado" style="text-align:center;"></p>
+
+            <center>
+                <a class="botonLogout" style="display: inline-block; background: linear-gradient(to right, #f18da3 , rgb(243, 88, 88));color:black;"
+                    href="#" class="ui-btn">Cerrar sesion</a>
+            </center>
+        </div>
+        <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
+            <h1>Nuevo Ejercicio</h1>
+            <a style="height:20px;border-radius: 100%;background-color: yellowgreen;" href="#overlay_panel" class="ui-btn ui-btn-icon-left ui-shadow ui-icon-user"></a>
+        </header>
+        <div id="">
+            <div id="cajaEjercicioSesion">
+                <h3 style="color:#424242;text-align: center;font-weight: bold;">Rellene los siguientes datos </h3>
+                <form method="post" action="">
+                    <label style="margin-left: 20px;margin-right: 20px;font-family: Arial, Helvetica, sans-serif;color:#5c5a5a;font-weight:bold">Nombre sesión</label>
+                    <select id="selectSesion" type="text" name="selectSesion">
+
+                    </select>
+                    <label for="parteSesion">Formará parte de</label>
+                    <select id="selectParteSesion" name="parteSesion">
+                        <option value=0>Calentamiento</option>
+                        <option value=1>Parte Principal</option>
+                        <option value=2>Vuelta a la Calma</option>
+                    </select>
+                    <br>
+                    <input id="botonAnyadirEjercicioASesion" align="center" type="submit" value="Añadir Ejercicio" data-inline="true">
+                    <a style="margin-left: 10px;margin-right: 8px;background-color: rgb(207, 105, 98);border-radius: 5px" href="#ejercicioDescripcion" class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
+                </form>
+            </div>
+        </div>
+        <footer data-role="footer" data-id="menuInferior" data-position="fixed" data-theme="a">
+            <nav data-role="navbar">
+                <ul>
+                    <li>
+                        <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
+                    </li>
+                    <li>
+                        <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
+                    </li>
+                    <li>
+                        <a class="tabs" href="#sesiones" class="ui-btn-active ui-state-persist" data-icon="info" class="botonTabSesiones">Sesiones</a>
+                    </li>
+                    <li>
+                        <a class="tabs" href="#ejercicios" data-icon="bullets">Ejercicios</a>
+                    </li>
+                </ul>
+            </nav>
+        </footer>
+    </div>
+
+<!-- Formulario para Quitar un ejercicio de una Sesion -->
+
+    <div data-role="page" id="quitarEjercicios" class="">
+            <div style="height: 20px;" data-role="panel" id="overlay_panel" data-display="overlay">
+                <a style="border-radius: 50px;background-color: #f44242;" href="#page1" data-rel="close" class="ui-btn ui-btn-a ui-icon-delete 
+                ui-btn-icon-notext ui-btn-right"></a>
+                <p>
+                    <center>
+                        <img src="..\images\imagenes\user.png" alt="" width="60" height="60">
+                    </center>
+                </p>
+                <p class="NombreUsuarioAutenticado" style="text-align:center;"></p>
+                <p class="EmailUsuarioAutenticado" style="text-align:center;"></p>
+    
+                <center>
+                    <a class="botonLogout" style="display: inline-block; background: linear-gradient(to right, #f18da3 , rgb(243, 88, 88));color:black;"
+                        href="#" class="ui-btn">Cerrar sesion</a>
+                </center>
+            </div>
+            <header data-role="header" class="ui-shadow-icon ui-btn ui-shadow ui-corner-all">
+                <h1>Quitar un Ejercicio</h1>
+                <a style="height:20px;border-radius: 100%;background-color: yellowgreen;" href="#overlay_panel" class="ui-btn ui-btn-icon-left ui-shadow ui-icon-user"></a>
+            </header>
+            <div id="">
+                <div id="cajaEjercicioSesion">
+                    <form method="post" action="">
+                        <label style="margin-left: 20px;margin-right: 20px;font-family: Arial, Helvetica, sans-serif;color:#5c5a5a;font-weight:bold">Selecciona un Ejercicio</label>
+                        <select id="selectEjercicio" type="text" name="selectEjercicio">
+                        <br>
+                        <input id="botonQuitarEjercicioASesion" align="center" type="submit" value="Eliminar Ejercicio de la Sesión" data-inline="true">
+                        <a style="margin-left: 10px;margin-right: 8px;background-color: rgb(207, 105, 98);border-radius: 5px" href="#ejerciciosSesion" class="volver ui-btn ui-shadow ui-btn-icon-left ui-icon-arrow-l">Volver</a>
+                    </form>
+                </div>
+            </div>
+            <footer data-role="footer" data-id="menuInferior" data-position="fixed" data-theme="a">
+                <nav data-role="navbar">
+                    <ul>
+                        <li>
+                            <a class="tabs" href="#inicio" data-icon="home" class="botonTabInicio">Inicio</a>
+                        </li>
+                        <li>
+                            <a class="tabs" href="#grupos" data-icon="calendar" class="botonTabGrupos">Grupos</a>
+                        </li>
+                        <li>
+                            <a class="tabs" href="#sesiones" class="ui-btn-active ui-state-persist" data-icon="info" class="botonTabSesiones">Sesiones</a>
+                        </li>
+                        <li>
+                            <a class="tabs" href="#ejercicios" data-icon="bullets">Ejercicios</a>
+                        </li>
+                    </ul>
+                </nav>
+            </footer>
+        </div>
+<!-- Página que muestra los Ejercicios por los que está comprendida una Sesión -->
 
 
     <div data-role="page" id="ejerciciosSesion">
@@ -798,7 +915,8 @@
                 <ul id="listadoEjerciciosSesionVueltaALaCalma" data-role="listview">
                 </ul>
             </div>
-            <button id="botonAnyadirEjerciciosSesion" style="margin-left: 10px;margin-right: 8px;border-radius: 5px" class="aniadir ui-btn ui-shadow ">Añadir Ejercicio</button>
+            <a id="botonAnyadirEjerciciosSesion" style="margin-left: 10px;margin-right: 8px;border-radius: 5px" href="#ejercicios" class="aniadir ui-btn ui-shadow ">Añadir Ejercicio</a>
+            <a id="botonQuitarEjerciciosSesion" style="margin-left: 10px;margin-right: 8px;border-radius: 5px" href="#quitarEjercicios" class="aniadir ui-btn ui-shadow ">Quitar Ejercicio</a>
             <!-- Boton eliminar una sesion -->
             <button id="botonEliminarSesion" style="background-color: #e65d5d ;margin-left: 10px;margin-right: 8px;border-radius: 5px"
                 class="ui-btn">Eliminar Sesion</button>
